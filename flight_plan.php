@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flight Booking</title>
+    <title>The Reds Virtual - Flight Booking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
+        /* Your custom CSS styling can be added here */
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         .header {
-            background-color: #333333;
+            background-color: #b52e31;
             padding: 20px;
             color: white;
             text-align: center;
         }
 
-        .content {
+        .container {
             display: flex;
             justify-content: center;
+            padding: 20px;
         }
 
         .flight-search {
-            flex: 0 0 300px;
-            padding: 20px;
+            flex: 1;
+            max-width: 400px;
             background-color: #f5f5f5;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             margin-right: 20px;
         }
 
         .flight-search h2 {
             margin-top: 0;
+            color: #b52e31;
         }
 
         .flight-search form {
@@ -46,14 +51,16 @@
 
         .flight-search input[type="text"],
         .flight-search select {
-            padding: 5px;
+            padding: 10px;
             border-radius: 3px;
             border: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         .flight-search input[type="submit"] {
-            padding: 5px 20px;
-            background-color: #ff0000;
+            padding: 10px 20px;
+            background-color: #b52e31;
             color: white;
             border: none;
             border-radius: 3px;
@@ -62,39 +69,90 @@
 
         #map {
             height: 400px;
-            width: 100%;
+            width: 50%;
             border-radius: 5px;
-            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        /* Additional styles for the flight booking results section */
+        .booking-results {
+            flex: 1;
+            max-width: 600px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .booking-results h2 {
+            margin-top: 0;
+            color: #b52e31;
+        }
+
+        .booking-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .booking-item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Flight Booking</h1>
+        <h1>The Reds Virtual - Flight Booking</h1>
     </div>
 
-    <div class="content">
+    <div class="container">
         <div class="flight-search">
             <h2>Search for Flights</h2>
             <form onsubmit="handleFormSubmit(event)">
                 <label for="departure">Departure:</label>
-                <input type="text" id="departure" name="departure" placeholder="Enter departure..." autocomplete="off">
+                <input type="text" id="departure" name="departure" placeholder="Enter departure..." autocomplete="off" onchange="onDepartureChange()" required>
 
                 <label for="destination">Destination:</label>
-                <select id="destination" name="destination">
+                <select id="destination" name="destination" onchange="updateFlightOptions(document.getElementById('departure').value.toLowerCase())" required>
                     <option value="" disabled selected>Select destination</option>
+                    <option value="vtcc">Chiang Mai (VTCC)</option>
+                    <option value="vtsp">Phuket (VTSP)</option>
+                    <option value="vtsb">Surat Thani (VTSB)</option>
+                    <option value="vtss">Hat Yai (VTSS)</option>
                 </select>
 
-                <input type="submit" value="Search">
+                <label for="flight-number">Flight Number:</label>
+                <select id="flight-number" name="flight-number" onchange="updatePlaneType()" required>
+                    <option value="" disabled selected>Select flight number</option>
+                </select>
+
+                <label for="aircraft-type">Aircraft Type:</label>
+                <input type="text" id="aircraft-type" name="aircraft-type" readonly required>
+
+                <label for="arrival-airfield">Arrival Airfield:</label>
+                <select id="arrival-airfield" name="arrival-airfield" required>
+                    <!-- Arrival airfields will be dynamically populated here -->
+                </select>
+
+                <input type="submit" id="search-button" value="Search">
             </form>
         </div>
 
-        <div id="map"></div>
+        <div class="booking-results">
+            <h2>Available Flights</h2>
+            <div class="booking-item">
+                <!-- Flight booking results can be dynamically populated here using JavaScript -->
+            </div>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        // Initialize and display the map
+        // Your JavaScript code for map initialization and flight search functionality can be added here
         var map;
         var departureMarker;
         var destinationMarker;
@@ -102,7 +160,7 @@
 
         function initMap() {
             // Set the initial coordinates and zoom level
-            var initialCoordinates = [37.7749, -122.4194];
+            var initialCoordinates = [13.689999, 100.750111]; // Bangkok
             var initialZoom = 12;
 
             // Create a map object
@@ -115,90 +173,10 @@
             }).addTo(map);
         }
 
-        // Handle form submission
+        // Function to handle form submission
         function handleFormSubmit(event) {
             event.preventDefault();
-
-            var departureInput = document.getElementById('departure');
-            var departure = departureInput.value.toLowerCase();
-            var destinationSelect = document.getElementById('destination');
-            var destination = destinationSelect.value;
-
-            // Clear previous markers and line
-            if (departureMarker) {
-                map.removeLayer(departureMarker);
-            }
-            if (destinationMarker) {
-                map.removeLayer(destinationMarker);
-            }
-            if (line) {
-                map.removeLayer(line);
-            }
-
-            // Clear previous options
-            destinationSelect.innerHTML = '';
-
-            // Populate destination options based on the selected departure
-            if (departure === 'vtbs') {
-            addDestinationOption('vtcc', 'Chiang Mai (VTCC)');
-            addDestinationOption('vtsp', 'Phuket (VTSP)');
-            addDestinationOption('vtsb', 'Surat Thani (VTSB)');
-            addDestinationOption('vtss', 'Hat Yai (VTSS)');
-        } else if (departure === 'vtcc') {
-            addDestinationOption('vtbs', 'Bangkok (VTBS)');
-            addDestinationOption('vtsp', 'Phuket (VTSP)');
-            addDestinationOption('vtsb', 'Surat Thani (VTSB)');
-            addDestinationOption('vtss', 'Hat Yai (VTSS)');
-        }
-// Add more conditions for different departure options as needed
-
-            // Helper function to add destination options
-            function addDestinationOption(value, label) {
-                var option = document.createElement('option');
-                option.value = value;
-                option.textContent = label;
-                destinationSelect.appendChild(option);
-            }
-
-            // Create markers for departure and destination
-            var departureCoordinates = getCoordinates(departure);
-            var destinationCoordinates = getCoordinates(destination);
-
-            if (departureCoordinates) {
-                departureMarker = L.marker(departureCoordinates).addTo(map);
-            }
-
-            if (destinationCoordinates) {
-                destinationMarker = L.marker(destinationCoordinates).addTo(map);
-            }
-
-            // Draw a line between the markers
-            if (departureCoordinates && destinationCoordinates) {
-                var lineCoordinates = [departureCoordinates, destinationCoordinates];
-                line = L.polyline(lineCoordinates).addTo(map);
-
-                // Fit map bounds to show all markers and the line
-                var bounds = L.latLngBounds([departureCoordinates, destinationCoordinates]);
-                map.fitBounds(bounds);
-            }
-        }
-
-        // Helper function to get coordinates based on ICAO code
-        function getCoordinates(icao) {
-            var coordinates = null;
-            if (icao === 'vtbs') {
-                coordinates = [13.689999, 100.750111]; // Bangkok
-            } else if (icao === 'vtcc') {
-                coordinates = [18.766847, 98.962174]; // Chiang Mai
-            } else if (icao === 'vtsp') {
-                coordinates = [8.1132, 98.3167]; // Phuket
-            } else if (icao === 'vtsb') {
-                coordinates = [9.1333, 99.3333]; // Surat Thani
-            } else if (icao === 'vtss') {
-                coordinates = [7.0129, 100.4782]; // Hat Yai
-            }
-            // Add more coordinates for different locations as needed
-            return coordinates;
+            // Your flight search logic can be added here
         }
 
         // Call the initMap function when the window has finished loading
