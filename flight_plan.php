@@ -4,105 +4,12 @@
     <title>The Reds Virtual - Flight Booking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <style>
-        /* Your custom CSS styling can be added here */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            background-color: #b52e31;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .flight-search {
-            flex: 1;
-            max-width: 400px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-right: 20px;
-        }
-
-        .flight-search h2 {
-            margin-top: 0;
-            color: #b52e31;
-        }
-
-        .flight-search form {
-            margin-bottom: 20px;
-        }
-
-        .flight-search label {
-            margin-right: 10px;
-        }
-
-        .flight-search input[type="text"],
-        .flight-search select {
-            padding: 10px;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .flight-search input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #b52e31;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        #map {
-            height: 400px;
-            width: 50%;
-            border-radius: 5px;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-        }
-
-        /* Additional styles for the flight booking results section */
-        .booking-results {
-            flex: 1;
-            max-width: 600px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .booking-results h2 {
-            margin-top: 0;
-            color: #b52e31;
-        }
-
-        .booking-item {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-        }
-
-        .booking-item:last-child {
-            border-bottom: none;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
+<!-- <body>
     <div class="header">
         <h1>The Reds Virtual - Flight Booking</h1>
     </div>
@@ -133,7 +40,7 @@
 
                 <label for="arrival-airfield">Arrival Airfield:</label>
                 <select id="arrival-airfield" name="arrival-airfield" required>
-                    <!-- Arrival airfields will be dynamically populated here -->
+                   
                 </select>
 
                 <input type="submit" id="search-button" value="Search">
@@ -143,7 +50,7 @@
         <div class="booking-results">
             <h2>Available Flights</h2>
             <div class="booking-item">
-                <!-- Flight booking results can be dynamically populated here using JavaScript -->
+                
             </div>
         </div>
     </div>
@@ -184,5 +91,71 @@
             initMap();
         };
     </script>
+</body> -->
+
+<body>
+    <div class="header p-5" style="background-color: #3D1A6F;">
+        <h1 class="text-white text-center">The Reds Virtual - Flight Booking</h1>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow-1">
+                    <div class="card-body">
+                        <h5 class="card-title">Schedule Search</h5>
+                        <hr>
+                        <div class="card bg-black text-white">
+                            <div class="card-body">
+                                <p class="card-text">Departing from Bangkok - Don Mueang International Airport (VTBD)</p>
+                            </div>
+                        </div>
+
+                        <label for="selectairline" class="form-label mt-1" >Select An Airline</label>
+                        <select name="selectairline" class="form-select" id="">
+                            <option value="">Thai Airways International</option>
+                            <option value="">Thai Smile</option>
+                        </select>
+
+                        <label for="selectairtype" class="form-label mt-1" >Select An Aircraft Type</label>
+                        <select name="selectairtype" class="form-select" id="">
+                            <option value="">Airbus A320-200</option>
+                            <option value="">Airbus A330-300</option>
+                            <option value="">Boeing 777-300ER</option>
+                            <option value="">Boeing 787-8</option>
+                        </select>
+
+                        <label for="selectarr" class="form-label mt-1" >Select Arrival Airfield</label>
+                        <select name="selectarr" class="form-select" id="select_arr">
+                            <option value="VTCC">Chiang Mai International Airport (VTCC)</option>
+                            <option value="VTSP">Phuket International Airport (VTSP)</option>
+                            <option value="VTSB">Surat Thani International Airport (VTSB)</option>
+                            <option value="VTSS">Hat Yai International Airport (VTSS)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-1">
+                    <div class="card-body">
+                        <h5 class="card-title">MAP</h5>
+                        <div id="map">
+                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="js/map.js"></script>
+
 </html>
+

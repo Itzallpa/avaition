@@ -29,7 +29,8 @@ if (isset($_SESSION["user"])) {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user"] = "yes";
                 $_SESSION["data"] = $user["full_name"] ; 
-                print_r($_SESSION["data"]);
+                $_SESSION["user_id"] = $user["id"];
+                
                 echo "<script>
                     Swal.fire({
                         icon: 'success',

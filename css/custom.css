@@ -1,0 +1,27 @@
+#map
+{
+    background-color: black;
+    height: 50vh;
+}
+
+.shadow-1
+{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card
+{
+    border: none !important;
+}
+
+.bg-black
+{
+    background-color: black !important;
+}
+
+.form-select:focus
+{
+    border-color: #ced4da;
+    box-shadow: none;
+}
+

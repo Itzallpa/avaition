@@ -1,3 +1,15 @@
+
+<?php 
+
+session_start();
+
+    if(!isset($_SESSION["data"])){
+        header("Location: login.php");
+        exit();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,7 +119,7 @@
 
         <div class="dashboard-card">
             <i class="fas fa-user card-icon"></i>
-            <h2>Welcome, Pilot!</h2>
+            <h2>Welcome, <?php echo $_SESSION["data"] ?></h2>
             <p>Explore various flights, check your schedule, and navigate with our interactive maps.</p>
             <p><a href="#" class="card-link">Learn More</a></p>
         </div>

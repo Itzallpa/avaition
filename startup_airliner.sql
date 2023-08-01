@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2023 at 08:14 PM
+-- Generation Time: Aug 01, 2023 at 09:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,25 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile_picture`
+-- Table structure for table `route`
 --
 
-CREATE TABLE `profile_picture` (
+CREATE TABLE `route` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `image` varchar(50) NOT NULL
+  `airport_name` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `profile_picture`
---
-
-INSERT INTO `profile_picture` (`id`, `name`, `image`) VALUES
-(0, 'Pixpaint', 'noprofil.jpg'),
-(0, 'Pixpaint', 'noprofil.jpg'),
-(0, 'guy.panmanee@gmail.com', 'noprofil.jpg'),
-(0, 'Natakorn Panmanee', 'noprofil.jpg'),
-(5, 'Pixpaint', 'noprofil.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,19 +42,27 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `full_name` varchar(128) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `profile_picture` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `full_name`, `email`, `password`) VALUES
-(8, 'Natakorn', 'guy.panmanee@gmail.com', '$2y$10$n7OkipvuRM0pp3lllqDrWesH3tm5pZODA5M78xQ40eQSiU3c/R4J6');
+INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `profile_picture`) VALUES
+(8, 'Natakorn', 'guy.panmanee@gmail.com', '$2y$10$n7OkipvuRM0pp3lllqDrWesH3tm5pZODA5M78xQ40eQSiU3c/R4J6', ''),
+(9, 'Asan Rodnuan', 'AsanRodnuan@purple.com', '$2y$10$OP/0/P3xOfaguqnpxTytwucDh3kfucRmcuQkR2KAbqE2xb9B7dLJ2', 'upload_profile/64c9510153efc_Screenshot 2023-06-08 183531.png');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `route`
+--
+ALTER TABLE `route`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -79,10 +75,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `route`
+--
+ALTER TABLE `route`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
