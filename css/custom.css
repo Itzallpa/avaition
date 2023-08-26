@@ -34,3 +34,20 @@
 {
     color: #3D1A6F !important;
 }
+
+.btn-purple
+{
+    background-color: #3D1A6F !important;
+    border-color: #3D1A6F !important;
+    color: white !important;
+}
+
+.btn-purple:focus
+{
+    box-shadow: #3D1A6F !important;
+}
+
+.table-purple
+{
+    background-color: #3D1A6F !important;
+}

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once "database.php";
+require_once "../../sql/database.php";
 
 if($_SESSION["data"] == ""){
     header("Location: login.php");
@@ -30,65 +30,52 @@ else
     <meta charset="UTF-8">
     <title>Share with LinkedIn API v2</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body, html {
-            height: 100%;
-        }
-        .bg {
-            background-image: url("/images/bg.jpg");
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/custom.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
 </head>
 <body class="bg">
-    <div class="container">
-        <br><br><br>
-        <div class="row">
-            <div class="col-6 offset-3" style="margin: auto;background: white; padding: 20px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
-                <div class="panel-heading">
-                    <h1>TG Profile</h1>
-                    <p style="font-style: italic;">Profile</p>
-                </div>
-                <hr>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-3">
-                            <form method="POST" enctype="multipart/form-data" action="upload.php">
-                                <input type="file" name="file" id="profile-picture-input" style="display: none;">
-                                <label for="profile-picture-input" style="cursor: pointer;">
-                                    <img id="profile-picture" src="<?php echo $_SESSION['profile_picture'] ?? 'https://example.com/default_profile_picture.jpg'; ?>" alt="Profile Picture" class="thumbnail" style="max-width: 100%; max-height: 200px; object-fit: cover;">
-                                </label>
-                                <script>
-                                    document.getElementById('profile-picture-input').addEventListener('change', function() {
-                                        this.form.submit();
-                                    });
-                                </script>
-                            </form>
+
+    <?php include '../inc/navbar.php' ?>
+    
+    <div class="d-flex">
+        <div class="sidebar p-2" id="sidebar">
+            <a href="#">Home</a>
+            <a href="#">Flights</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="content">
+            <div class="container p-2 mt-3">
+                <div class="row">
+                    <div class="col-lg-12 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Title</h5>
+                            <p class="card-text">lore</p>
                         </div>
-                        <div class="col-9">
-                            <dl class="row">
-                                <dt class="col-12">
-                                    Profile ID
-                                </dt>
-                                <dd class="col-12">
-                                    <?php echo $_SESSION["data"] ?>
-                                </dd>
-                                <dt class="col-12">
-                                    Profile Name
-                                </dt>
-                                <dd class="col-12">
-                                    
-                                </dd>
-                            </dl>
-                        </div>
+                    </div>  
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
     </div>
+    
 </body>
+
+
+<script>
+ const sidebar = document.getElementById('sidebar');
+    
+    document.addEventListener('mousemove', (event) => {
+      if (event.clientX < 40) {
+        sidebar.classList.add('active');
+      } else {
+        sidebar.classList.remove('active');
+      }
+    });
+  </script>
 </html>

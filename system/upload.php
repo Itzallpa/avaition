@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-require_once "database.php";
+require_once "../sql/database.php";
 
 
 if (isset($_FILES["file"])) {
     $file = $_FILES["file"];
     
     // Directory to store the uploaded profile pictures
-    $uploadDirectory = "upload_profile/";
+    $uploadDirectory = "../upload_profile/";
     
     // Generate a unique filename for the uploaded image
     $filename = uniqid() . '_' . $file["name"];
@@ -22,13 +22,13 @@ if (isset($_FILES["file"])) {
         mysqli_query($conn, $sql);
 
         // Redirect to the profile page
-        header("Location: profile.php");
+        header("Location: ../page/user/profile.php");
         $_SESSION["profile_picture"] = $uploadDirectory . $filename;
 
         
     }
 }
 
-header("Location: profile.php");
+header("Location: ../page/user/profile.php");
 exit();
 ?>
