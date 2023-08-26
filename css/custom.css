@@ -25,3 +25,12 @@
     box-shadow: none;
 }
 
+.bg-purple
+{
+    background-color: #3D1A6F !important;
+}
+
+.text-purple
+{
+    color: #3D1A6F !important;
+}

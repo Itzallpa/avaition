@@ -4,139 +4,74 @@
 session_start();
 
     if(!isset($_SESSION["data"])){
-        header("Location: login.php");
+        header("Location: page/auth/login.php");
         exit();
     }
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Flight Simulator Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .header {
-            background-color: #333333;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .navbar {
-            background-color: #ff0000;
-            padding: 10px;
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .navbar ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        .navbar ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 5px 10px;
-        }
-
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .flight-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .flight-info i {
-            margin-right: 5px;
-        }
-
-        .dashboard-card {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .dashboard-card h2 {
-            margin-top: 0;
-        }
-
-        .dashboard-card p {
-            color: #666666;
-        }
-
-        .dashboard-card .card-icon {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .dashboard-card .card-link {
-            color: #ff0000;
-            text-decoration: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thai Airways Landing Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Welcome to Flight Simulator Dashboard</h1>
-    </div>
-
-    <div class="navbar">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#"><i class="fas fa-plane"></i> Flights</a></li>
-            <li><a href="flight_plan.php"><i class="fas fa-calendar-alt"></i> Schedule</a></li>
-            <li><a href="#"><i class="fas fa-map-marked-alt"></i> Maps</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="logout.php"><i class="fas fa-cog"></i> logout</a></li>
+  <!-- โค้ดก่อนส่วนของ Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Thai Airways</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Flights</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+            </li>
         </ul>
-    </div>
-
-    <div class="content">
-        <div class="flight-info">
-            <i class="fas fa-plane"></i>
-            <h2>Flight #1234</h2>
-        </div>
-
-        <div class="dashboard-card">
-            <i class="fas fa-user card-icon"></i>
-            <h2>Welcome, <?php echo $_SESSION["data"] ?></h2>
-            <p>Explore various flights, check your schedule, and navigate with our interactive maps.</p>
-            <p><a href="#" class="card-link">Learn More</a></p>
-        </div>
-
-        <div class="dashboard-card">
-            <i class="fas fa-map-marked-alt card-icon"></i>
-            <h2>Interactive Maps</h2>
-            <p>Discover the world from above with our detailed and interactive maps.</p>
-            <p><a href="#" class="card-link">View Maps</a></p>
-        </div>
-
-        <div class="dashboard-card">
-            <i class="fas fa-calendar-alt card-icon"></i>
-            <h2>Flight Schedule</h2>
-            <p>Manage your flight schedule and stay organized with upcoming flights.</p>
-            <p><a href="#" class="card-link">View Schedule</a></p>
+        <!-- เพิ่มส่วนผู้เข้าสู่ระบบ -->
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">John Doe</a>
+            </li>
+        </ul>
         </div>
     </div>
+    </nav>
+    <!-- โค้ดหลังส่วนของ Navbar -->
+
+
+    <div class="jumbotron text-center p-5">
+        <h1 class="display-4">Welcome to Thai Airways</h1>
+        <p class="lead">Experience the elegance of flying with us.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Flight</a>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="text-center text-purple fw-bold">ข่าว และ ประกาศ</h2>
+            </div>
+        </div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
