@@ -21,6 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thai Airways Landing Page</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <link rel="icon" href="img/tha_icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>

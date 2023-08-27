@@ -1,90 +1,87 @@
+
 <?php
-session_start();
-if (isset($_SESSION["user"])) {
-   header("Location: index.php");
-}
+
+    session_start();
+    if(isset($_SESSION["user"])){
+        header("Location: ../../index.php");
+    }
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet"href="../../css/style.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สมัครสมาชิก</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../../css/custom.css">
+
+    <style>
+        body {
+        background-image: url('airport.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <?php
-        if (isset($_POST["submit"])) {
-            $fullname = $_POST["fullname"];
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            $passwordRepeat = $_POST["repeat_password"];
 
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6">
+            <div class="card shadow-1">
+                <div class="card-body">
+                    <h2 class="card-title text-center">REGISTER | THAI AIRWAY</h2>
+                    <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Fristname Lastname</label>
+                        <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" required>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" require>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">birthdate</label>
+                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ivaoId" class="form-label">IVAO ID</label>
+                        <input type="text" class="form-control" id="ivaoId" name="ivaoId" placeholder="not required">
+                    </div>
+                    <div class="mb-3">
+                        <label for="vatsimId" class="form-label">VATSIM ID</label>
+                        <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
+                    </div>
+                    <button type="button" class="btn btn-primary w-100">Register!</button>
+                    </form>
 
-            $errors = array();
-
-            if (empty($fullname) || empty($email) || empty($password) || empty($passwordRepeat)) {
-                array_push($errors, "All fields are required");
-            }
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                array_push($errors, "Email is not valid");
-            }
-            if (strlen($password) < 8) {
-                array_push($errors, "Password must be at least 8 characters long");
-            }
-            if ($password !== $passwordRepeat) {
-                array_push($errors, "Passwords do not match");
-            }
-
-            require_once "database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $rowCount = mysqli_num_rows($result);
-            if ($rowCount > 0) {
-                array_push($errors, "Email already exists");
-            }
-
-            if (count($errors) >0) {
-                echo "<script>";
-                foreach ($errors as $error) {
-                    echo "swal('Error', '$error', 'error');";
-                }
-                echo "</script>";
-            } else {
-                $sql = "INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)";
-                $stmt = mysqli_stmt_init($conn);
-                $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
-                if ($prepareStmt) {
-                    mysqli_stmt_bind_param($stmt, "sss", $fullname, $email, $passwordHash);
-                    mysqli_stmt_execute($stmt);
-                    echo "<script>swal('Success', 'You are registered successfully', 'success');</script>";
-                }
-            }
-        }
-        ?>
-        <form action="registration.php" method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Full name:">
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="row">
+                    <div class="col">
+                        <p>Already have an account? <a href="login">Login!</a> <p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Email:">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password:">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="repeat_password" placeholder="Repeat Password:">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Register" name=submit>
 
             </div>
-        </form>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
-    </div>
+        </div>
+        </div>
+
+
+
 </body>
 </html>

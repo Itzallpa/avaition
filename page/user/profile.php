@@ -49,26 +49,24 @@ else
             <a href="#">About</a>
             <a href="#">Contact</a>
         </div>
-        <div class="content">
-            <div class="container p-2 mt-3">
-                <div class="row">
-                    <div class="col-lg mx-auto">
-                    <div class="card shadow-1">
-                        <div class="card-body text-center">
-                            <i class="fa fa-address-book"></i>
-                            <p>Flight Hour!</p>
-                            <p>1000 Hour</p>
-                        </div>
-                    </div>  
+    </div>
+
+
+    <div class="container content mt-3">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
                     </div>
-                    <div class="col-lg mx-auto">
-                    <div class="card shadow-1">
-                        <div class="card-body text-center">
-                            <i class="fa fa-address-book"></i>
-                            <p>Flight Hour!</p>
-                            <p>1000 Hour</p>
-                        </div>
-                    </div>  
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
                     </div>
                 </div>
             </div>
@@ -84,20 +82,28 @@ else
 
 <script>
  const sidebar = document.getElementById('sidebar');
+ const content = document.querySelector('.content');
     
+
+ 
     document.addEventListener('mousemove', (event) => {
         
-        //check screen size not to show sidebar on small screens
-        if (window.innerWidth < 768) {
-            return;
-        }
-        
+            //check screen size not to show sidebar on small screens
+            if (window.innerWidth < 768) {
+                return;
+            }
+            
 
-        if (event.clientX < 40) {
+            if (event.clientX < 40) {
             sidebar.classList.add('active');
-        } else {
-            sidebar.classList.remove('active');
-        }
+            content.style.marginLeft = '250px'; // เลือกขนาดของ margin-left ที่เหมาะสม
+
+            document.body.style.overflowX = 'hidden'; // ป้องกันการเลื่อนแนวนอน
+            } else {
+                sidebar.classList.remove('active');
+                content.style.marginLeft = '0';
+            }
+
     });
     
   </script>

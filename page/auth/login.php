@@ -47,7 +47,7 @@
                     <div class="mt-2">
                         <div class="row">
                             <div class="col">
-                            <p>Don't have accout? <a href="register.php">Register!</a> <p>
+                            <p>Don't have accout? <a href="registration">Register!</a> <p>
                             </div>
                         </div>
                     </div>

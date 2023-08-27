@@ -47,9 +47,13 @@ $(document).ready(function () {
                         }
                     })  
 
-                    console.log("TRUE" , data);
                 } else {
-                    console.log("FALSE" , data);
+                        
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Email or Password is incorrect!',
+                    })
                 }
             }
         });

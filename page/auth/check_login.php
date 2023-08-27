@@ -30,7 +30,8 @@ if(mysqli_num_rows($result) > 0){
     }
     else
     {
-        echo "Password does not match";
+        $data['success'] = false;
+        echo $data['success'];
     }
 }
 else
