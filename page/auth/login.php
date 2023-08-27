@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: index.php");
+   header("Location: ../../index.php");
    exit();
 }
 ?>
@@ -13,12 +13,15 @@ if (isset($_SESSION["user"])) {
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
 <div class="container">
     <?php
-    if (isset($_POST["login"])) {
+    /*if (isset($_POST["login"])) {
        $email = $_POST["email"];
        $password = $_POST["password"];
         require_once "../../sql/database.php";
@@ -50,20 +53,35 @@ if (isset($_SESSION["user"])) {
         } else {
             echo "<script>Swal.fire('Error', 'Email does not match', 'error');</script>";
         }
-    }
+    }*/
     ?>
-    <form action="login.php" method="post">
-        <div class="form-group">
-            <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4 mx-auto p-3 border shadow-1">
+                <h1 class="text-center mt-5">Login</h1>
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary" id="login" type="submit">LOGIN</button>
+                    </div>
+                    
+                    <div class="mt-2">
+                        <div class="row">
+                            <div class="col">
+                            <p>Don't have accout? <a href="register.php">Register!</a> <p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
-        </div>
-        <div class="form-btn">
-            <input type="submit" value="Login" name="login" class="btn btn-primary">
-        </div>
-    </form>
-    <div><p>Not registered yet? <a href="registration.php">Register Here</a></p></div>
+    </div>
 </div>
 </body>
+
+<script src="js_jquery/login.js"></script>
 </html>
