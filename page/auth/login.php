@@ -1,10 +1,20 @@
+
 <?php
-session_start();
-if (isset($_SESSION["user"])) {
-   header("Location: ../../index.php");
-   exit();
-}
+
+    session_start();
+    if(isset($_SESSION["user"])){
+        header("Location: ../../index.php");
+    }
+
+
+
+
+
+
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,42 +30,6 @@ if (isset($_SESSION["user"])) {
 </head>
 <body>
 <div class="container">
-    <?php
-    /*if (isset($_POST["login"])) {
-       $email = $_POST["email"];
-       $password = $_POST["password"];
-        require_once "../../sql/database.php";
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
-        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        if ($user) {
-            if (password_verify($password, $user["password"])) {
-                $_SESSION["user"] = "yes";
-                $_SESSION["data"] = $user["full_name"] ; 
-                $_SESSION["user_id"] = $user["id"];
-                
-                echo "<script>
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Welcome back!',
-                        text: 'Log in Complete!',
-                        timer: 100000, // 1 seconds
-                        timerProgressBar: true,
-                        showConfirmButton: false
-                    }).then(() => {
-                        window.location.href = '../../index.php';
-                    });
-                </script>";
-                exit();
-            } else {
-                echo "<script>Swal.fire('Error', 'Password does not match', 'error');</script>";
-            }
-        } else {
-            echo "<script>Swal.fire('Error', 'Email does not match', 'error');</script>";
-        }
-    }*/
-    ?>
-
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-4 mx-auto p-3 border shadow-1">

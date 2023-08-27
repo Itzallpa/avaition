@@ -3,8 +3,8 @@ session_start();
 
 require_once "../../sql/database.php";
 
-if($_SESSION["data"] == ""){
-    header("Location: login.php");
+if(!isset($_SESSION["user"])){
+    header("Location: ../auth/login");
     exit();
 }
 else
@@ -63,6 +63,9 @@ else
             </div>
         </div>
     </div>
+
+    
+
     
 </body>
 
@@ -71,11 +74,19 @@ else
  const sidebar = document.getElementById('sidebar');
     
     document.addEventListener('mousemove', (event) => {
-      if (event.clientX < 40) {
-        sidebar.classList.add('active');
-      } else {
-        sidebar.classList.remove('active');
-      }
+        
+        //check screen size not to show sidebar on small screens
+        if (window.innerWidth < 768) {
+            return;
+        }
+        
+
+        if (event.clientX < 40) {
+            sidebar.classList.add('active');
+        } else {
+            sidebar.classList.remove('active');
+        }
     });
+    
   </script>
 </html>

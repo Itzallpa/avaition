@@ -26,7 +26,7 @@
         <!-- เพิ่มส่วนผู้เข้าสู่ระบบ -->
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link" href="page/user/profile">John Doe</a>
+                <a class="nav-link" href="page/user/profile"><?php echo $_SESSION["full_name"] ?></a>
             </li>
         </ul>
         </div>

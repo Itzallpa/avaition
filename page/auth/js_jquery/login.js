@@ -39,11 +39,13 @@ $(document).ready(function () {
                         icon: 'success',
                         title: 'Login Success',
                         text: 'Welcome to my website!',
-                    })
-
-                    /*setTimeout(function () {
-                        window.location.href = "../../index.php";
-                    }, 2000);*/
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            //redirect to index.php
+                            window.location.href = "../../index";
+                        }
+                    })  
 
                     console.log("TRUE" , data);
                 } else {

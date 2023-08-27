@@ -1,14 +1,18 @@
 
-<?php 
+<?php
 
-session_start();
+    session_start();
 
-    if(!isset($_SESSION["data"])){
-        header("Location: page/auth/login.php");
-        exit();
+    if(!isset($_SESSION["user"])){
+        header("Location: page/auth/login");
     }
 
+
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +34,7 @@ session_start();
         <a class="btn btn-purple btn-lg" href="#" role="button">Flight</a>
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-5 p-lg-0">
         <div class="row">
             <div class="col-lg-6 border p-2 shadow-1">
                 <h1 class="text-center">LIVE MAP!</h1>
