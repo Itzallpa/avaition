@@ -40,7 +40,7 @@ $(document).ready(function () {
             success: function (data) {
                 if (data == true) {
 
-                    /*Swal.fire({
+                    Swal.fire({
                         icon: 'success',
                         title: 'Register Success',
                         text: 'Welcome to my website!',
@@ -49,8 +49,9 @@ $(document).ready(function () {
                         if (result.isConfirmed) {
                             window.location.href = "login";
                         }
-                    })*/
+                    })
                     console.log("TRUE",data);
+                        
 
                 } else {
 

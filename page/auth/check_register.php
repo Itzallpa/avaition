@@ -3,6 +3,11 @@
     session_start();
     require_once "../../sql/database.php";
 
+    
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
 
     //get data from jquery
     $full_name = $_POST["full_name"];
@@ -43,39 +48,14 @@
         //insert data to database
         $sql = "INSERT INTO `users`(`full_name`, `email`, `user_ivao_id`, `user_vatsim_id`, `birthdate`, `password`) VALUES ('$full_name','$email','$ivao_id','$vatsim_id','$birthdate','$password')";
         $result = mysqli_query($conn, $sql);
+
         
-
-        $data['success'] = true;
-        echo $data['success'];
-
+        
+        echo $data['success'] = true;
 
 
-        //send email
-        $to = "AsanRodnuan2546@gmail.com"; // อีเมลของผู้รับ
-        $subject = "Subject of the Email"; // หัวข้อของอีเมล
-        $message = "This is the content of the email."; // เนื้อหาของอีเมล
-
-        $headers = "From: sender@example.com\r\n"; // อีเมลผู้ส่ง
-        $headers .= "Reply-To: sender@example.com\r\n"; // อีเมลที่สามารถตอบกลับได้
-        $headers .= "Content-Type: text/html\r\n"; // ประเภทของเนื้อหา (เนื้อหาในรูปแบบ HTML
-
-        sendEmail($to, $subject, $message, $headers);
 
     }
-
-
-
-function sendEmail($to, $subject, $message, $headers)
-{
-    // ส่งอีเมล
-    $mail_sent = mail($to, $subject, $message, $headers);
-
-    if ($mail_sent) {
-        echo "Email sent successfully.";
-    } else {
-        echo "Failed to send email.";
-    }
-}
     
 
 
