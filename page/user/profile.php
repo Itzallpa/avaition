@@ -1,110 +1,509 @@
 <?php
-session_start();
 
-require_once "../../sql/database.php";
-
-if(!isset($_SESSION["user"])){
-    header("Location: ../auth/login");
-    exit();
-}
-else
-{
-    //check if user has profile picture
-    $sql = "SELECT * FROM users WHERE id = " . $_SESSION["user_id"];
-    $result = mysqli_query($conn, $sql);
-
-    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-    if ($user["profile_picture"] == "") {
-        $_SESSION["profile_picture"] = "https://example.com/default_profile_picture.jpg";
-    } else {
-        $_SESSION["profile_picture"] = $user["profile_picture"];
+    session_start();
+    if(!isset($_SESSION["user"])){
+        header("Location: ../../index.php");
     }
-}
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Share with LinkedIn API v2</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
+    />
+    <meta name="author" content="AdminKit" />
+    <meta
+      name="keywords"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+    />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/custom.css">
-    <link rel="stylesheet" href="../../css/sidebar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body class="bg">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-    <?php include '../inc/navbar.php' ?>
+    <link
+      rel="canonical"
+      href="https://demo-basic.adminkit.io/pages-blank.html"
+    />
+
+    <title>HOME PAGE | BUNNY VIR</title>
+
+    <link href="css/app.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     
-    <div class="d-flex">
-        <div class="sidebar p-2" id="sidebar">
-            <a href="#">Home</a>
-            <a href="#">Flights</a>
-            <a href="#">Services</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar js-sidebar">
+        <div class="sidebar-content js-simplebar">
+          <a class="sidebar-brand" href="index.html">
+            <span class="align-middle">BUNNY VIR</span>
+          </a>
+
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Pages</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/avaition/page/user/profile">
+                <i class="align-middle" data-feather="sliders"></i>
+                <span class="align-middle">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="sidebar-header">PILOT ADMINISTRATION</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/avaition/page/user/profile">
+                <i class="align-middle me-2" data-feather="book"></i>
+                <span class="align-middle">Infomation</span>
+              </a>
+            </li>
+
         </div>
-    </div>
+      </nav>
 
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+          <a class="sidebar-toggle js-sidebar-toggle">
+            <i class="hamburger align-self-center"></i>
+          </a>
 
-    <div class="container content mt-3">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Content</p>
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav navbar-align">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle"
+                  href="#"
+                  id="alertsDropdown"
+                  data-bs-toggle="dropdown"
+                >
+                  <div class="position-relative">
+                    <i class="align-middle" data-feather="bell"></i>
+                    <span class="indicator">4</span>
+                  </div>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                  aria-labelledby="alertsDropdown"
+                >
+                  <div class="dropdown-menu-header">4 New Notifications</div>
+                  <div class="list-group">
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i
+                            class="text-danger"
+                            data-feather="alert-circle"
+                          ></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Update completed</div>
+                          <div class="text-muted small mt-1">
+                            Restart server 12 to complete the update.
+                          </div>
+                          <div class="text-muted small mt-1">30m ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i class="text-warning" data-feather="bell"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Lorem ipsum</div>
+                          <div class="text-muted small mt-1">
+                            Aliquam ex eros, imperdiet vulputate hendrerit et.
+                          </div>
+                          <div class="text-muted small mt-1">2h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i class="text-primary" data-feather="home"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Login from 192.186.1.8</div>
+                          <div class="text-muted small mt-1">5h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i class="text-success" data-feather="user-plus"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New connection</div>
+                          <div class="text-muted small mt-1">
+                            Christina accepted your request.
+                          </div>
+                          <div class="text-muted small mt-1">14h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-menu-footer">
+                    <a href="#" class="text-muted">Show all notifications</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle"
+                  href="#"
+                  id="messagesDropdown"
+                  data-bs-toggle="dropdown"
+                >
+                  <div class="position-relative">
+                    <i class="align-middle" data-feather="message-square"></i>
+                  </div>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                  aria-labelledby="messagesDropdown"
+                >
+                  <div class="dropdown-menu-header">
+                    <div class="position-relative">4 New Messages</div>
+                  </div>
+                  <div class="list-group">
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-5.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Vanessa Tucker"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Vanessa Tucker</div>
+                          <div class="text-muted small mt-1">
+                            Nam pretium turpis et arcu. Duis arcu tortor.
+                          </div>
+                          <div class="text-muted small mt-1">15m ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-2.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="William Harris"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">William Harris</div>
+                          <div class="text-muted small mt-1">
+                            Curabitur ligula sapien euismod vitae.
+                          </div>
+                          <div class="text-muted small mt-1">2h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-4.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Christina Mason"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Christina Mason</div>
+                          <div class="text-muted small mt-1">
+                            Pellentesque auctor neque nec urna.
+                          </div>
+                          <div class="text-muted small mt-1">4h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-3.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Sharon Lessman"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Sharon Lessman</div>
+                          <div class="text-muted small mt-1">
+                            Aenean tellus metus, bibendum sed, posuere ac,
+                            mattis non.
+                          </div>
+                          <div class="text-muted small mt-1">5h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-menu-footer">
+                    <a href="#" class="text-muted">Show all messages</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle" data-feather="settings"></i>
+                </a>
+
+                <a
+                  class="nav-link dropdown-toggle d-none d-sm-inline-block"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  <img
+                    src="img/avatars/avatar.jpg"
+                    class="avatar img-fluid rounded me-1"
+                    alt="Charles Hall"
+                  />
+                  <span class="text-dark"><?php echo $_SESSION["full_name"] ?></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                  <a class="dropdown-item" href="pages-profile.html"
+                    ><i class="align-middle me-1" data-feather="user"></i>
+                    Profile</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1" data-feather="pie-chart"></i>
+                    Analytics</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="index.html"
+                    ><i class="align-middle me-1" data-feather="settings"></i>
+                    Settings & Privacy</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i
+                      class="align-middle me-1"
+                      data-feather="help-circle"
+                    ></i>
+                    Help Center</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <h1 class="h3 mb-3">Blank Page</h1>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Pireps Filed</h5>
+                            <p class="card-text">##</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Current Location</h5>
+                            <p class="card-text">##</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Hours</h5>
+                            <p class="card-text">##</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Landing Average</h5>
+                            <p class="card-text">##</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">Content</p>
+
+            <div class="row">
+				<div class="col-lg-8">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">LIVE MAP</h5>
+						</div>
+						<div class="card-body">
+							<div style="height: 50vh">
+                                <iframe style="height: 100%; width: 100%;" src="https://tfdidesign.com/core/flightmap.php?theme=dark&noscrollwheel=true&region=2" frameborder="0"></iframe>
+                            </div>
+					    </div>
+                    </div>
+				</div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Airline NOTAMs</h5>
+                            <p class="card-text">
+                                <h1>Welcome Aboard TG!</h1>
+                                <p>Posted by Natakon on 08/06/2023</p>
+                                <img src="https://i.imgur.com/F5Pw6iu.png" class="img-fluid" alt="" srcset="">
+                                <p>Welcome to The Reds Virtual,  
+
+                                Thank you to be the part of us ! Our staff be very happy to assist if you have any question or inquiry.
+
+                                If you are new here, please read our Pilot Guide book that you can download at Downloads page and proceed to REDAcademy and take the ENTRANCE EXAM so you can start flying as soon as possible.
+
+                                I hope you have a great time while you are here and also any recommendation and suggestion will be warmly welcome for our improvement to this new home. Let's paint the (virtual) skies Red (again)!
+                                </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
+			</div>
+
+            <div class="row">
+              <div class="col-12 col-lg-12 col-xxl-12 d-flex">
+                <div class="card flex-fill">
+                  <div class="card-header">
+                    <h5 class="card-title mb-0">Upcoming Departures</h5>
+                  </div>
+                  <table class="table table-hover my-0">
+                    <thead>
+                      <tr>
+                        <th>Flight #</th>
+                        <th class="d-none d-xl-table-cell">Pilot</th>
+                        <th class="d-none d-xl-table-cell">Limit</th>
+                        <th>Departure</th>
+                        <th class="d-none d-md-table-cell">Aircraft</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SKY001</a></td>
+                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">1/1</td>
+                            <td>Bangkok (VTBS)</td>
+                            <td class="d-none d-md-table-cell">A320</td>
+                        </tr>
+                        <tr>
+                            <td>SKY002</a></td>
+                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">1/1</td>
+                            <td>Bangkok (VTBS)</td>
+                            <td class="d-none d-md-table-cell">A320</td>
+                        </tr>
+                        <tr>
+                            <td>SKY003</a></td>
+                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">1/1</td>
+                            <td>Bangkok (VTBS)</td>
+                            <td class="d-none d-md-table-cell">A320</td>
+                        </tr>
+                        <tr>
+                            <td>SKY004</a></td>
+                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">1/1</td>
+                            <td>Bangkok (VTBS)</td>
+                            <td class="d-none d-md-table-cell">A320</td>
+                        </tr>
+                        <tr>
+                            <td>SKY005</a></td>
+                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">1/1</td>
+                            <td>Bangkok (VTBS)</td>
+                            <td class="d-none d-md-table-cell">A320</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-        </div>
+
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-6 text-start">
+                <p class="mb-0">
+                  <a
+                    class="text-muted"
+                    href="#"
+                    target="_blank"
+                    ><strong>BUNNY</strong></a
+                  >
+                  &copy;
+                </p>
+              </div>
+              <div class="col-6 text-end">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a
+                      class="text-muted"
+                      href="#"
+                      target="_blank"
+                      >Support</a
+                    >
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      class="text-muted"
+                      href="#"
+                      target="_blank"
+                      >Help Center</a
+                    >
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      class="text-muted"
+                      href="#"
+                      target="_blank"
+                      >Privacy</a
+                    >
+                  </li>
+                  <li class="list-inline-item">
+                    <a
+                      class="text-muted"
+                      href="#"
+                      target="_blank"
+                      >Terms</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
 
-
-    
-
-    
-</body>
-
-
-<script>
- const sidebar = document.getElementById('sidebar');
- const content = document.querySelector('.content');
-    
-
- 
-    document.addEventListener('mousemove', (event) => {
-        
-            //check screen size not to show sidebar on small screens
-            if (window.innerWidth < 768) {
-                return;
-            }
-            
-
-            if (event.clientX < 40) {
-            sidebar.classList.add('active');
-            content.style.marginLeft = '250px'; // เลือกขนาดของ margin-left ที่เหมาะสม
-
-            document.body.style.overflowX = 'hidden'; // ป้องกันการเลื่อนแนวนอน
-            } else {
-                sidebar.classList.remove('active');
-                content.style.marginLeft = '0';
-            }
-
-    });
-    
-  </script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
