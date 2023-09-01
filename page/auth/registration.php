@@ -32,34 +32,44 @@
                 <div class="card-body">
                     <h2 class="card-title text-center">REGISTER | THAI AIRWAY</h2>
                     <form>
-                    <div class="mb-3">
-                        <label for="fullName" class="form-label">Fristname Lastname</label>
-                        <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Fristname Lastname</label>
+                            <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" required>
+                            </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" required>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" require>
                         </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="row">
+                            <div class="col">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" require>
-                    </div>
-                    <div class="mb-3">
-                        <label for="birthdate" class="form-label">birthdate</label>
-                        <input type="date" class="form-control" id="birthdate" name="birthdate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="ivaoId" class="form-label">IVAO ID</label>
-                        <input type="text" class="form-control" id="ivaoId" name="ivaoId" placeholder="not required">
-                    </div>
-                    <div class="mb-3">
-                        <label for="vatsimId" class="form-label">VATSIM ID</label>
-                        <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
-                    </div>
-                    <button type="button" id="register" class="btn btn-primary w-100">Register!</button>
+                        <div class="mb-3">
+                            <label for="birthdate" class="form-label">birthdate</label>
+                            <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ivaoId" class="form-label">IVAO ID</label>
+                            <input type="text" class="form-control" id="ivaoId" name="ivaoId" placeholder="not required">
+                        </div>
+                        <div class="mb-3">
+                            <label for="vatsimId" class="form-label">VATSIM ID</label>
+                            <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
+                        </div>
+                        <button type="button" id="register" class="btn btn-primary w-100">Register!</button>
                     </form>
 
                 </div>

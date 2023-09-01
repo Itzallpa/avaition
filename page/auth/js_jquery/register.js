@@ -3,7 +3,7 @@
 $(document).ready(function () {
 
     $("#register").click(function () {
-
+    
 
         var firstName = $('[name=firstName]').val();
         var lastName = $('[name=lastName]').val();
@@ -12,8 +12,11 @@ $(document).ready(function () {
         var birthdate = $('[name=birthdate]').val();
         var ivaoId = $('[name=ivaoId]').val();
         var vatsimId = $('[name=vatsimId]').val();
+        var password = $('[name=password]').val();
+        var confirmPassword = $('[name=confirmPassword]').val();
+    
 
-        if (firstName == "" || lastName == "" || email == "" || birthdate == "") {
+        if (firstName == "" || lastName == "" || email == "" || birthdate == "" || password == "" || confirmPassword == "") {
 
             Swal.fire({
                 icon: 'error',
@@ -25,6 +28,20 @@ $(document).ready(function () {
 
         }
 
+
+        if (password != confirmPassword) {
+                
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Password and Confirm Password not match!',
+                })
+    
+                return false;
+
+        }
+
+
         $.ajax({
             url: "check_register.php",
             method: "POST",
@@ -33,6 +50,7 @@ $(document).ready(function () {
                 lastName: lastName,
                 full_name: full_name,
                 email: email,
+                password: password,
                 birthdate: birthdate,
                 ivaoId: ivaoId,
                 vatsimId: vatsimId
@@ -50,16 +68,15 @@ $(document).ready(function () {
                             window.location.href = "login";
                         }
                     })
-                    console.log("TRUE",data);
                         
 
                 } else {
 
-                    /*Swal.fire({
+                    Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Register Failed!',
-                    })*/
+                    })
 
                     if(data == "Email already exist"){
                         Swal.fire({
