@@ -1,35 +1,44 @@
-<nav class="navbar navbar-expand navbar-light navbar-bg">
-          <a class="sidebar-toggle js-sidebar-toggle">
-            <i class="hamburger align-self-center"></i>
-          </a>
 
-          <div class="navbar-collapse collapse">
-            <ul class="navbar-nav navbar-align">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-icon dropdown-toggle"
-                  href="#"
-                  id="alertsDropdown"
-                  data-bs-toggle="dropdown"
-                >
-                  <div class="position-relative">
+<?php
+
+if ($_SESSION["pro_img"] == "")
+    $_SESSION["pro_img"] = "img/avatars/none-avatar.jpg";
+
+
+?>
+
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+    <a class="sidebar-toggle js-sidebar-toggle">
+        <i class="hamburger align-self-center"></i>
+    </a>
+
+    <div class="navbar-collapse collapse">
+      <ul class="navbar-nav navbar-align">
+          <li class="nav-item dropdown">
+              <a
+                class="nav-icon dropdown-toggle"
+                href="#"
+                id="alertsDropdown"
+                data-bs-toggle="dropdown"
+              >
+                <div class="position-relative">
                     <i class="align-middle" data-feather="bell"></i>
                     <span class="indicator">4</span>
-                  </div>
-                </a>
-                <div
-                  class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
-                  aria-labelledby="alertsDropdown"
-                >
-                  <div class="dropdown-menu-header">0 New Notifications</div>
-                  <div class="list-group">
-                    <a href="#" class="list-group-item">
-                      <div class="row g-0 align-items-center">
-                        <div class="col-2">
-                          <i
-                            class="text-danger"
-                            data-feather="alert-circle"
-                          ></i>
+                </div>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                aria-labelledby="alertsDropdown"
+              >
+              <div class="dropdown-menu-header">0 New Notifications</div>
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <div class="row g-0 align-items-center">
+                      <div class="col-2">
+                        <i
+                          class="text-danger"
+                          data-feather="alert-circle"
+                        ></i>
                         </div>
                         <div class="col-10">
                           <div class="text-dark">Update completed</div>
@@ -104,13 +113,14 @@
                   data-bs-toggle="dropdown"
                 >
                   <img
-                    src="img/avatars/avatar.jpg"
+                    src="<?php echo $_SESSION["pro_img"] ?>"
                     class="avatar img-fluid rounded me-1"
+                    id="pro_img_nav"
                   />
                   <span class="text-dark"><?php echo $_SESSION["full_name"] ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a class="dropdown-item" href="pages-profile.html"
+                  <a class="dropdown-item" href="view_profile.php"
                     ><i class="align-middle me-1" data-feather="user"></i>
                     Profile</a
                   >
@@ -131,9 +141,22 @@
                     Help Center</a
                   >
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <a class="dropdown-item" href="../auth/logout.php">Log out</a>
                 </div>
               </li>
             </ul>
           </div>
-        </nav>
+</nav>
+
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+</div>
+
