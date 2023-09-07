@@ -31,6 +31,15 @@
                 <span class="align-middle">Leaderboard</span>
               </a>
             </li>
+
+            <li class="sidebar-header">Flight Oparetor</li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/avaition/page/user/flight_plan">
+                <i class="align-middle me-2" data-feather="star"></i>
+                <span class="align-middle">Flight Book</span>
+              </a>
+            </li>
         <ul>
 
     </div>

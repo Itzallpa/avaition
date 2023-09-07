@@ -4,12 +4,26 @@
 //when on page load
 $(document).ready(function() {
 
-    //when screen is load
+    var map = L.map('map').setView([51.505, -0.09], 13); // ตำแหน่งและการซูมเริ่มต้น
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-    $(window).on('load', function() {
 
+    $('#sel_airport').change(function() {
+
+
+        //setViem on map
+        var map = L.map('map').setView([51.505, -0.09], 13); // ตำแหน่งและการซูมเริ่มต้น
+            var airport = $(this).val();
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/search?query=vtbs">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        
+        
 
     });
 
-
 });
+
