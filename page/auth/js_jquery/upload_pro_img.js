@@ -63,7 +63,13 @@ $(document).ready(function () {
 
                         if (data == true) {
 
-                            console.log(data);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Upload Success',
+                                text: 'Your profile image has been uploaded',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
 
                         } else {
 
