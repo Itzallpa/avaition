@@ -1,6 +1,11 @@
 <?php
 
+
+
     session_start();
+
+
+
     require_once "../../sql/database.php";
 
     $file = $_POST["img_url"];

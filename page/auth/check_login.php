@@ -21,11 +21,9 @@ if(mysqli_num_rows($result) > 0){
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["pro_img"] = $user["profile_picture"];
 
+        echo $data['success'] = true;
 
-
-        $data['success'] = true;
-        echo $data['success'];
-
+    
         
     }
     else
@@ -38,8 +36,6 @@ else
 {
     echo "Email does not exist";
 }
-
-
 
 
 

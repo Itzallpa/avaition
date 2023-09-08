@@ -44,11 +44,24 @@ $(document).ready(function () {
                         if (result.isConfirmed) {
                             //redirect to index.php
                             window.location.href = "../../index";
+
+                            //phpmailer
+                            $.ajax({
+                                url: "mail/send_mail.php",
+                                method: "POST",
+                                data: {
+                                    email: email,
+                                },
+                                success: function (data) {
+                                    console.log(data);
+                                }
+                            })
+
                         }
                     })  
 
                 } else {
-                        
+                
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
