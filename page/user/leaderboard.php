@@ -67,8 +67,8 @@
                             <div class="row">
                                 <div class="col-lg col-12">
                                     <div class="card" style="background-color: #3D1A6E;">
-                                        <div class="card-body text-white">
-                                            <h5 class="card-title">Top Pilots All Time (Flights Flown)</h5>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-white">Top Pilots All Time (Flights Flown)</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -94,7 +94,7 @@
                                 <div class="col-lg col-12">
                                     <div class="card" style="background-color: #3D1A6E;">
                                         <div class="card-body">
-                                            <h5 class="card-title">Top Pilots All Time (Hours Flown)</h5>     
+                                            <h5 class="card-title text-white">Top Pilots All Time (Hours Flown)</h5>     
                                         </div>
                                     </div>
                                     <div class="row">

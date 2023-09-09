@@ -28,15 +28,26 @@ $(document).ready(function () {
         }
 
 
+        //check birthdate
+        var today = new Date();
+        var birthDate = new Date(birthdate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+
+        //check age < 10
+        if (age < 10) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You are too young!',
+            })
+        }
+
+
         //genarate password 10 character
         var password = Math.random().toString(36).slice(-10);
 
 
-        console.log("password:" + password);
-
-
-
-        $.ajax({
+        /*$.ajax({
             url: "check_register.php",
             method: "POST",
             data: {
@@ -103,7 +114,7 @@ $(document).ready(function () {
 
                 }
             }
-        });
+        });*/
 
     });
 

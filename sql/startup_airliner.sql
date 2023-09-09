@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2023 at 06:16 PM
+-- Generation Time: Sep 09, 2023 at 06:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -73,6 +73,19 @@ INSERT INTO `airport` (`id`, `airport_name`, `icao`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `base`
+--
+
+CREATE TABLE `base` (
+  `base_id` int(11) NOT NULL,
+  `base_name` varchar(20) NOT NULL,
+  `base_dep` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`base_dep`)),
+  `base_arr` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`base_arr`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -80,6 +93,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `full_name` varchar(128) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `user_role` varchar(60) NOT NULL DEFAULT 'Member',
   `user_ivao_id` varchar(20) NOT NULL DEFAULT 'None',
   `user_vatsim_id` varchar(20) NOT NULL DEFAULT 'None',
   `birthdate` varchar(60) NOT NULL,
@@ -98,6 +112,12 @@ ALTER TABLE `airport`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `base`
+--
+ALTER TABLE `base`
+  ADD PRIMARY KEY (`base_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -112,6 +132,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `airport`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `base`
+--
+ALTER TABLE `base`
+  MODIFY `base_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

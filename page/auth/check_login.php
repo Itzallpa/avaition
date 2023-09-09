@@ -20,6 +20,7 @@ if(mysqli_num_rows($result) > 0){
         $_SESSION["full_name"] = $user["full_name"]; 
         $_SESSION["user_id"] = $user["id"];
         $_SESSION["pro_img"] = $user["profile_picture"];
+        $_SESSION["user_role"] = $user["user_role"];
 
         echo $data['success'] = true;
 

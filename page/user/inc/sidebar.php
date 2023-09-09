@@ -23,6 +23,21 @@
               </a>
             </li>
 
+
+            <?php if($_SESSION['user_role'] == "Admin")
+            {
+               echo '<li class="sidebar-item">
+              <a class="sidebar-link" href="Admin">
+                <i class="align-middle me-2" data-feather="users"></i>
+                <span class="align-middle">Admin</span>
+              </a>
+            </li>';
+
+            }
+            ?>
+
+            
+
             <li class="sidebar-header">Leaderboard</li>
 
             <li class="sidebar-item">
