@@ -1,9 +1,33 @@
 <?php
 
     session_start();
+    include_once '../../sql/database.php';
+
     if(!isset($_SESSION["user"])){
         header("Location: ../../index.php");
     }
+  
+
+    $sql = "SELECT * FROM users WHERE id = '".$_SESSION["user_id"]."'";
+    $result = mysqli_query($conn, $sql);
+
+
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $_SESSION["full_name"] = $user["full_name"]; 
+        $_SESSION["user_id"] = $user["id"];
+        $_SESSION["pro_img"] = $user["profile_picture"];
+        $_SESSION["email"] = $user["email"];
+        $_SESSION["user_ivao_id"] = $user["user_ivao_id"];
+        $_SESSION["user_vatsim_id"] = $user["user_vatsim_id"];
+    }
+    else
+    {
+        echo "Email does not exist";
+    }
+
+
+    
 
 
 ?>
@@ -80,6 +104,45 @@
                             <h3><?php echo $_SESSION["full_name"] ?></h3>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-7">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Profile</h5>
+
+                      <div class="mb-3">
+                        <div class="row">
+                          <label for="" class="col-sm-2 col-form-label">Name</label>
+                          <div class="col-sm-5">
+                            <input type="text" readonly class="form-control-plaintext" id="" value="<?php echo $_SESSION["full_name"] ?>">
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <label for="" class="col-sm-2 col-form-label">Email</label>
+                          <div class="col-sm-5">
+                            <input type="text" readonly class="form-control-plaintext" id="" value="<?php echo $_SESSION["email"] ?>">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <label for="" class="col-sm-2 col-form-label">IVAO-ID</label>
+                          <div class="col-sm-5">
+                            <input type="text" class="form-control-plaintext" id="" value="<?php echo $_SESSION["user_ivao_id"] ?>">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <label for="" class="col-sm-2 col-form-label">VATSIM-ID</label>
+                          <div class="col-sm-5">
+                            <input type="text" class="form-control-plaintext" id="" value="<?php echo $_SESSION["user_vatsim_id"] ?>">
+                          </div>
+                        </div>
+                        
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
             </div>
 

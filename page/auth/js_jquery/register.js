@@ -12,11 +12,10 @@ $(document).ready(function () {
         var birthdate = $('[name=birthdate]').val();
         var ivaoId = $('[name=ivaoId]').val();
         var vatsimId = $('[name=vatsimId]').val();
-        var password = $('[name=password]').val();
-        var confirmPassword = $('[name=confirmPassword]').val();
+
     
 
-        if (firstName == "" || lastName == "" || email == "" || birthdate == "" || password == "" || confirmPassword == "") {
+        if (firstName == "" || lastName == "" || email == "" || birthdate == "") {
 
             Swal.fire({
                 icon: 'error',
@@ -29,17 +28,12 @@ $(document).ready(function () {
         }
 
 
-        if (password != confirmPassword) {
-                
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Password and Confirm Password not match!',
-                })
-    
-                return false;
+        //genarate password 10 character
+        var password = Math.random().toString(36).slice(-10);
 
-        }
+
+        console.log("password:" + password);
+
 
 
         $.ajax({
@@ -65,18 +59,28 @@ $(document).ready(function () {
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = "login";
+
+                            $.ajax({
+                                url: "mail/send_pass_reg.php",
+                                method: "POST",
+                                data: {
+                                    email: email,
+                                    password: password,
+                                    full_name: full_name
+                                },
+                                success: function (data) {
+                                    if (data == true) {
+                                        window.location.href = "login";
+                                    } else {
+                                        console.log("FALSE:" + data);
+                                    }
+                                }
+                            });
                         }
                     })
                         
 
                 } else {
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Register Failed!',
-                    })
 
                     if(data == "Email already exist"){
                         Swal.fire({
@@ -85,6 +89,17 @@ $(document).ready(function () {
                             text: 'Email already exist!',
                         })
                     }
+                    else 
+                    {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                        })
+
+                        console.log("FALSE:" + data);
+                    }
+
 
                 }
             }

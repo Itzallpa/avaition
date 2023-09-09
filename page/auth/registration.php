@@ -30,7 +30,7 @@
             <div class="col-lg-6">
             <div class="card shadow-1">
                 <div class="card-body">
-                    <h2 class="card-title text-center">REGISTER | THAI AIRWAY</h2>
+                    <h2 class="card-title text-center">REGISTER | BUNNY VIR</h2>
                     <form>
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Fristname Lastname</label>
@@ -46,16 +46,6 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" require>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <div class="row">
-                            <div class="col">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
-                            </div>
-                            <div class="col">
-                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirmPassword" required>
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="birthdate" class="form-label">birthdate</label>

@@ -8,7 +8,7 @@
             <li class="sidebar-header">Pages</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/avaition/page/user/profile">
+              <a class="sidebar-link" href="profile">
                 <i class="align-middle" data-feather="sliders"></i>
                 <span class="align-middle">Dashboard</span>
               </a>
@@ -17,7 +17,7 @@
             <li class="sidebar-header">PILOT ADMINISTRATION</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/avaition/page/user/infomation">
+              <a class="sidebar-link" href="infomation">
                 <i class="align-middle me-2" data-feather="book"></i>
                 <span class="align-middle">Infomation</span>
               </a>
@@ -26,7 +26,7 @@
             <li class="sidebar-header">Leaderboard</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/avaition/page/user/leaderboard">
+              <a class="sidebar-link" href="leaderboard">
                 <i class="align-middle me-2" data-feather="star"></i>
                 <span class="align-middle">Leaderboard</span>
               </a>
@@ -35,7 +35,7 @@
             <li class="sidebar-header">Flight Oparetor</li>
 
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/avaition/page/user/flight_plan">
+              <a class="sidebar-link" href="flight_plan">
                 <i class="align-middle me-2" data-feather="star"></i>
                 <span class="align-middle">Flight Book</span>
               </a>

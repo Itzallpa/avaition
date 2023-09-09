@@ -15,36 +15,31 @@ require '../../../PHPMailer/PHPMailer.php';
 require '../../../PHPMailer/SMTP.php';
 
 
+$email = $_POST["email"];
+$full_name = $_POST["full_name"];
+$password = $_POST["password"];
 
-$sql = "SELECT * FROM `users` WHERE `email` = '$_POST[email]'";
-$result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) > 0){
-    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $full_name = $user["full_name"];
-    $email = $user["email"];
-    $subject = "Notification Login!";
-    $body = "
-    <h1>Notification Login!</h1>
-    <p>Someone has logged into your account. If it's not you, please contact us immediately.</p>
+$subject = "Bunny Vir Reminder";
+$body = "
 
-    <p>Thank you.</p>
+Dear $full_name,<br>
 
-    <p>Best Regards,</p>
+Thank you for registering with Bunny Vir. We are excited to have you on board.
+<br><br>
+Password: $password
+<br>
+<br>
+Warm Regards,
+<br>
+Bunny Vir Team
+";
 
-    <p>Bunny Vir</p>
+echo $data["success"] = true;
+sendEmail($email, $full_name, $subject, $body);
 
-    <p>https://bunnyvir.com</p>
-    
 
-    ";
-    sendEmail($email, $full_name, $subject, $body);
-    echo $data['success'] = true;
-}
-else
-{
-    echo $data['success'] = false;
-}
+
 
 
 
@@ -78,6 +73,8 @@ function sendEmail($email, $full_name, $subject, $body){
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }    
 }
+
+
 
 
 
