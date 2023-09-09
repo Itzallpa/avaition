@@ -20,3 +20,9 @@
 {
     float: right;
 }
+
+.form-control-plaintext:focus
+{
+    outline: 0;
+    box-shadow: none;
+}

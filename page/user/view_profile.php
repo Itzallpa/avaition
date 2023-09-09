@@ -121,21 +121,21 @@
                         <div class="row">
                           <label for="" class="col-sm-2 col-form-label">Email</label>
                           <div class="col-sm-5">
-                            <input type="text" readonly class="form-control-plaintext" id="" value="<?php echo $_SESSION["email"] ?>">
+                            <input type="text" readonly class="form-control-plaintext" name="email" id="" value="<?php echo $_SESSION["email"] ?>">
                           </div>
                         </div>
 
                         <div class="row">
                           <label for="" class="col-sm-2 col-form-label">IVAO-ID</label>
                           <div class="col-sm-5">
-                            <input type="text" class="form-control-plaintext" id="" value="<?php echo $_SESSION["user_ivao_id"] ?>">
+                            <input type="number" class="form-control-plaintext" id="ivao_id" name="ivao_id" value="<?php echo $_SESSION["user_ivao_id"] ?>">
                           </div>
                         </div>
 
                         <div class="row">
                           <label for="" class="col-sm-2 col-form-label">VATSIM-ID</label>
                           <div class="col-sm-5">
-                            <input type="text" class="form-control-plaintext" id="" value="<?php echo $_SESSION["user_vatsim_id"] ?>">
+                            <input type="number" class="form-control-plaintext" id="vatsim_id" name="vatsim_id" value="<?php echo $_SESSION["user_vatsim_id"] ?>">
                           </div>
                         </div>
                         

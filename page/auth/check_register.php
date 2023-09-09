@@ -13,11 +13,11 @@
     $vatsim_id = $_POST["vatsimId"];
 
     if($ivao_id == ""){
-        $ivao_id = "NULL";
+        $ivao_id = "000000";
     }
 
     if($vatsim_id == ""){
-        $vatsim_id = "NULL";
+        $vatsim_id = "000000";
     }
 
     if($password == ""){
