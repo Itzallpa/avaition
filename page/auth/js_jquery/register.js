@@ -47,7 +47,7 @@ $(document).ready(function () {
         var password = Math.random().toString(36).slice(-10);
 
 
-        /*$.ajax({
+        $.ajax({
             url: "check_register.php",
             method: "POST",
             data: {
@@ -114,7 +114,7 @@ $(document).ready(function () {
 
                 }
             }
-        });*/
+        });
 
     });
 
