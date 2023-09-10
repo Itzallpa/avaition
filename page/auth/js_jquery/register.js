@@ -45,9 +45,19 @@ $(document).ready(function () {
 
         //genarate password 10 character
         var password = Math.random().toString(36).slice(-10);
-
-
+        
         $.ajax({
+            url: "check_register.php",
+            method: "POST",
+            data: {
+                email: email
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        });
+
+        /*$.ajax({
             url: "check_register.php",
             method: "POST",
             data: {
@@ -70,6 +80,8 @@ $(document).ready(function () {
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            
+                            window.location.href = "login";
 
                             $.ajax({
                                 url: "mail/send_pass_reg.php",
@@ -80,13 +92,12 @@ $(document).ready(function () {
                                     full_name: full_name
                                 },
                                 success: function (data) {
-                                    if (data == true) {
-                                        window.location.href = "login";
-                                    } else {
+                                    if (data == false)
                                         console.log("FALSE:" + data);
-                                    }
                                 }
                             });
+
+                            
                         }
                     })
                         
@@ -114,7 +125,7 @@ $(document).ready(function () {
 
                 }
             }
-        });
+        });*/
 
     });
 
