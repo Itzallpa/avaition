@@ -2,9 +2,8 @@
 
     session_start();
     require_once "../../sql/database.php";
-
     //get data from jquery
-    /*$full_name = $_POST["full_name"];
+    $full_name = $_POST["full_name"];
     $email = $_POST["email"];
     $birthdate = $_POST["birthdate"];
     $password = $_POST["password"];
@@ -22,12 +21,12 @@
 
     if($password == ""){
         echo $data['success'] = false;
-    }*/
+    }
 
-    echo $_POST["email"];
+
 
     //hash password
-    /*$password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
 
     $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
@@ -48,7 +47,7 @@
 
 
 
-    }*/
+    }
 
     
 

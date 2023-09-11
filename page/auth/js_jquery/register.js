@@ -46,18 +46,8 @@ $(document).ready(function () {
         //genarate password 10 character
         var password = Math.random().toString(36).slice(-10);
         
-        $.ajax({
-            url: "check_register.php",
-            method: "POST",
-            data: {
-                email: email
-            },
-            success: function (data) {
-                console.log(data);
-            }
-        });
 
-        /*$.ajax({
+        $.ajax({
             url: "check_register.php",
             method: "POST",
             data: {
@@ -125,7 +115,7 @@ $(document).ready(function () {
 
                 }
             }
-        });*/
+        });
 
     });
 
