@@ -1,0 +1,60 @@
+#map
+{
+    background-color: black;
+    height: 50vh;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+
+
+.shadow-1
+{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card
+{
+    border: none !important;
+}
+
+.bg-black
+{
+    background-color: black !important;
+}
+
+.form-select:focus
+{
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.bg-purple
+{
+    background-color: #3D1A6F !important;
+}
+
+.text-purple
+{
+    color: #3D1A6F !important;
+}
+
+.btn-purple
+{
+    background-color: #3D1A6F !important;
+    border-color: #3D1A6F !important;
+    color: white !important;
+}
+
+.btn-purple:focus
+{
+    box-shadow: #3D1A6F !important;
+}
+
+.table-purple
+{
+    background-color: #3D1A6F !important;
+}
+
+

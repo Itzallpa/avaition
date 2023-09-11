@@ -1,0 +1,31 @@
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+  
+.alert
+{
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 5px;
+
+    
+}
+
+.alert-warning
+{
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+}
+
+.btn-close
+{
+    float: right;
+}
+
+.form-control-plaintext:focus
+{
+    outline: 0;
+    box-shadow: none;
+}
