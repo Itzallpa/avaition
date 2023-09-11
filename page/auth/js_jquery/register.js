@@ -43,6 +43,19 @@ $(document).ready(function () {
         }
 
 
+        //check email if not @gmail.com
+
+        var checkEmail = email.split("@");
+        if (checkEmail[1] != "gmail.com") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter gmail!',
+            })
+            return false;
+        }
+
+
         //genarate password 10 character
         var password = Math.random().toString(36).slice(-10);
         

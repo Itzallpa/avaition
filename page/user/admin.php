@@ -67,6 +67,13 @@
 
     <link rel="stylesheet" href="css/custom.css">
     
+    <link rel="stylesheet" href="ttps://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../js/main.js"></script>
 
   </head>
 
@@ -86,87 +93,145 @@
                 <div class="col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Title</h5>
-                            <p class="card-text">Content</p>
+                            <h5 class="card-title">Pilot Online</h5>
+                            <p class="card-text">XX</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Title</h5>
-                            <p class="card-text">Content</p>
+                            <h5 class="card-title">All Pilot</h5>
+                            <p class="card-text">XX</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Title</h5>
-                            <p class="card-text">Content</p>
+                            <h5 class="card-title">ALL Flight</h5>
+                            <p class="card-text">XX</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ALL USER</h5>
+                            <table id="user_table" class="table table-hover my-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Birth Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM users";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $row["full_name"] . "</td>";
+                                            echo "<td>" . $row["email"] . "</td>";
+                                            echo "<td>" . $row["user_role"] . "</td>";
+                                            echo "<td>" . $row["birthdate"] . "</td>";
+                                            echo "<td><a href='edit_user.php?id=" . $row["id"] . "'><button class='btn btn-primary'>Edit</button></a></td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="h3 mb-3">Airport Mangement</h1>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">AIRPORT</h5>
+                            <table id="airport_table" class="table table-hover my-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Airport Name</th>
+                                        <th>ICAO Name</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $sql = "SELECT * FROM airport";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $row["airport_name"] . "</td>";
+                                            echo "<td>" . $row["icao"] . "</td>";
+                                            echo "<td><a href='edit_airport.php?id=" . $row["id"] . "'><button class='btn btn-primary'>Edit</button></a></td>";
+                                            echo "</tr>";
+                                        }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ADD AIRPORT</h5>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="">
+                                      <label for="" class="form-label">Airport Name</label>
+                                      <input type="text"class="form-control" name="" id=""placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <div class="">
+                                      <label for="" class="form-label">ICAO Name</label>
+                                      <input type="text"class="form-control" name="" id=""placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                            <div class="col-lg">
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-success" type="submit">ADD</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="mb-3"></h3>
 
           </div>
         </main>
 
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row text-muted">
-              <div class="col-6 text-start">
-                <p class="mb-0">
-                  <a
-                    class="text-muted"
-                    href="#"
-                    target="_blank"
-                    ><strong>BUNNY</strong></a
-                  >
-                  &copy;
-                </p>
-              </div>
-              <div class="col-6 text-end">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Support</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Help Center</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Privacy</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Terms</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <?php include 'inc/footer.php'; ?>
+
       </div>
     </div>
+
+    <script>
+        $('#user_table').DataTable();
+        $('#airport_table').DataTable();
+    </script>
 
     <script src="js/app.js"></script>
   </body>
