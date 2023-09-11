@@ -1,6 +1,9 @@
 
 <?php
 
+    
+
+
 if ($_SESSION["pro_img"] == "")
     $_SESSION["pro_img"] = "img/avatars/none-avatar.jpg";
 

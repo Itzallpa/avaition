@@ -46,7 +46,7 @@ $(document).ready(function () {
                             window.location.href = "../../index";
 
                             //phpmailer
-                            $.ajax({
+                            /*$.ajax({
                                 url: "mail/send_mail.php",
                                 method: "POST",
                                 data: {
@@ -55,7 +55,7 @@ $(document).ready(function () {
                                 success: function (data) {
                                     console.log(data);
                                 }
-                            })
+                            })*/
 
                         }
                     })  

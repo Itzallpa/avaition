@@ -1,3 +1,18 @@
+
+<?php
+
+
+    require_once "../../sql/database.php";
+
+    $sql = "SELECT * FROM users WHERE id = $_SESSION[user_id]";
+    $result = mysqli_query($conn, $sql);
+
+    $row = mysqli_fetch_assoc($result);
+
+
+?>
+
+
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="profile">
@@ -24,7 +39,7 @@
             </li>
 
 
-            <?php if($_SESSION['user_role'] == "Admin")
+            <?php if($row['user_role'] == "Admin")
             {
                echo '<li class="sidebar-item">
               <a class="sidebar-link" href="Admin">
