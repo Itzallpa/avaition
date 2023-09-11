@@ -42,7 +42,7 @@
             <?php if($row['user_role'] == "Admin")
             {
                echo '<li class="sidebar-item">
-              <a class="sidebar-link" href="Admin">
+              <a class="sidebar-link" href="admin">
                 <i class="align-middle me-2" data-feather="users"></i>
                 <span class="align-middle">Admin</span>
               </a>
