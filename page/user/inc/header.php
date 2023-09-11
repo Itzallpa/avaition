@@ -81,7 +81,7 @@ if ($_SESSION["pro_img"] == "")
                       <div class="row g-0 align-items-center">
                         <div class="col-2">
                           <img
-                            src="img/avatars/avatar-5.jpg"
+                            src="img/avatars/none-avatar.jpg"
                             class="avatar img-fluid rounded-circle"
                             alt="Vanessa Tucker"
                           />
