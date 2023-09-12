@@ -144,7 +144,7 @@
                                             echo "<td>" . $row["email"] . "</td>";
                                             echo "<td>" . $row["user_role"] . "</td>";
                                             echo "<td>" . $row["birthdate"] . "</td>";
-                                            echo "<td><a href='edit_user.php?id=" . $row["id"] . "'><button class='btn btn-primary'>Edit</button></a></td>";
+                                            echo "<td><button class='btn btn-primary edit_user_btn'>Edit</button></td>";
                                             echo "</tr>";
                                         }
                                     ?>
@@ -180,7 +180,7 @@
                                             echo "<td>" . $row["id"] . "</td>";
                                             echo "<td>" . $row["airport_name"] . "</td>";
                                             echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><a href='edit_airport.php?id=" . $row["id"] . "'><button class='btn btn-primary'>Edit</button></a></td>";
+                                            echo "<td><button class='btn btn-primary'>Edit</button></td>";
                                             echo "</tr>";
                                         }
                                     ?>
@@ -218,6 +218,7 @@
                 </div>
             </div>
 
+
             <h3 class="mb-3"></h3>
 
           </div>
@@ -227,11 +228,65 @@
 
       </div>
     </div>
+    
 
     <script>
         $('#user_table').DataTable();
         $('#airport_table').DataTable();
     </script>
+
+
+            <div id="edit_user" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <span class="close-btn-modal" id="closeModalBtn">&times;</span>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h1>EDIT USER</h1>
+                                    <div class="row">
+                                        <div class="col-lg">
+                                              <label for="" class="form-label">Full Name</label>
+                                              <input type="text"class="form-control" name="" id="edit_fullname" placeholder="">
+                                        </div>
+                                        <div class="col-lg">
+                                              <label for="" class="form-label">Email</label>
+                                              <input type="text"class="form-control" name="" id="edit_email" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-lg">
+                                            <label for="" class="form-label">IVAO ID</label>
+                                            <input type="text"class="form-control" name="" id="edit_ivao_id" placeholder="">
+                                        </div>
+                                        <div class="col-lg">
+                                            <label for="" class="form-label">VATSIM ID</label>
+                                            <input type="text"class="form-control" name="" id="edit_Vatsim_id" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-lg">
+                                            <label for="" class="form-label">Birth Date</label>
+                                            <input type="date"class="form-control" name="" id="edit_birthdate" placeholder="">
+                                        </div>
+                                        <div class="col-lg">
+                                            <label for="" class="form-label">Role</label>
+                                            <select class="form-select" aria-label="Default select example" id="edit_role">
+                                                <option selected>Open this select menu</option>
+                                                <option value="Member">Member</option>
+                                                <option value="Admin">Admin</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <button class="btn btn-primary" id="submit-edituser" type="button">SUMMIT</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     <script src="js/app.js"></script>
   </body>

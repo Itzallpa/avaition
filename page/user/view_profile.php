@@ -129,6 +129,8 @@
                           <label for="" class="col-sm-2 col-form-label">IVAO-ID</label>
                           <div class="col-sm-5">
                             <input type="number" class="form-control-plaintext" id="ivao_id" name="ivao_id" value="<?php echo $_SESSION["user_ivao_id"] ?>">
+
+                    
                           </div>
                         </div>
 
