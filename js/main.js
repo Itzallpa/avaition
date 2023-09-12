@@ -123,9 +123,6 @@ $(document).ready(function () {
                             timer: 1500
                         })
 
-                        //change value of <td> in table
-                        $('#edit_user').addClass('hide');
-                        $('.wrapper').toggleClass("modal-backdrop");
 
                         var new_data = JSON.parse(data);
 
