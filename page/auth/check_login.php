@@ -1,45 +1,45 @@
 <?php
 
 
-session_start();
+    session_start();
 
 
-require_once "../../sql/database.php";
+    require_once "../../sql/database.php";
 
 
-//get data from jquery
-$email = $_POST["email"];
-$password = $_POST["password"];
+    //get data from jquery
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-//check if email exist
-$sql = "SELECT * FROM `users` WHERE `email` = '$email'";
-$result = mysqli_query($conn, $sql);
+    //check if email exist
+    $sql = "SELECT * FROM `users` WHERE `email` = '$email'";
+    $result = mysqli_query($conn, $sql);
 
-if(mysqli_num_rows($result) > 0){
-    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    if(password_verify($password, $user["password"])){
+    if(mysqli_num_rows($result) > 0){
+        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        if(password_verify($password, $user["password"])){
+            
+            $_SESSION["user"] = "yes";
+            $_SESSION["full_name"] = $user["full_name"]; 
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["pro_img"] = $user["profile_picture"];
+            $_SESSION["user_role"] = $user["user_role"];
+
+            echo $data['success'] = true;
+
         
-        $_SESSION["user"] = "yes";
-        $_SESSION["full_name"] = $user["full_name"]; 
-        $_SESSION["user_id"] = $user["id"];
-        $_SESSION["pro_img"] = $user["profile_picture"];
-        $_SESSION["user_role"] = $user["user_role"];
-
-        echo $data['success'] = true;
-
-    
-        
+            
+        }
+        else
+        {
+            $data['success'] = false;
+            echo $data['success'];
+        }
     }
     else
     {
-        $data['success'] = false;
-        echo $data['success'];
+        echo "Email does not exist";
     }
-}
-else
-{
-    echo "Email does not exist";
-}
 
 
 
