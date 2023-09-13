@@ -123,7 +123,7 @@ if ($_SESSION["pro_img"] == "")
                   <span class="text-dark"><?php echo $_SESSION["full_name"] ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a class="dropdown-item" href="view_profile.php"
+                  <a class="dropdown-item" href="view_profile"
                     ><i class="align-middle me-1" data-feather="user"></i>
                     Profile</a
                   >
