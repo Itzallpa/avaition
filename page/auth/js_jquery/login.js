@@ -43,7 +43,7 @@ $(document).ready(function () {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             //redirect to index.php
-                            window.location.href = "../../index";
+                            window.location.href = "../user/profile.php";
 
                             //phpmailer
                             /*$.ajax({
