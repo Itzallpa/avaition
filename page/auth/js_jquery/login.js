@@ -42,7 +42,7 @@ $(document).ready(function () {
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            //redirect to
+                            //redirect to profile
                             window.location.href = "../user/profile";
 
                             //phpmailer
