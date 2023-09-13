@@ -21,7 +21,7 @@
             <a class="nav-link text-white" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Crew Login</a>
+            <a class="nav-link text-white" href="page/auth/login">Crew Login</a>
           </li>
         </ul>
 
@@ -71,7 +71,7 @@
         <div class="row">
           <div class="col-lg-6 mx-auto text-center">
             <img src="img/tha-logo.png" alt="" width="70" height="70" srcset="">
-            <p>Thai airways virtual airline is a non-profit organization. This website serve the hobby of flight simulation. Similarities with real existing airlines are not intended and The Reds Virtual is in no way related to, funded by, or recognized by the real airlines.</p>
+            <p style="font-size: 13px">Thai airways virtual airline is a non-profit organization. This website serve the hobby of flight simulation. Similarities with real existing airlines are not intended and The Reds Virtual is in no way related to, funded by, or recognized by the real airlines.</p>
             <br>
             <p>Copyright © 2023 Thai airways virtual airlinel</p>
           </div>
