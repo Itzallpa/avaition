@@ -4,7 +4,9 @@
 
   if(!isset($_SESSION["full_name"]))
     $_SESSION["full_name"] = "Guest";
-  
+
+    
+    phpinfo();
 ?>
 
 
