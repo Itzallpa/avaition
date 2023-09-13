@@ -2,8 +2,7 @@
 
 
     session_start();
-
-
+    
     require_once "../../sql/database.php";
 
 
