@@ -6,6 +6,9 @@
   if(!isset($_SESSION["full_name"]))
     $_SESSION["full_name"] = "Guest";
 
+  else if(isset($_SESSION["full_name"]))
+    header("Location: page/user/profile");
+
   
 ?>
 
@@ -33,7 +36,12 @@
             <a class="nav-link text-white" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="page/user/profile">Crew</a>
+            <?php if($_SESSION["full_name"] == "Guest") { ?>
+              <?php echo "<a class='nav-link text-white' href='page/auth/login'>LOGIN</a>";
+            } else {
+              echo "<a class='nav-link text-white' href='page/user/profile'>Crew</a>";
+            }
+            ?>
           </li>
         </ul>
 
