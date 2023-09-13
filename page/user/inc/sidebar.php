@@ -16,7 +16,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="profile">
-            <span class="align-middle">BUNNY VIR</span>
+            <span class="align-middle">Thai Airway VA</span>
         </a>
 
         <ul class="sidebar-nav">

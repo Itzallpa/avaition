@@ -20,19 +20,19 @@ $full_name = $_POST["full_name"];
 $password = $_POST["password"];
 
 
-$subject = "Bunny Vir Reminder";
+$subject = "Thai Airways VA Reminder";
 $body = "
 
 Dear $full_name,<br>
 
-Thank you for registering with Bunny Vir. We are excited to have you on board.
+Thank you for registering with Thai Airways VA. We are excited to have you on board.
 <br><br>
 Password: $password
 <br>
 <br>
 Warm Regards,
 <br>
-Bunny Vir Team
+Thai Airways VA Team
 ";
 
 echo $data["success"] = true;

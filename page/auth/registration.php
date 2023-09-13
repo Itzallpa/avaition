@@ -30,7 +30,7 @@
             <div class="col-lg-6">
             <div class="card shadow-1">
                 <div class="card-body">
-                    <h2 class="card-title text-center">REGISTER | BUNNY VIR</h2>
+                    <h2 class="card-title text-center">REGISTER | Thai Airway VA</h2>
                     <form>
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Fristname Lastname</label>
@@ -48,7 +48,7 @@
                             <input type="email" class="form-control" id="email" name="email" require>
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">birthdate</label>
+                            <label for="birthdate" class="form-label">birthday</label>
                             <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                         </div>
                         <div class="mb-3">

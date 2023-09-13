@@ -37,7 +37,7 @@
       href="https://demo-basic.adminkit.io/pages-blank.html"
     />
 
-    <title>HOME PAGE | BUNNY VIR</title>
+    <title>HOME PAGE | Thai Airway VA</title>
 
     <link href="css/app.css" rel="stylesheet" />
     <link
@@ -182,7 +182,7 @@
                         </tr>
                         <tr>
                             <td>SKY005</a></td>
-                            <td class="d-none d-xl-table-cell">Natakon</td>
+                            <td class="d-none d-xl-table-cell">Natakorn</td>
                             <td class="d-none d-xl-table-cell">1/1</td>
                             <td>Bangkok (VTBS)</td>
                             <td class="d-none d-md-table-cell">A320</td>
@@ -205,7 +205,7 @@
                     class="text-muted"
                     href="#"
                     target="_blank"
-                    ><strong>BUNNY</strong></a
+                    ><strong>Thai Airway VA</strong></a
                   >
                   &copy;
                 </p>
