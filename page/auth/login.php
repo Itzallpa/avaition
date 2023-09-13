@@ -6,11 +6,6 @@
         header("Location: ../user/profile");
     }
 
-
-
-
-
-
 ?>
 
 

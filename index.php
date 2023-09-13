@@ -1,3 +1,13 @@
+
+<?php
+  session_start();
+
+  if(!isset($_SESSION["full_name"]))
+    $_SESSION["full_name"] = "Guest";
+  
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,7 +43,7 @@
       <div class="container">
           <div class="row">
             <div class="col-lg">
-              <h1 class="display-1 text-white">Welcome to Thai airways virtual airline</h1>
+              <h1 class="display-1 text-white">Welcome <?php echo $_SESSION["full_name"] ?> to Thai airways virtual airline</h1>
               <p class="lead text-white">Let's paint the virtual skies red with us today!  A great community, for everyone.</p>
               <a href="page\auth\registration.php" class="btn-apply btn-lg">APPLY NOW</a>
             </div>

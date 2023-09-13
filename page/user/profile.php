@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+
     if(!isset($_SESSION["user_id"])){
         header("Location: ../../index.php");
     }
@@ -60,8 +61,7 @@
 
         <main class="content">
           <div class="container-fluid p-0">
-            <h1 class="h3 mb-3">Blank Page</h1>
-
+            <h1 class="h3 mb-3"><?php echo $_SESSION["full_name"] ?></h1>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="card">
