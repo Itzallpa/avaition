@@ -1,8 +1,4 @@
-#map
-{
-    background-color: black;
-    height: 50vh;
-}
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
 
 body::-webkit-scrollbar{
     display: none;
@@ -55,6 +51,57 @@ body::-webkit-scrollbar{
 .table-purple
 {
     background-color: #3D1A6F !important;
+}
+
+.header-center
+{
+    
+    height: 95vh !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.btn-apply
+{
+    background-color: #fff;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 25vh;
+    position: relative;
+    top: 20px;
+}
+
+.btn-apply:hover
+{
+    background-color: #FFCB08;
+    color: black;
+    transition: 0.3s;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .header-center
+    {
+        height: 110vh !important;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+footer
+{
+    background-color: #1A1A1A !important;
+    color: white !important;
+    padding: 30px;
+
 }
 
 

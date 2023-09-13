@@ -4,8 +4,8 @@
 
     require_once "../../sql/database.php";
 
-
-    $sql = "SELECT * FROM users WHERE id = $_SESSION[user_id]";
+    $user_id = $_SESSION["user_id"];
+    $sql = "SELECT * FROM users WHERE id = $user_id";
     $result = mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
@@ -279,7 +279,13 @@
                                         </div>
                                     </div>
                                     <div class="row mt-2">
-                                        <button class="btn btn-primary" id="submit-edituser" type="button">SUMMIT</button>
+                                        <div class="col-lg">
+                                            <label for="" class="form-label">Password</label>
+                                            <input type="password"class="form-control" name="" id="edit_password" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <button class="btn btn-primary" id="submit-edituser" type="button">SUBMIT</button>
                                     </div>
                                 </div>
                             </div>

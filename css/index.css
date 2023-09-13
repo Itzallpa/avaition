@@ -1,38 +1,3 @@
 
-body::-webkit-scrollbar{
-    display: none;
-  }
 
-.header
-{
-    background-image: url("../img/vtbs.jpg");
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 15px;
-    padding: 20vh;
-}
-
-@media (max-width: 768px)
-{
-    .header
-    {
-        padding: 10vh;
-    }
-}
-
-.bg-ivao-blue
-{
-    background-color: #0D2C99;
-}
-
-.color-ivao-blue
-{
-    color: #0D2C99;
-}
-
-.test{
-    background-color: #0D2C99;
-    color: antiquewhite;
-    border-radius: 16px;
-}
+/* เพิ่มสไตล์อื่น ๆ ตามที่คุณต้องการ */

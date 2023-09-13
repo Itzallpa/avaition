@@ -99,6 +99,9 @@ $(document).ready(function () {
             var edit_vatsim_id = $('#edit_Vatsim_id').val();
             var edit_birthdate = $('#edit_birthdate').val();
             var edit_role = $('#edit_role').val();
+            var edit_password = $('#edit_password').val();
+
+
 
             $.ajax({
                 url: "../auth/editprofile.php",
@@ -111,7 +114,8 @@ $(document).ready(function () {
                     edit_ivao_id: edit_ivao_id,
                     edit_vatsim_id: edit_vatsim_id,
                     edit_birthdate: edit_birthdate,
-                    edit_role: edit_role
+                    edit_role: edit_role,
+                    edit_password: edit_password
                 },
                 success: function (data) {
                     if(data)

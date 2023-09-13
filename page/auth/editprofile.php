@@ -70,6 +70,15 @@
                 $vatsim_id = $_POST["edit_vatsim_id"];
                 $birthdate = $_POST["edit_birthdate"];
                 $user_role = $_POST["edit_role"];
+                $password = $_POST["edit_password"];
+
+                
+                if($password != "")
+                {
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $sql = "UPDATE `users` SET `password`='$password' WHERE `email` = '$email'";
+                    $result = mysqli_query($conn, $sql);
+                }
 
                 $sql = "UPDATE `users` SET `full_name`='$full_name',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_role`='$user_role' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
