@@ -35,7 +35,7 @@
             <a class="nav-link text-white" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="page/auth/login">Crew Login</a>
+            <a class="nav-link text-white" href="page/user/profile">Crew</a>
           </li>
         </ul>
 
