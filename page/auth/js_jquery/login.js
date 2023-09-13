@@ -42,8 +42,8 @@ $(document).ready(function () {
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            //redirect to index.php
-                            window.location.href = "user/profile";
+                            //redirect to
+                            window.location.href = "../user/profile";
 
                             //phpmailer
                             /*$.ajax({
