@@ -27,6 +27,27 @@ $(document).ready(function () {
 
         }
 
+        //check ivaoID not number
+        if (isNaN(ivaoId)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter number!',
+            })
+            return false;
+        }
+
+        //check vatsimID not number
+        if (isNaN(vatsimId)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please enter number!',
+            })
+            return false;
+        }
+        
+
 
         //check birthdate
         var today = new Date();
@@ -46,7 +67,7 @@ $(document).ready(function () {
         //check email if not @gmail.com
 
         var checkEmail = email.split("@");
-        if (checkEmail[1] != "gmail.com") {
+        if (checkEmail[1] != "gmail.com" || checkEmail[1] != "hotmail.com") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

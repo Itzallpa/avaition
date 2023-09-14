@@ -29,7 +29,11 @@
 
     <nav class="navbar bg-purple " data-bs-theme="dark">
       <div class="container-fluid">
+<<<<<<< HEAD
         <a class="navbar-brand">BUNNY VA</a>
+=======
+        <a class="navbar-brand">THVA</a>
+>>>>>>> cb2d78da024f55f383c7d433829edc535b879023
         
         <ul class="nav">
           <li class="nav-item">
@@ -55,7 +59,11 @@
             <div class="col-lg">
               <h1 class="display-1 text-white">Welcome <?php echo $_SESSION["full_name"] ?> to BUNNY VA</h1>
               <p class="lead text-white">Let's paint the virtual skies red with us today!  A great community, for everyone.</p>
-              <a href="page/user/profile" class="btn-apply btn-lg">APPLY NOW</a>
+              <?php if($_SESSION["full_name"] == "Guest") { ?>
+                <?php echo "<a href='page/auth/registration' class='btn-apply btn-lg'>APPLY NOW</a>";
+              } else {
+                echo "<a href='page/user/profile' class='btn-apply btn-lg'>PROFILE</a>";
+              } ?>
             </div>
             <div class="col-lg order-lg-last order-first">
               <img class="img-fluid" src="img/tha-logo.png" alt="">

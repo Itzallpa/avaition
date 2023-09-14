@@ -23,8 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
-<body>
-
+<body style="background-color: #f0f0f0;">
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
@@ -33,7 +32,7 @@
                     <h2 class="card-title text-center">REGISTER | BUNNY VA</h2>
                     <form>
                         <div class="mb-3">
-                            <label for="fullName" class="form-label">Fristname Lastname</label>
+                            <label for="fullName" class="form-label">Frist Name Last Name</label>
                             <div class="row">
                             <div class="col">
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
@@ -45,7 +44,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" require>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com" require>
                         </div>
                         <div class="mb-3">
                             <label for="birthdate" class="form-label">birthday</label>
@@ -59,14 +58,14 @@
                             <label for="vatsimId" class="form-label">VATSIM ID</label>
                             <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
                         </div>
-                        <button type="button" id="register" class="btn btn-primary w-100">Register!</button>
+                        <button type="button" id="register" class="btn btn-purple w-100">Register!</button>
                     </form>
 
                 </div>
-                <div class="card-footer text-muted">
+                <div class="card-footer text-white">
                     <div class="row">
                     <div class="col">
-                        <p>Already have an account? <a href="login">Login!</a> <p>
+                        <p>Already have an account? <a href="login" class="text-white">Login!</a> <p>
                     </div>
                 </div>
             </div>

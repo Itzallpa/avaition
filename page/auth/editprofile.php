@@ -83,6 +83,7 @@
                 $sql = "UPDATE `users` SET `full_name`='$full_name',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_role`='$user_role' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
             
+            
                 $data = array(
                     'full_name' => $full_name,
                     'email' => $email,
@@ -91,6 +92,10 @@
                     'birthdate' => $birthdate,
                     'user_role' => $user_role
                 );
+
+                //ZONE LOG:
+                //ZONE LOG:
+
                 echo $user_data = json_encode($data);
         
             }
@@ -99,8 +104,6 @@
                 echo $data['success'] = "Email does not exist";
             }
     }
-
-
 
 
 

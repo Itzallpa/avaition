@@ -94,6 +94,11 @@ body::-webkit-scrollbar{
         justify-content: center;
         width: 100%;
     }
+    .login-box
+    {
+        margin-top: 50%;
+        border-radius: 16px;
+    }
 }
 
 footer
@@ -102,6 +107,13 @@ footer
     color: white !important;
     padding: 30px;
 
+}
+
+
+.login-box
+{
+    margin-top: 10%;
+    border-radius: 16px;
 }
 
 

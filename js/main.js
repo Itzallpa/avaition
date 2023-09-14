@@ -196,3 +196,256 @@ $(document).ready(function () {
 
 
 });
+
+
+//ADD AIRPORT
+$(document).ready(function () {
+
+    $('#submit-add-airport').click(function () {
+
+        var airport_name = $('[name=airport_name]').val();
+        var icao_name = $('[name=icao_name]').val();
+
+        //check if airport_name or icao_name is empty
+        if (airport_name == "" || icao_name == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+            return;
+        }
+
+        //check data on #airport_table
+        var table = $('#airport_table').DataTable();
+        var data = table.rows().data();
+
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i][1]);
+        }
+
+        //check if airport_name or icao_name is exist
+        var check = false;
+        for (var i = 0; i < data.length; i++) {
+            if (data[i][1] == airport_name || data[i][2] == icao_name) {
+                check = true;
+                break;
+            }
+        }
+
+        if (check == true) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Airport Name or ICAO Name is exist!',
+            })
+        } else {
+
+            table.row.add([data.length+1, airport_name, icao_name, "<td><button class='btn btn-primary'>Edit</button></td>"]).draw();
+
+            $.ajax({
+                url: "../auth/airport_system.php",
+                method: "POST",
+                data: {
+                    type: "add_airport",
+                    airport_name: airport_name,
+                    icao_name: icao_name
+                },
+                success: function (data) {
+                    if (data == true) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Add Airport Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Add Airport Failed!',
+                        })
+                    }
+                }
+            })
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+});
+
+
+//EDIT AIRPORT
+$(document).ready(function () {
+
+
+
+    //when click <td>
+    $('#airport_table').on('click', 'td', function () {
+        
+        //get value of <td>
+        var table = $('#airport_table').DataTable();
+        var data = table.rows().data();
+        //check that the mouse click has information in <td>
+
+
+
+
+        var airport_name = $(this).closest('tr').find('td').eq(1).text();
+        var icao_name = $(this).closest('tr').find('td').eq(2).text();
+        
+
+        //check column of <td> that click
+        var column = $(this).closest('tr').find('td').index($(this));
+
+        if(column == 1)
+        {
+            Swal.fire({
+                title: 'Edit Airport Name',
+                input: 'text',
+                inputValue: airport_name,
+                showConfirmButton: true,
+                showCancelButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to write something!'
+                    }
+                }
+            }).then((result) => {
+                
+                if(result.isConfirmed)
+                {
+                    var new_airport_name = result.value;
+                    
+                    $.ajax({
+                        url: "../auth/airport_system.php",
+                        method: "POST",
+                        data: {
+                            type: "edit_airport_name",
+                            airport_name: airport_name,
+                            new_airport_name: new_airport_name
+                        },
+                        success: function (data) {
+                            if (data == true) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Edit Airport Name Success',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                                
+
+                                var table = $('#airport_table');
+                                var td = table.find('td');
+                                var airport  = td.filter(function () {
+                                    return $(this).text() == airport_name;
+                                });
+
+                                airport.closest('tr').find('td').eq(1).text(new_airport_name);
+                                
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Edit Airport Name Failed!',
+                                })
+                            }
+                        }
+                    })
+                    
+
+                    
+                }
+
+            });  
+        }
+        else if(column == 2)
+        {
+            Swal.fire({
+                title: 'Edit ICAO Name',
+                input: 'text',
+                inputValue: icao_name,
+                showConfirmButton: true,
+                showCancelButton: true,
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'You need to write something!'
+                    }
+                }
+            }).then((result) => {
+                
+                if(result.isConfirmed)
+                {
+                    var new_icao_name = result.value;
+
+
+                    if(new_icao_name.length != 4)
+                    {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'ICAO Name must be 4 characters!',
+                        })
+                        return;
+                    }
+                    
+                    $.ajax({
+                        url: "../auth/airport_system.php",
+                        method: "POST",
+                        data: {
+                            type: "edit_icao_name",
+                            icao_name: icao_name,
+                            new_icao_name: new_icao_name
+                        },
+                        success: function (data) {
+                            if (data == true) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Edit ICAO Name Success',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                                
+
+                                var table = $('#airport_table');
+                                var td = table.find('td');
+                                var airport  = td.filter(function () {
+                                    return $(this).text() == icao_name;
+                                });
+
+                                airport.closest('tr').find('td').eq(2).text(new_icao_name);
+
+                                console.log(data);
+                                
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Edit ICAO Name Failed!',
+                                })
+                                console.log(data);
+                            }
+                        }
+                    })
+                }
+
+            });
+        }
+    });
+
+
+});
