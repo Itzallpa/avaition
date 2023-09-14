@@ -28,29 +28,29 @@ body::-webkit-scrollbar{
 
 .bg-purple
 {
-    background-color: #3D1A6F !important;
+    background-color: #657d27 !important;
 }
 
 .text-purple
 {
-    color: #3D1A6F !important;
+    color: #657d27 !important;
 }
 
 .btn-purple
 {
-    background-color: #3D1A6F !important;
-    border-color: #3D1A6F !important;
+    background-color: #657d27 !important;
+    border-color: #657d27 !important;
     color: white !important;
 }
 
 .btn-purple:focus
 {
-    box-shadow: #3D1A6F !important;
+    box-shadow: #657d27 !important;
 }
 
 .table-purple
 {
-    background-color: #3D1A6F !important;
+    background-color: #657d27 !important;
 }
 
 .header-center

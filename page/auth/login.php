@@ -22,11 +22,11 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     
 </head>
-<body style="background-color: #f0f0f0;">
+<body style="background-color: #fff;">
 <div class="container">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #7d48a8">
+            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27">
                 <h1 class="text-center mt-5 text-white">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
