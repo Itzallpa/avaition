@@ -27,7 +27,7 @@
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
-            <div class="card shadow-1">
+            <div class="card shadow-1" style="background-color: #657d27">
                 <div class="card-body">
                     <h2 class="card-title text-center">REGISTER | BUNNY VA</h2>
                     <form>
