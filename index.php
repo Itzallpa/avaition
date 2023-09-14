@@ -97,7 +97,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mx-auto text-center">
-            <img src="img/tha-logo.png" alt="" width="70" height="70" srcset="">
+            <img src="img/bunny.png" alt="" width="70" height="70" srcset="">
             <p style="font-size: 13px">BUNNY VA is a non-profit organization. This website serve the hobby of flight simulation.</p>
             <br>
             <p>Copyright © 2023 BUNNY VA</p>
