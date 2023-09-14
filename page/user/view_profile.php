@@ -75,6 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../auth/js_jquery/upload_pro_img.js"></script>
     <script src="../../js/main.js"></script>
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
   </head>
 
   <body>

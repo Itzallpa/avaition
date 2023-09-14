@@ -48,6 +48,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
     
 
   </head>
