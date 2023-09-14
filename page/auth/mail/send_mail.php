@@ -32,7 +32,7 @@ if(mysqli_num_rows($result) > 0){
 
     <p>Best Regards,</p>
 
-    <p>Bunny Vir</p>
+    <p>Bunny VA</p>
 
     <p>https://bunnyvir.com</p>
     

@@ -27,12 +27,12 @@
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
-            <div class="card shadow-1 " style="background-color: #7d48a8">
-                <div class="card-body text-white">
-                    <h2 class="card-title text-center">REGISTER | Thai Airway VA</h2>
+            <div class="card shadow-1">
+                <div class="card-body">
+                    <h2 class="card-title text-center">REGISTER | BUNNY VA</h2>
                     <form>
                         <div class="mb-3">
-                            <label for="fullName" class="form-label">Fristname Lastname</label>
+                            <label for="fullName" class="form-label">Frist Name Last Name</label>
                             <div class="row">
                             <div class="col">
                                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
@@ -47,7 +47,7 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com" require>
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">birthdate</label>
+                            <label for="birthdate" class="form-label">birthday</label>
                             <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                         </div>
                         <div class="mb-3">

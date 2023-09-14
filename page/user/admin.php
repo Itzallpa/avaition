@@ -50,7 +50,7 @@
       href="https://demo-basic.adminkit.io/pages-blank.html"
     />
 
-    <title>HOME PAGE | BUNNY VIR</title>
+    <title>HOME PAGE | Thai Airway VA</title>
 
     <link href="css/app.css" rel="stylesheet" />
     <link
@@ -184,7 +184,7 @@
                                             echo "<td>" . $count . "</td>";
                                             echo "<td>" . $row["airport_name"] . "</td>";
                                             echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><button class='btn btn-danger'>DELECT</button></td>";
+                                            echo "<td><button class='btn btn-danger'>DELETE</button></td>";
                                             echo "</tr>";
 
                                             $count++;
@@ -302,7 +302,7 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-lg">
-                                            <label for="" class="form-label">Birth Date</label>
+                                            <label for="" class="form-label">Birthday</label>
                                             <input type="date"class="form-control" name="" id="edit_birthdate" placeholder="">
                                         </div>
                                         <div class="col-lg">

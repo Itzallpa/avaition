@@ -20,19 +20,19 @@ $full_name = $_POST["full_name"];
 $password = $_POST["password"];
 
 
-$subject = "Bunny Vir Reminder";
+$subject = "BUNNY VA Reminder";
 $body = "
 
 Dear $full_name,<br>
 
-Thank you for registering with Bunny Vir. We are excited to have you on board.
+Thank you for registering with BUNNY VA. We are excited to have you on board.
 <br><br>
 Password: $password
 <br>
 <br>
 Warm Regards,
 <br>
-Bunny Vir Team
+BUNNY VA Team
 ";
 
 echo $data["success"] = true;
@@ -60,7 +60,7 @@ function sendEmail($email, $full_name, $subject, $body){
         $mail->Port       = 587;                                    // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('hq@thepurple.online', 'Bunny Vir');
+        $mail->setFrom('hq@thepurple.online', 'Bunny VA');
         $mail->addAddress($email, $full_name);     // Add a recipient
     
         // Content
