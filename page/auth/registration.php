@@ -23,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
-<body style="background-color: #f0f0f0;">
+<body style="background-color: #657d27;">
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
