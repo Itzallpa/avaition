@@ -23,7 +23,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
-<body style="background-image: url('https://media.discordapp.net/attachments/1116388263184322640/1151417533040177182/image.png?width=635&height=670');">
+<body style="background-image: url('../../img/non.jpg');">
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
