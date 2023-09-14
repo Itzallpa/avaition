@@ -43,7 +43,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
     <link
       rel="canonical"
@@ -69,6 +69,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="../../js/main.js"></script>
+    
 
   </head>
 

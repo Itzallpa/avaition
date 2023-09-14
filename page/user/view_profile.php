@@ -52,7 +52,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
     <link
       rel="canonical"
@@ -75,6 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../auth/js_jquery/upload_pro_img.js"></script>
     <script src="../../js/main.js"></script>
+    
   </head>
 
   <body>

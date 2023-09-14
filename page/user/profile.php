@@ -30,7 +30,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
     <link
       rel="canonical"
@@ -48,6 +48,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/custom.css">
+    
     
 
   </head>
@@ -120,7 +121,7 @@
                                 <p class="card-text">
                                     <h1>Welcome Aboard TG!</h1>
                                     <p>Posted by Natakon on 08/06/2023</p>
-                                    <img src="https://i.imgur.com/F5Pw6iu.png" class="img-fluid" alt="" srcset="">
+                                    <img src="../../img/bunny.png" class="img-fluid" alt="" srcset="">
                                     <p>Welcome to The Reds Virtual,  
 
                                     Thank you to be the part of us ! Our staff be very happy to assist if you have any question or inquiry.

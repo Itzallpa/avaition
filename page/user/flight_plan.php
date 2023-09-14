@@ -28,7 +28,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
     <link
       rel="canonical"
