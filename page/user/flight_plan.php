@@ -28,7 +28,7 @@
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
     <link
       rel="canonical"
@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
+    
     
 
   </head>
