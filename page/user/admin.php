@@ -184,7 +184,7 @@
                                             echo "<td>" . $count . "</td>";
                                             echo "<td>" . $row["airport_name"] . "</td>";
                                             echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><button class='btn btn-danger'>DELECT</button></td>";
+                                            echo "<td><button class='btn btn-danger'>DELETE</button></td>";
                                             echo "</tr>";
 
                                             $count++;

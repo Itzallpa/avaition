@@ -2,7 +2,6 @@
 
     session_start();
     require_once "../../sql/database.php";
-    require_once "log.php"; 
 
     
     $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
