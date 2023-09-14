@@ -30,7 +30,7 @@
             <div class="col-lg-6">
             <div class="card shadow-1">
                 <div class="card-body">
-                    <h2 class="card-title text-center">REGISTER | Thai Airway VA</h2>
+                    <h2 class="card-title text-center">REGISTER | BUNNY VA</h2>
                     <form>
                         <div class="mb-3">
                             <label for="fullName" class="form-label">Fristname Lastname</label>

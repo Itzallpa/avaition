@@ -18,7 +18,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thai airways virtual airline</title>
+    <title>Bunny VA</title>
     <link rel="stylesheet" href="css/custom.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
 
     <nav class="navbar bg-purple " data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand">THAI</a>
+        <a class="navbar-brand">BUNNY VA</a>
         
         <ul class="nav">
           <li class="nav-item">
@@ -53,7 +53,7 @@
       <div class="container">
           <div class="row">
             <div class="col-lg">
-              <h1 class="display-1 text-white">Welcome <?php echo $_SESSION["full_name"] ?> to Thai airways virtual airline</h1>
+              <h1 class="display-1 text-white">Welcome <?php echo $_SESSION["full_name"] ?> to BUNNY VA</h1>
               <p class="lead text-white">Let's paint the virtual skies red with us today!  A great community, for everyone.</p>
               <a href="page/user/profile" class="btn-apply btn-lg">APPLY NOW</a>
             </div>
@@ -91,9 +91,9 @@
         <div class="row">
           <div class="col-lg-6 mx-auto text-center">
             <img src="img/tha-logo.png" alt="" width="70" height="70" srcset="">
-            <p style="font-size: 13px">Thai airways virtual airline is a non-profit organization. This website serve the hobby of flight simulation. Similarities with real existing airlines are not intended and Thai Airway VA is in no way related to, funded by, or recognized by the real airlines.</p>
+            <p style="font-size: 13px">BUNNY VA is a non-profit organization. This website serve the hobby of flight simulation.</p>
             <br>
-            <p>Copyright © 2023 Thai airways virtual airlinel</p>
+            <p>Copyright © 2023 BUNNY VA</p>
           </div>
         </div>
       </div>

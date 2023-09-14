@@ -35,7 +35,7 @@
       href="https://demo-basic.adminkit.io/pages-blank.html"
     />
 
-    <title>HOME PAGE | BUNNY VIR</title>
+    <title>HOME PAGE | BUNNY VA</title>
 
     <link href="css/app.css" rel="stylesheet" />
     <link
