@@ -65,7 +65,7 @@
               } ?>
             </div>
             <div class="col-lg order-lg-last order-first">
-              <img class="img-fluid" src="img/bunny.png" alt="">
+              <img class="img-fluid" src="img/Bunny.png" alt="">
             </div>
           </div>
       </div>
