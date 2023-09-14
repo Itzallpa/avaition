@@ -121,7 +121,7 @@
                                 <p class="card-text">
                                     <h1>Welcome Aboard TG!</h1>
                                     <p>Posted by Natakon on 08/06/2023</p>
-                                    <img src="https://i.imgur.com/F5Pw6iu.png" class="img-fluid" alt="" srcset="">
+                                    <img src="../../img/bunny.png" class="img-fluid" alt="" srcset="">
                                     <p>Welcome to The Reds Virtual,  
 
                                     Thank you to be the part of us ! Our staff be very happy to assist if you have any question or inquiry.
