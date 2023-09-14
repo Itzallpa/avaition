@@ -41,11 +41,6 @@
       name="description"
       content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
     />
-    <meta name="author" content="AdminKit" />
-    <meta
-      name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
-    />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
@@ -67,7 +62,7 @@
 
     <link rel="stylesheet" href="css/custom.css">
     
-    <link rel="stylesheet" href="ttps://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -174,14 +169,25 @@
                                     <?php
                                         $sql = "SELECT * FROM airport";
                                         $result = mysqli_query($conn, $sql);
+                                        
+                                        $row = mysqli_fetch_assoc($result);
 
+                                        if($row["airport_name"] == ""){
+                                            echo "<tr>";
+                                            echo "<td colspan='4'>No Data</td>";
+                                            echo "</tr>";
+                                        }
+
+                                        $count = 1;
                                         while($row = mysqli_fetch_assoc($result)){
                                             echo "<tr>";
-                                            echo "<td>" . $row["id"] . "</td>";
+                                            echo "<td>" . $count . "</td>";
                                             echo "<td>" . $row["airport_name"] . "</td>";
                                             echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><button class='btn btn-primary'>Edit</button></td>";
+                                            echo "<td><button class='btn btn-danger'>DELECT</button></td>";
                                             echo "</tr>";
+
+                                            $count++;
                                         }
                                     ?>
                                 </tbody>
@@ -195,22 +201,19 @@
                             <h5 class="card-title">ADD AIRPORT</h5>
                             <div class="row">
                                 <div class="col-lg">
-                                    <div class="">
-                                      <label for="" class="form-label">Airport Name</label>
-                                      <input type="text"class="form-control" name="" id=""placeholder="">
-                                    </div>
+                                    <label class="form-label">Airport Name</label>
+                                    <input type="text"class="form-control" name="airport_name" placeholder="">
                                 </div>
                                 <div class="col-lg">
-                                    <div class="">
-                                      <label for="" class="form-label">ICAO Name</label>
-                                      <input type="text"class="form-control" name="" id=""placeholder="">
-                                    </div>
+                                    <label class="form-label">ICAO</label>
+                                    <input type="text"class="form-control" name="icao_name" placeholder="">
                                 </div>
                             </div>
                             <div class="row mt-3">
-                            <div class="col-lg">
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-success" type="submit">ADD</button>
+                                <div class="col-lg">
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-success" id="submit-add-airport" type="button">ADD</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -218,8 +221,41 @@
                 </div>
             </div>
 
+            
 
-            <h3 class="mb-3"></h3>
+            <h3 class="mb-3">LOG</h3>
+            <div class="row">
+                <div class="col-lg">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">LOG</h5>
+                            <p class="card-text">ทุกอย่างที่ ผู้ดูแลทำจะถูกบันทึกไว้โดย ระบบ</p>
+                            <table id="user_table" class="table table-hover my-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>ID_USER</th>
+                                        <th>Role</th>
+                                        <th>Time</th>
+                                        <th>Details</th>
+                                        <th>VIEW</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>Admin</td>
+                                        <td>2021-10-10 10:10:10</td>
+                                        <td>เพิ่มสนามบิน</td>
+                                        <td><button class="btn btn-primary">VIEW</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
           </div>
         </main>

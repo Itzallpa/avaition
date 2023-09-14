@@ -22,12 +22,12 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     
 </head>
-<body>
+<body style="background-color: #f0f0f0;">
 <div class="container">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1">
-                <h1 class="text-center mt-5">Login</h1>
+            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #7d48a8">
+                <h1 class="text-center mt-5 text-white">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
                     </div>
@@ -35,13 +35,13 @@
                         <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-primary" id="login" type="submit">LOGIN</button>
+                        <button class="btn btn-purple" id="login" type="submit">LOGIN</button>
                     </div>
                     
                     <div class="mt-2">
                         <div class="row">
-                            <div class="col">
-                            <p>Don't have accout? <a href="registration">Register!</a> <p>
+                            <div class="col text-white">
+                            <p>Don't have accout? <a href="registration" class="text-white">Register!</a> <p>
                             </div>
                         </div>
                     </div>

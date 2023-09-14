@@ -120,7 +120,7 @@ if ($_SESSION["pro_img"] == "")
                     class="avatar img-fluid rounded me-1"
                     id="pro_img_nav"
                   />
-                  <span class="text-dark"><?php echo $_SESSION["full_name"] ?></span>
+                  <span class="text-dark"><?php echo $row["full_name"] ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                   <a class="dropdown-item" href="view_profile"
