@@ -71,7 +71,7 @@
                                 <label for="vatsimId" class="form-label">VATSIM ID</label>
                                 <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
                             </div>
-                            <button type="button" id="register" class="btn w-100">Register!</button>
+                            <button type="button" id="register" class="btn w-100 text-white">Register!</button>
                         </form>
                     </div>
                     <div class="card-footer text-white">
