@@ -30,14 +30,14 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        .youtube-logo {
-            display: block;
-            margin: 0 auto;
-            max-width: 100px; /* Adjust the maximum width as needed */
-            height: auto;
-        }
+        
         .center-text {
             text-align: center;
+        }
+        .transparent-box {
+            background-color: rgba(101, 125, 39, 0.7); /* Adjust the color and opacity as needed */
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
