@@ -3,10 +3,18 @@
 
   session_start();
 
-  if(isset($_SESSION["user_id"]))
-    header("Location: ../user/profile");
+    /*if(isset($_SESSION["full_name"]) != "Guest")
+    {
+        echo "<script> alert('. ". $_SESSION['full_name']. ". ') </script>";
+    }
+    else
+    {
+        echo "<script> alert('Guest') </script>";
+    }*/
 
-  
+
+    if(isset($_SESSION["full_name"]) && $_SESSION["full_name"] != "Guest")
+        header("Location: ../user/profile");
 ?>
 
 
