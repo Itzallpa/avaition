@@ -36,10 +36,10 @@
                             <label for="fullName" class="form-label">Frist Name Last Name</label>
                             <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="FirstName" required>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="LastName" required>
                             </div>
                             </div>
                         </div>
