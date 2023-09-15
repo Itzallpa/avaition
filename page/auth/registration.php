@@ -44,8 +44,8 @@
                     <div class="card-body">
                         <h2 class="card-title text-center text-white">REGISTER | BUNNY VA</h2>
                         <form>
-                            <div class="mb-3">
-                                <label for="fullName" class="form-label">Frist Name Last Name</label>
+                            <div class="mb-3 text-white">
+                                <label for="fullName" class="form-label">First Name Last Name</label>
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="FirstName" required>
