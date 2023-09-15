@@ -36,10 +36,10 @@
                             <label for="fullName" class="form-label">Frist Name Last Name</label>
                             <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="FirstName" required>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="LastName" required>
                             </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com" require>
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">birthday</label>
+                            <label for="birthdate" class="form-label">Birthday</label>
                             <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                         </div>
                         <div class="mb-3">
