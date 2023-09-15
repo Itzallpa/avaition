@@ -46,7 +46,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
                 <div class="card shadow-1" style="background-color: #657d27">
-                    <div class="card-body">
+                    <div class="card-body transparent-box">
                         <h2 class="card-title text-center text-white">REGISTER | BUNNY VA</h2>
                         <form>
                             <div class="mb-3">
