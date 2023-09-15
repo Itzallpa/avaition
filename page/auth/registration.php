@@ -26,9 +26,9 @@
     <style>
     .youtube-logo {
         display: block;
-        margin: 0 auto;
-        max-width: 200%;
-        height: 50;
+        margin: 100 auto;
+        max-width: 100px; /* Adjust the maximum width as needed */
+        height: 100;
     }
 </style>
 </head>
@@ -68,7 +68,7 @@
                             <p>Already have an account? <a href="login" class="text-white">Login!</a></p>
                         </div>
                         <div class="col text-right">
-                            <a href="https://www.youtube.com/@bunnyfs" target="_blank"><img src="../../img/youtube.png" alt="YouTube Logo" width="30"></a>
+                            <a href="https://www.youtube.com/@bunnyfs" target="_blank"><img src="../../img/youtube.png" alt="YouTube Logo" class="youtube-logo"></a>
                         </div>
                     </div>
                 </div>
