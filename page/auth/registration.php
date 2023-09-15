@@ -24,7 +24,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 </head>
-<body style="background-image: url('../../img/non.jpg');">
+<body style="background-image: url('https://media.discordapp.net/attachments/1151918559069470870/1152265633224998983/20230915174544_1.jpg?width=1202&height=676');">
         <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-6">
