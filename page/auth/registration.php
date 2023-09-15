@@ -22,6 +22,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 </head>
 <body style="background-image: url('../../img/non.jpg');">
         <div class="container">
