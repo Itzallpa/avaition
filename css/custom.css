@@ -28,7 +28,7 @@ body::-webkit-scrollbar{
 
 .bg-purple
 {
-    background-color: #657d27c2 !important;
+    background-color: #657d27 !important;
 }
 
 .text-purple
@@ -38,8 +38,8 @@ body::-webkit-scrollbar{
 
 .btn-purple
 {
-    background-color: #657d27 !important;
-    border-color: #657d27 !important;
+    background-color: #657d27c2 !important;
+    border-color: #657d27c2 !important;
     color: white !important;
 }
 
