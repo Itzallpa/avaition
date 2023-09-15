@@ -119,10 +119,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Airline NOTAMs</h5>
                                 <p class="card-text">
-                                    <h1>Welcome Aboard TG!</h1>
+                                    <h1>Welcome Aboard BUNNY <VAr></VAr>!</h1>
                                     <p>Posted by Natakon on 08/06/2023</p>
                                     <img src="../../img/bunny.png" class="img-fluid" alt="" srcset="">
-                                    <p>Welcome to The Reds Virtual,  
+                                    <p>Welcome to BUNNY Virtual,  
 
                                     Thank you to be the part of us ! Our staff be very happy to assist if you have any question or inquiry.
 

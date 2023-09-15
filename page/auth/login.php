@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     
 </head>
-<body style="background-color: #fff;">
+<body style="background-image: url('../../img/singto.png">
 <div class="container">
     <div class="container">
         <div class="row mt-5">
