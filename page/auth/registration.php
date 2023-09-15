@@ -27,7 +27,7 @@
     .youtube-logo {
         display: block;
         margin: 0 auto;
-        max-width: 100%;
+        max-width: 200%;
         height: 50;
     }
 </style>
