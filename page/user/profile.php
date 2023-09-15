@@ -3,7 +3,8 @@
 
     session_start();
 
-    if(!isset($_SESSION["user_id"])){
+    if(isset($_SESSION["full_name"]) == "Guest" && !isset($_SESSION["full_name"]))
+    {
         header("Location: ../auth/login");
     }
 

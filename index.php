@@ -3,10 +3,7 @@
 
   session_start();
 
-  if(!isset($_SESSION["full_name"]))
-    $_SESSION["full_name"] = "Guest";
-
-  else if(isset($_SESSION["full_name"]))
+  if(isset($_SESSION["full_name"]) != "Guest" && isset($_SESSION["full_name"]))
     header("Location: page/user/profile");
 
   
