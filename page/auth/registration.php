@@ -55,19 +55,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-white">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com" require>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-white">
                                 <label for="birthdate" class="form-label">Birthday</label>
                                 <input type="date" class="form-control" id="birthdate" name="birthdate" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-white">
                                 <label for="ivaoId" class="form-label">IVAO ID</label>
                                 <input type="text" class="form-control" id="ivaoId" name="ivaoId" placeholder="not required">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 text-white">
                                 <label for="vatsimId" class="form-label">VATSIM ID</label>
                                 <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
                             </div>
