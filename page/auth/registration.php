@@ -33,13 +33,13 @@
                     <h2 class="card-title text-center">REGISTER | BUNNY VA</h2>
                     <form>
                         <div class="mb-3">
-                            <label for="fullName" class="form-label">Frist Name Last Name</label>
+                            <label for="fullName" class="form-label">First Name Last Name</label>
                             <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="FirstName" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="LastName" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
                             </div>
                             </div>
                         </div>
@@ -48,36 +48,26 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="email@gmail.com" require>
                         </div>
                         <div class="mb-3">
-                            <label for="birthdate" class="form-label">birthday</label>
+                            <label for="birthdate" class="form-label">Birthday</label>
                             <input type="date" class="form-control" id="birthdate" name="birthdate" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="ivaoId" class="form-label">IVAO ID</label>
-                            <input type="text" class="form-control" id="ivaoId" name="ivaoId" placeholder="not required">
-                        </div>
-                        <div class="mb-3">
-                            <label for="vatsimId" class="form-label">VATSIM ID</label>
-                            <input type="text" class="form-control" id="vatsimId" name="vatsimId" placeholder="not required">
                         </div>
                         <button type="button" id="register" class="btn btn-purple w-100">Register!</button>
                     </form>
-
                 </div>
                 <div class="card-footer text-white">
                     <div class="row">
-                    <div class="col">
-                        <p>Already have an account? <a href="login" class="text-white">Login!</a> <p>
+                        <div class="col">
+                            <p>Already have an account? <a href="login" class="text-white">Login!</a></p>
+                        </div>
+                        <div class="col text-right">
+                            <a href="https://www.youtube.com/@bunnyfs" target="_blank"><img src="../../img/youtube.png" alt="YouTube Logo" width="30"></a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            </div>
         </div>
-        </div>
-
-
-
+    </div>
 </body>
 
-    <script src="js_jquery/register.js"></script>
+<script src="js_jquery/register.js"></script>
 </html>
