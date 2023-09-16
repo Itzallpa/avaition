@@ -37,10 +37,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta
-      name="description"
-      content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"
-    />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
@@ -222,7 +218,145 @@
                 </div>
             </div>
 
-            
+            <h1 class="h3 mb-3">Flight Operation</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Flight Operation</h5>
+                            <table id="Flight-Operation" class="table table-hover my-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Flight Number</th>
+                                        <th>Departure</th>
+                                        <th>Time</th>
+                                        <th>Arrival</th>
+                                        <th>Time</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+
+                                        $sql = "SELECT * FROM flights";
+                                        $result = mysqli_query($conn, $sql);
+                                        $count = 1;
+
+                                        if(mysqli_num_rows($result) == 0){
+                                            echo "<tr>";
+                                            echo "<td colspan='7'>No Data</td>";
+                                            echo "</tr>";
+                                        }
+
+                                        while($row = mysqli_fetch_assoc($result)){
+
+                                            
+                                            $sql = "SELECT * FROM aircraft WHERE aircraft_id = " . $row["flight_aircraft"];
+                                            $result2 = mysqli_query($conn, $sql);
+
+                                            $row2 = mysqli_fetch_assoc($result2);
+
+
+
+                                            echo "<tr>";
+                                            echo "<td>" . $count . "</td>";
+                                            echo "<td>" . $row["flight_callsign"] . "</td>";
+                                            echo "<td>" . $row["flight_dep"] . "</td>";
+                                            echo "<td>" . $row["flight_dep_time"] . "</td>";
+                                            echo "<td>" . $row["flight_arr"] . "</td>";
+                                            echo "<td>" . $row["flight_arr_time"] . "</td>";
+                                            echo "<td>" . $row2["aircraft_name"] . " (" . $row2["aircraft_reg"] . ")" . "</td>";
+                                            echo "</tr>";
+
+                                            $count++;
+                                        }
+                                    
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Flight</h5>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <input type="text" class="form-control" name="callsign" placeholder="Aircraft Identification">
+                                </div>
+                                <div class="col-lg mt-lg-0 mt-3">
+                                    <select class="form-control mb-3" name="aircraft">
+										<option selected disabled>Aircraft</option>
+										<?php
+
+                                            $sql = "SELECT * FROM aircraft";
+                                            $result = mysqli_query($conn, $sql);
+
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                $name = $row["aircraft_name"];
+                                                $reg = $row["aircraft_reg"];
+    
+                                                $full_aircraft = $name . "(" . $reg . ")";
+
+                                                echo "<option value=". $row["aircraft_id"] .">" . $full_aircraft . "</option>";
+                                            }
+                                        
+                                        ?>
+									</select>
+                                </div>
+                                <div class="col-lg">
+                                    <select class="form-control mb-3" id="dep_icao">
+                                        <option selected="" disabled>Departure</option>
+                                        <?php
+
+                                            $sql = "SELECT * FROM airport";
+                                            $result = mysqli_query($conn, $sql);
+
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo "<option>" . $row["icao"] . "</option>";
+                                            } 
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <select class="form-control mb-3" id="arr_icao">
+                                        <option selected="" disabled>Arrival</option>
+                                        <?php
+                                        
+                                            $sql = "SELECT * FROM airport";
+                                            $result = mysqli_query($conn, $sql);
+
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo "<option>" . $row["icao"] . "</option>";
+                                            } 
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <input type="text" class="form-control" id="dep_time" placeholder="Departure Time">
+                                </div>
+                                <div class="col-lg mt-lg-0 mt-3">
+                                    <input type="text" class="form-control" id="arr_time" placeholder="Arrival Time">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg">
+                                    <textarea class="form-control" rows="2" name="Remark" placeholder="Remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg d-grid gap-2">
+                                    <button class="btn btn-success" id="submit-add-flight" type="button">ADD FLIGHT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h3 class="mb-3">LOG</h3>
             <div class="row">
@@ -270,6 +404,7 @@
     <script>
         $('#user_table').DataTable();
         $('#airport_table').DataTable();
+        $('#Flight-Operation').DataTable();
     </script>
 
 
@@ -331,6 +466,9 @@
                 </div>
             </div>
 
-    <script src="js/app.js"></script>
+            <script src="js/app.js"></script>
+
+    
+    
   </body>
 </html>

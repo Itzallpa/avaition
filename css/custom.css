@@ -38,8 +38,8 @@ body::-webkit-scrollbar{
 
 .btn-purple
 {
-    background-color: #657d27 !important;
-    border-color: #657d27 !important;
+    background-color: #657d27c2 !important;
+    border-color: #657d27c2 !important;
     color: white !important;
 }
 
@@ -115,5 +115,9 @@ footer
     margin-top: 10%;
     border-radius: 16px;
 }
+
+.modal-body::-webkit-scrollbar{
+    display: none;
+  }
 
 

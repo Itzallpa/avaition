@@ -3,7 +3,8 @@
 
     session_start();
 
-    if(!isset($_SESSION["user_id"])){
+    if(isset($_SESSION["full_name"]) == "Guest" && !isset($_SESSION["full_name"]))
+    {
         header("Location: ../auth/login");
     }
 
@@ -48,6 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     
 
@@ -119,10 +121,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Airline NOTAMs</h5>
                                 <p class="card-text">
-                                    <h1>Welcome Aboard TG!</h1>
+                                    <h1>Welcome Aboard BUNNY <VAr></VAr>!</h1>
                                     <p>Posted by Natakon on 08/06/2023</p>
                                     <img src="../../img/bunny.png" class="img-fluid" alt="" srcset="">
-                                    <p>Welcome to The Reds Virtual,  
+                                    <p>Welcome to BUNNY Virtual,  
 
                                     Thank you to be the part of us ! Our staff be very happy to assist if you have any question or inquiry.
 
@@ -214,6 +216,9 @@
               <div class="col-6 text-end">
                 <ul class="list-inline">
                   <li class="list-inline-item">
+
+                  <a href="https://www.youtube.com/@bunnyfs">Yotube</a>
+                  
                     <a
                       class="text-muted"
                       href="#"
