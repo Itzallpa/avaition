@@ -43,7 +43,7 @@
                         <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn text-white " id="login" type="submit">LOGIN</button>
+                        <button class="btn text-lightgray " id="login" type="submit">LOGIN</button>
                     </div>
                     
                     <div class="mt-2">
