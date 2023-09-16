@@ -29,13 +29,20 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
-    
+    <style>
+        body {
+            background-image: url('https://cdn.discordapp.com/attachments/1151918559069470870/1152271901490692226/20230828175721_1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 </head>
-<body style="background-image: url('../../img/singto.png">
+<body>
 <div class="container">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27">
+            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c3">
                 <h1 class="text-center mt-5 text-white">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
@@ -44,7 +51,7 @@
                         <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-purple" id="login" type="submit">LOGIN</button>
+                        <button class="btn text-lightgray " id="login" type="submit">LOGIN</button>
                     </div>
                     
                     <div class="mt-2">
