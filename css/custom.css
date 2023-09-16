@@ -116,4 +116,8 @@ footer
     border-radius: 16px;
 }
 
+.modal-body::-webkit-scrollbar{
+    display: none;
+  }
+
 
