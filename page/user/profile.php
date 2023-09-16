@@ -215,7 +215,8 @@
               <div class="col-6 text-end">
                 <ul class="list-inline">
                   <li class="list-inline-item">
-                  <a href="https://www.youtube.com/@bunnyfs" class="fa fa-youtube"></a>
+
+                  <a href="https://www.youtube.com/@bunnyfs" class="../../img/youtube.png">Yotube</a>
                     <a
                       class="text-muted"
                       href="#"
