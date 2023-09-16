@@ -27,19 +27,12 @@
 
         <a class="navbar-brand">BUNNY VA</a>
 
-
-        
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link text-white" href="#">About</a>
           </li>
           <li class="nav-item">
-            <?php if($_SESSION["full_name"] == "Guest") { ?>
-              <?php echo "<a class='nav-link text-white' href='page/auth/login'>LOGIN</a>";
-            } else {
-              echo "<a class='nav-link text-white' href='page/user/profile'>Crew</a>";
-            }
-            ?>
+            <a class='nav-link text-white' href='page/auth/login'>Crew</a>
           </li>
         </ul>
 
@@ -53,11 +46,7 @@
             <div class="col-lg">
               <h1 class="display-1 text-white">Welcome to BUNNY VA</h1>
               <p class="lead text-white">Let's paint the virtual skies with us today!  A great community, for everyone.</p>
-              <?php if($_SESSION["full_name"] == "Guest") { ?>
-                <?php echo "<a href='page/auth/registration' class='btn-apply btn-lg'>APPLY NOW</a>";
-              } else {
-                echo "<a href='page/user/profile' class='btn-apply btn-lg'>PROFILE</a>";
-              } ?>
+              <a href='page/user/profile' class='btn-apply btn-lg'>PROFILE</a>
             </div>
             <div class="col-lg order-lg-last order-first">
               <img class="img-fluid" src="img/bunny.png" alt="">
