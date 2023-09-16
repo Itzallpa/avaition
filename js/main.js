@@ -449,3 +449,205 @@ $(document).ready(function () {
 
 
 });
+
+//Add Flight Operation
+$(document).ready(function () {
+    
+        var dep_icao = $('#dep_icao').val();
+        var arr_icao = $('#arr_icao').val();
+        
+        //when dep_icao and arr_icao change
+        $('#dep_icao, #arr_icao').change(function () {
+            
+            //get time UTC\
+            var date = new Date();
+            var time = date.toUTCString();
+            //get time UTC Only no date
+            var time_utc = time.slice(17, 22);
+
+            $("#dep_time").val(time_utc);
+
+            //+ UTC TIME 1 hour H:M
+            var time_utc_plus = parseInt(time_utc.slice(0, 2)) + 1;
+            time_utc_plus = time_utc_plus + time_utc.slice(2, 5);
+            $("#arr_time").val(time_utc_plus); 
+
+
+            
+
+        });
+
+
+        $('#submit-add-flight').click(function () {
+
+            dep_icao = $('#dep_icao').val();
+            arr_icao = $('#arr_icao').val();
+
+            var callsign = $('[name=callsign]').val();
+            var aircraft = $('[name=aircraft]').val();
+            var remarks = $('[name=Remark]').val();
+
+            if(dep_icao == "" || arr_icao == "" || callsign == "" || aircraft == "")
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+                return;
+            }
+
+
+
+
+            if(dep_icao == arr_icao)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Departure Airport and Arrival Airport must not be the same!',
+                })
+                return;
+            }
+
+            var table = $('#Flight-Operation').DataTable();
+            var data = table.rows().data();
+
+            var check = false;
+
+            for(var i = 0; i < data.length; i++)
+            {
+                if(data[i][2] == dep_icao && data[i][4] == arr_icao)
+                {
+                    check = true;
+                    break;
+                }
+                else if(data[i][1] == callsign)
+                {
+                    check = true;
+                    break;
+                }
+                
+
+            }
+
+            if(check == true)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Callsign or Flight Route is exist!',
+                })
+                return;
+            }
+
+
+            
+            
+
+            var dep_time = $('#dep_time').val();
+            var arr_time = $('#arr_time').val();
+        
+
+            
+
+            $.ajax({
+                url: "../auth/flight_system.php",
+                method: "POST",
+                data: {
+                    type: "add_flight",
+                    callsign: callsign,
+                    aircraft: aircraft,
+                    dep_icao: dep_icao,
+                    arr_icao: arr_icao,
+                    dep_time: dep_time,
+                    arr_time: arr_time,
+                    remarks: remarks
+                },
+                success: function (data) {
+
+                    if (data == true) {
+
+                        console.log(data);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Add Flight Success',
+                            showConfirmButton: true
+                        })
+
+                    } else {
+                        
+                        if(data == "Departure ICAO not found")
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Departure ICAO not found!',
+                            })
+                        }
+
+                        else if(data == "Arrival ICAO not found")
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Arrival ICAO not found!',
+                            })
+                        }
+
+                        else if(data == "Callsign already exists")
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Callsign already exists!',
+                            })
+                        }
+
+                        else if(data == "Aircraft not found")
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Aircraft not found!',
+                            })
+                        }
+
+                        else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+
+                            console.log(data);
+                        }
+
+                    }
+                }
+            })
+            
+
+        });
+
+
+});
+
+//Edit Flight Operation
+$(document).ready(function () {
+
+    $('#Flight-Operation').on('click', 'td', function () {
+
+        var table = $('#Flight-Operation').DataTable();
+        var data = table.rows().data();
+
+
+        var row = $(this).closest('tr').find('td').eq(0).text();
+
+       
+        
+            
+
+    });
+});

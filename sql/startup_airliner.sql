@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2023 at 06:22 PM
+-- Generation Time: Sep 16, 2023 at 09:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `aircraft`
+--
+
+CREATE TABLE `aircraft` (
+  `aircraft_id` int(11) NOT NULL,
+  `aircraft_name` varchar(60) NOT NULL,
+  `aircraft_type` varchar(30) NOT NULL,
+  `aircraft_reg` varchar(30) NOT NULL,
+  `aircraft_add_date` datetime NOT NULL,
+  `aircraft_add_by` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `airport`
 --
 
@@ -33,54 +48,21 @@ CREATE TABLE `airport` (
   `icao` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `airport`
---
-
-INSERT INTO `airport` (`id`, `airport_name`, `icao`) VALUES
-(1, 'Bangkok BKK', 'VTBS'),
-(2, 'Phnom Penh PNH', 'VDPP'),
-(3, 'Delhi DEL', 'VIDP'),
-(4, 'Tokyo NRT', 'RJAA'),
-(5, 'Singapore SIN', 'WSSS'),
-(6, 'Jakarta CGK', 'WIII'),
-(7, 'Hong Kong HKG', 'VHHH'),
-(8, 'Seoul ICN', 'RKSI'),
-(9, 'Melbourne MEL', 'YMML'),
-(10, 'Taipei TPE', 'RCTP'),
-(11, 'Osaka KIX', 'RJBB'),
-(12, 'Sydney SYD', 'YSSY'),
-(13, 'Kuala Lumpur KUL', 'WMKK'),
-(14, 'Denpasar DPS', 'WADD'),
-(15, 'Yangon RGN', 'VYYY'),
-(16, 'Beijing PEK', 'ZBAA'),
-(17, 'Dhaka DAC', 'VGHS'),
-(18, 'Guangzhou CAN', 'ZGGG'),
-(19, 'Shanghai PVG', 'ZSPD'),
-(20, 'Chengdu TFU', 'ZUTF'),
-(21, 'Vientiane VTE', 'VLVT'),
-(22, 'Frankfurt FRA', 'EDDF'),
-(23, 'London LHR', 'EGLL'),
-(24, 'Tokyo HND', 'RJTT'),
-(25, 'Manila MNL', 'RPLL'),
-(26, 'Zurich ZRH', 'LSZH'),
-(27, 'Copenhagen CPH', 'EKCH'),
-(28, 'Chennai MAA', 'VOMM'),
-(29, 'Lahore LHE', 'OPLA'),
-(30, 'Ahmedabad AMD', 'VAAH'),
-(31, 'Hyderabad HYD', 'VOHS');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `base`
+-- Table structure for table `flights`
 --
 
-CREATE TABLE `base` (
-  `base_id` int(11) NOT NULL,
-  `base_name` varchar(20) NOT NULL,
-  `base_dep` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`base_dep`)),
-  `base_arr` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`base_arr`))
+CREATE TABLE `flights` (
+  `flight_id` int(11) NOT NULL,
+  `flight_callsign` varchar(10) NOT NULL DEFAULT 'BNY-NONE',
+  `flight_aircraft` int(11) NOT NULL DEFAULT 1,
+  `flight_dep` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'ZZZZ',
+  `flight_arr` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'ZZZZ',
+  `flight_dep_time` varchar(10) NOT NULL DEFAULT '0000',
+  `flight_arr_time` varchar(10) NOT NULL DEFAULT '0000',
+  `flight_remark` longtext NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -106,16 +88,22 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `aircraft`
+--
+ALTER TABLE `aircraft`
+  ADD PRIMARY KEY (`aircraft_id`);
+
+--
 -- Indexes for table `airport`
 --
 ALTER TABLE `airport`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `base`
+-- Indexes for table `flights`
 --
-ALTER TABLE `base`
-  ADD PRIMARY KEY (`base_id`);
+ALTER TABLE `flights`
+  ADD PRIMARY KEY (`flight_id`);
 
 --
 -- Indexes for table `users`
@@ -128,16 +116,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `aircraft`
+--
+ALTER TABLE `aircraft`
+  MODIFY `aircraft_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `airport`
 --
 ALTER TABLE `airport`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `base`
+-- AUTO_INCREMENT for table `flights`
 --
-ALTER TABLE `base`
-  MODIFY `base_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `flights`
+  MODIFY `flight_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
