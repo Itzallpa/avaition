@@ -49,6 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     
 
@@ -215,6 +216,9 @@
               <div class="col-6 text-end">
                 <ul class="list-inline">
                   <li class="list-inline-item">
+
+                  <a href="https://www.youtube.com/@bunnyfs">Yotube</a>
+                  
                     <a
                       class="text-muted"
                       href="#"
