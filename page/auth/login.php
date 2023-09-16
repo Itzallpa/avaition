@@ -34,7 +34,7 @@
 <div class="container">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c2">
+            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c3">
                 <h1 class="text-center mt-5 text-white">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
