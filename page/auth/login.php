@@ -23,11 +23,11 @@
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
     
 </head>
-<body style="background-image: url('../../img/singto.png">
+<body style="background-image: url('https://cdn.discordapp.com/attachments/1151918559069470870/1152271901490692226/20230828175721_1.jpg">
 <div class="container">
     <div class="container">
         <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27">
+            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c2">
                 <h1 class="text-center mt-5 text-white">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
