@@ -216,7 +216,7 @@
                 <ul class="list-inline">
                   <li class="list-inline-item">
 
-                  <a href="https://www.youtube.com/@bunnyfs" href="../../img/youtube.png">Yotube</a>
+                  <a href="https://www.youtube.com/@bunnyfs" img scr="../../img/youtube.png">Yotube</a>
                     <a
                       class="text-muted"
                       href="#"
