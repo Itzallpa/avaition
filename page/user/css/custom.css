@@ -91,3 +91,7 @@ body::-webkit-scrollbar{
         opacity: 1;
     }
 }
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
