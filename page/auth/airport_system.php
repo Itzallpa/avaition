@@ -3,7 +3,6 @@
     session_start();
     include_once('../../sql/database.php');
 
-
     if($_POST["type"] == "add_airport")
     {
 
@@ -63,6 +62,43 @@
             echo $data["success"] = true;
         }
 
+    }
+    else if($_POST["type"] == "delete_airport")
+    {
+        $airport_name = $_POST["airport_name"];
+
+        $sql = "SELECT * FROM `airport` WHERE `airport_name`='$airport_name'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        if(isset($row["airport_name"]) == $airport_name)
+        {
+            /*$sql = "DELETE FROM `airport` WHERE `airport_name`='$airport_name'";
+            $result = mysqli_query($conn, $sql);*/
+
+            echo $data = true;
+        }
+        else
+        {
+            echo $data = $row["airport_name"];
+        }
+
+        
+    }
+    else if($_POST["type"] == "get_airport_data")
+    { 
+        $sql = "SELECT * FROM `airport`";
+        $result = mysqli_query($conn, $sql);
+
+        $data = array();
+
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $data[] = $row;
+        }
+
+        echo json_encode($data);
     }
 
 
