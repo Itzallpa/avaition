@@ -364,6 +364,8 @@
             </div>
         </main>
     </div>
+
+    
     <div class="modal fade" id="edit_user" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">

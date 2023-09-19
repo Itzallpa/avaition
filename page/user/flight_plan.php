@@ -30,23 +30,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
-    <link
-      rel="canonical"
-      href="https://demo-basic.adminkit.io/pages-blank.html"
-    />
 
     <title>HOME PAGE | BUNNY VA</title>
 
-    <link href="css/app.css" rel="stylesheet" />
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="../../assets/css/simplebar.css">
+    <!-- Fonts CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="css/custom.css">
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="../../assets/css/feather.css">
+    <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap4.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="../../assets/css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="../../assets/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="../../assets/css/app-dark.css" id="darkTheme" disabled>
     
     
 
@@ -54,159 +54,74 @@
 
   <body>
     
-    <div class="wrapper">
+  <body class="vertical light">
+      <?php include "inc/header.php" ?>
       <?php include "inc/sidebar.php" ?>
 
-      <div class="main">
-        <?php include "inc/header.php" ?>
+      <main role="main" class="main-content">
 
-        <main class="content">
           <div class="container-fluid p-0">
             <h1 class="h3 mb-3">Flight Book!</h1>
             
-              
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Flight Book!</h5>
-                    <select class="form-select" aria-label="">
-                      <option selected>Select Airline</option>
-                      <option value="1">Thai airway</option>
-                      <option value="2">Air asia</option>
-                      <option value="3">Nok air</option>
-                    </select>
-                    <select class="form-select mt-3" id="sel_airport">
-                        <option selected>Select Airport</option>
-                        <?php
+                    <h5 class="card-title">FLIGHT BOOK!</h5>
+                      <table id="" class="table table-hover my-0">
+                        <thead>
+                          <tr>
+                            <th>Flight Number</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Book</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
                             include "../../sql/database.php";
-                            $sql = "SELECT * FROM airport";
-                            $result = $conn->query($sql);
-                            while($row = $result->fetch_assoc()){
-                                echo "<option value='".$row['icao']."'>".$row['airport_name']."</option>";
-                            } 
-                        ?>
-                    </select>
-                    <div class="row mt-3">
-                      <div class="col-lg-6">
-                          <input type="text" class="form-control" id="price_jumsit" placeholder="XX" disabled readonly>
-                      </div>
-                      <div class="col-lg-6">
-                          <button class="btn btn-primary" type="button">SUBMIT</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">MAP</h5>
-                    <div id="map" style="height: 400px; width: 100%;"></div>
+                            $sql = "SELECT * FROM flights";
+                            $result = mysqli_query($conn, $sql);
+                            if(mysqli_num_rows($result) > 0){
+                              while($row = mysqli_fetch_assoc($result)){
+                                echo '<tr>
+                                        <td>'.$row['flight_callsign'].'</td>
+                                        <td>'.$row['flight_dep'].'</td>
+                                        <td>'.$row['flight_arr'].'</td>
+                                        <td>'.$row['flight_dep_time'].'</td>
+                                        <td>'.$row['flight_arr_time'].'</td>
+                                        <td><a href="book.php?id='.$row['flight_id'].'" class="btn btn-primary">Book</a></td>
+                                      </tr>';
+                              }
+                            }
+                          ?>
+                        </tbody>
+                      </table>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row d-flex justify-content-between">
-                    <h5 class="card-title">Flight Assignment</h5>
-                    <p class="card-title">TIME: XX</p>
-                    </div>
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>เลขเที่ยวบิน</th>
-                          <th>สายการบิน</th>
-                          <th>ต้นทางและปลายทาง</th>
-                          <th>เวลาออกและเลิกบิน</th>
-                          <th>ระยะเวลาเที่ยวบิน</th>
-                          <th>เส้นทางเที่ยวบิน</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>FLI123</td>
-                          <td>AirlinesXYZ</td>
-                          <td>กรุงเทพฯ - นิวยอร์ก</td>
-                          <td>08:00 น. - 16:00 น.</td>
-                          <td>14 ชั่วโมง</td>
-                          <td>BKK - JFK</td>
-                        </tr>
-                        <!-- สามารถเพิ่มแถวข้อมูลเที่ยวบินเพิ่มเติมตามต้องการ -->
-                      </tbody>
-                    </table>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
           </div>
         </main>
 
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row text-muted">
-              <div class="col-6 text-start">
-                <p class="mb-0">
-                  <a
-                    class="text-muted"
-                    href="#"
-                    target="_blank"
-                    ><strong>BUNNY</strong></a
-                  >
-                  &copy;
-                </p>
-              </div>
-              <div class="col-6 text-end">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Support</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Help Center</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Privacy</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Terms</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/moment.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/simplebar.min.js"></script>
+    <script src='../../assets/js/daterangepicker.js'></script>
+    <script src='../../assets/js/jquery.stickOnScroll.js'></script>
+    <script src="../../assets/js/tinycolor-min.js"></script>
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/apps.js"></script>
+    <script src='../../assets/js/jquery.dataTables.min.js'></script>
+    <script src='../../assets/js/dataTables.bootstrap4.min.js'></script>
     <script src="../../js/main.js"></script>
   </body>
 </html>
