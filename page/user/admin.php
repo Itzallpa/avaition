@@ -163,17 +163,18 @@
                                         <?php
                                         $sql = "SELECT * FROM airport";
                                         $result = mysqli_query($conn, $sql);
-                                        
-                                        $row = mysqli_fetch_assoc($result);
-
-                                        if($row["airport_name"] == ""){
-                                            echo "<tr>";
-                                            echo "<td colspan='4'>No Data</td>";
-                                            echo "</tr>";
-                                        }
 
                                         $count = 1;
                                         while($row = mysqli_fetch_assoc($result)){
+
+                                            if(!$row)
+                                            {
+                                                echo "<tr>";
+                                                echo "<td class=''> No Data </td>";
+                                                echo "<tr>";
+                                                break;
+                                            }
+
                                             echo "<tr>";
                                             echo "<td>" . $count . "</td>";
                                             echo "<td>" . $row["airport_name"] . "</td>";

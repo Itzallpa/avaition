@@ -462,15 +462,13 @@ $(document).ready(function () {
                                 var data = table.rows().data();
                                 var number;
                                 
-                                for(var i = 0; i < data.length; i++)
-                                {
-                                    if(data[i][1] == airport_name)
-                                    {
-                                        table.row(i).remove().draw();
-                                        number = i;
-                                        break;
-                                    }
-                                }
+                                table.clear();
+
+                            
+                                var new_data = data;
+
+                                
+                                console.log(new_data)
 
 
 
@@ -484,7 +482,7 @@ $(document).ready(function () {
                                       icon: 'error',
                                       title: 'Oops...',
                                       text: 'Something went wrong! Delete Airport Failed!',
-                                 })
+                                 });
 
                             }
                           }
