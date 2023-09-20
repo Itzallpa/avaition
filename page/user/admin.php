@@ -216,6 +216,84 @@
                     </div>
                 </div>
 
+                <h1 class="h3 mt-3">Aircraft Mangement</h1>
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Aircraft</h5>
+                                <table id="aircraft_table" class="table table-hover my-0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Aircraft Name</th>
+                                            <th>Registration</th>
+                                            <th>Add Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $sql = "SELECT * FROM aircraft";
+                                        $result = mysqli_query($conn, $sql);
+                                        
+                                        $row = mysqli_fetch_assoc($result);
+
+                                        $count = 1;
+                                        while($row = mysqli_fetch_assoc($result)){
+                                            echo "<tr>";
+                                            echo "<td>" . $count . "</td>";
+                                            echo "<td>" . $row["aircraft_name"] . "</td>";
+                                            echo "<td>" . $row["aircraft_reg"] . "</td>";
+                                            echo "<td>" . $row["aircraft_add_date"] . "</td>";
+                                            echo "<td><button class='btn btn-danger' name='del_aircraft'>DELETE</button></td>";
+                                            echo "</tr>";
+
+                                            $count++;
+                                        }
+                                    ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">ADD AIRCRAFT</h5>
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <input class="form-control" type="text" name="aircraft_name" placeholder="Aircraft Name">
+                                    </div>
+                                   <div class="col-lg">
+                                        <select name="airctaft_type" class="form-control" id="">
+                                            <option value="" disabled selected>Aircraft Type</option>
+                                            <option value="Boeing">Boeing</option>
+                                            <option value="Airbus">Airbus</option>
+                                        </select>
+                                   </div>
+                                   <div class="col-lg">
+                                        <input class="form-control" type="text" name="airctaft_reg" placeholder="Registration">
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-lg-12">
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-success" id="submit-add-aircraft" type="button">ADD AIRCRAFT</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
                 <h1 class="h3 mt-3">Flight Operation</h1>
                 <div class="row">
                     <div class="col-lg-12">
@@ -240,13 +318,6 @@
                                         $sql = "SELECT * FROM flights";
                                         $result = mysqli_query($conn, $sql);
                                         $count = 1;
-
-                                        if(mysqli_num_rows($result) == 0){
-                                            echo "<tr>";
-                                            echo "<td colspan='7'>No Data</td>";
-                                            echo "</tr>";
-                                        }
-
                                         while($row = mysqli_fetch_assoc($result)){
 
                                             
@@ -365,7 +436,7 @@
         </main>
     </div>
 
-    
+
     <div class="modal fade" id="edit_user" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -425,7 +496,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submit-edituser" data-dismiss="modal">Understood</button>
+                    <button type="button" class="btn btn-primary" id="submit-edituser"
+                        data-dismiss="modal">Understood</button>
                 </div>
             </div>
         </div>
@@ -452,6 +524,7 @@
     <script>
     $('#user_table').DataTable();
     $('#airport_table').DataTable();
+    $('#aircraft_table').DataTable();
     $('#Flight-Operation').DataTable();
     </script>
 </body>

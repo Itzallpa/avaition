@@ -457,7 +457,7 @@ $(document).ready(function () {
                                  })
                                  
     
-                                 //remove row in datatable
+                                //remove row in datatable
                                 var table = $('#airport_table').DataTable();
                                 var data = table.rows().data();
                                 var number;
@@ -471,13 +471,6 @@ $(document).ready(function () {
                                         break;
                                     }
                                 }
-
-
-
-                               
-
-
-                                
                                  
                             } else {
                                  Swal.fire({
@@ -707,4 +700,101 @@ $(document).ready(function () {
             
 
     });
+});
+
+
+//ADD AIRCRAFT
+$(document).ready(function () {
+
+    $('#submit-add-aircraft').click(function () {
+
+    
+        var aircraft_name = $('[name=aircraft_name]').val();
+        var airctaft_reg = $('[name=airctaft_reg]').val();
+
+
+        if(aircraft_name == "" || airctaft_reg == "")
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+            return;
+        }
+
+
+        var table = $('#aircraft_table').DataTable();
+        var data = table.rows().data();
+
+        var check = false;
+        
+        for(var i = 0; i < data.length; i++)
+        {
+            if(data[i][1] == aircraft_name || data[i][2] == airctaft_reg)
+            {
+                check = true;
+                break;
+            }
+        }
+
+
+        if(check == true)
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Aircraft Name or Aircraft Registration is exist!',
+            })
+
+            return;
+        }
+
+        //get datetime
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mm + '/' + yyyy;
+
+
+        table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary'>Edit</button></td>"]).draw();
+
+        var aircraft_type = $('[name=aircraft_type]').val();
+
+        $.ajax({
+            url: "../auth/aircraft_system.php",
+            method: "POST",
+            data: {
+                type: "add_aircraft",
+                aircraft_name: aircraft_name,
+                airctaft_reg: airctaft_reg,
+                aircraft_type: aircraft_type
+            },
+            success: function (data) {
+                if (data == true) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Add Aircraft Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                    console.log(data);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Add Aircraft Failed!',
+                    })
+
+                    console.log(data);
+                }
+            }
+        })
+
+    
+    });
+
 });
