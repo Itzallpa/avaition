@@ -462,6 +462,7 @@ $(document).ready(function () {
                                 var data = table.rows().data();
                                 var number;
                                 
+<<<<<<< HEAD
                                 for(var i = 0; i < data.length; i++)
                                 {
                                     if(data[i][1] == airport_name)
@@ -471,13 +472,29 @@ $(document).ready(function () {
                                         break;
                                     }
                                 }
+=======
+                                table.clear();
+
+                            
+                                var new_data = data;
+
+                                
+                                console.log(new_data)
+
+
+
+                               
+
+
+                                
+>>>>>>> fdb22b64a1026b00d6768e4b1edf6f5888eee080
                                  
                             } else {
                                  Swal.fire({
                                       icon: 'error',
                                       title: 'Oops...',
                                       text: 'Something went wrong! Delete Airport Failed!',
-                                 })
+                                 });
 
                             }
                           }
