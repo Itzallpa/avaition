@@ -462,6 +462,14 @@ $(document).ready(function () {
                                 var data = table.rows().data();
                                 var number;
                                 
+                                table.clear();
+
+                            
+                                var new_data = data;
+
+                                
+                                console.log(new_data)
+
 <<<<<<< HEAD
                                 for(var i = 0; i < data.length; i++)
                                 {
