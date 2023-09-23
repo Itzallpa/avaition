@@ -768,7 +768,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     if (data == true) {
-                        Swal.fire({
+                        /*Swal.fire({
                             icon: 'success',
                             title: 'Edit Flight Success',
                             showConfirmButton: false,
@@ -786,7 +786,9 @@ $(document).ready(function () {
                         flight.closest('tr').find('td').eq(3).text(dep_time);
                         flight.closest('tr').find('td').eq(4).text(arr_icao);
                         flight.closest('tr').find('td').eq(5).text(arr_time);
-                        flight.closest('tr').find('td').eq(6).text(aircraft);
+                        flight.closest('tr').find('td').eq(6).text(aircraft);*/
+
+                        console.log(data);
 
                     }
                     else 

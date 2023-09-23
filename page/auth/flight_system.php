@@ -68,16 +68,32 @@
 
         if($remark == "")
             $remark = "None";
+
+        $parts = explode("(", $aircraft); // แยกสตริงโดยใช้ "(" เป็นตัวแยก
+        if (count($parts) >= 2) {
+            $aircraft = rtrim($parts[1], ")"); // ลบ ")" ที่อาจจะเหลืออยู่ที่สตริง
+        }
+        else {
+            echo 'ไม่พบข้อมูล HS-CBD';
+        }
+
+        echo $aircraft;
+
+        
+        /*$sql "SELECT * FROM `aircraft` WHERE `aircraft_reg` = '$aircraft'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);*/
         
 
-        $sql = "UPDATE `flights` SET `flight_callsign` = '$callsign', `flight_aircraft` = '$aircraft', `flight_dep` = '$dep_icao', `flight_arr` = '$arr_icao', `flight_dep_time` = '$dep_time', `flight_arr_time` = '$arr_time', `flight_remark` = '$remark' WHERE `flights`.`flight_callsign` = '$callsign_old'";
+        /*$sql = "UPDATE `flights` SET `flight_callsign` = '$callsign', `flight_aircraft` = '$aircraft', `flight_dep` = '$dep_icao', `flight_arr` = '$arr_icao', `flight_dep_time` = '$dep_time', `flight_arr_time` = '$arr_time', `flight_remark` = '$remark' WHERE `flight_callsign` = '$callsign_old'";
         $result = mysqli_query($conn, $sql);
 
         
 
         
 
-        echo $data['success'] = true;
+        echo $data['success'] = true;*/
         
         
 
