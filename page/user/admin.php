@@ -14,14 +14,9 @@
     if(!isset($_SESSION["user"])){
         header("Location: ../../index.php");
     }
-    else if($row["user_role"] != "Admin"){
+    else if($row["user_role"] != "Admin" && ($row["user_role"] != "Airport Mangement" && ($row["user_role"] != "Aircraft Mangement" && ($row["user_role"] != "Flight Operation" )))){
         header("Location: profile");
     }
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -484,6 +479,10 @@
                                         <option disabled>Open this select menu</option>
                                         <option value="Member">Member</option>
                                         <option value="Admin">Admin</option>
+                                        <option value="Airport Mangement">Airport Mangement</option>
+                                        <option value="Aircraft Mangement">Aircraft Mangement</option>
+                                        <option value="Flight Operation">Flight Operation</option>
+                                        
                                     </select>
                                 </div>
                             </div>
