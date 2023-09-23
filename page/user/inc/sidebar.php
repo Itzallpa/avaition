@@ -62,6 +62,44 @@
 
                 }
               ?>
+
+              <?php if($row['user_role'] == "Airport Mangement")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
+
+                }
+              ?>
+
+              <?php if($row['user_role'] == "Aircraft Mangement")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
+
+                }
+              ?>
+
+              <?php if($row['user_role'] == "Flight Operation")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
+
+                }
+              ?>
+
+              
           </ul>
 
 
