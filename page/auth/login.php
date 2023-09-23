@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Awesome ICON -->
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
+    <!-- Font SF PRO DISPLAY (APPLE) -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
     <style>
@@ -43,7 +47,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c3">
-                <h1 class="text-center mt-5 text-white">Login</h1>
+                <h1 class="text-center mt-5 text-white body">Login</h1>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control">
                     </div>

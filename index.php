@@ -45,7 +45,7 @@
           <div class="row">
             <div class="col-lg">
               <h1 class="display-1 text-white">Welcome to BUNNY VA</h1>
-              <p class="lead text-white">Let's paint the virtual skies with us today!  A great community, for everyone.</p>
+              <p class="lead text-white">Let's paint the virtual skies with us today! A great community, for everyone.</p>
               <a href='page/user/profile' class='btn-apply btn-lg'>PROFILE</a>
             </div>
             <div class="col-lg order-lg-last order-first">

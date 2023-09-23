@@ -65,13 +65,14 @@ body::-webkit-scrollbar{
 
 }
 
+
 .btn-apply
 {
     background-color: #fff;
     color: black;
     padding: 10px;
     text-decoration: none;
-    border-radius: 25vh;
+    border-radius: 12px;
     position: relative;
     top: 20px;
 }
@@ -113,7 +114,7 @@ footer
 .login-box
 {
     margin-top: 10%;
-    border-radius: 16px;
+    border-radius: 5px;
 }
 
 .modal-body::-webkit-scrollbar{

@@ -700,12 +700,119 @@ $(document).ready(function () {
         var table = $('#Flight-Operation').DataTable();
         var data = table.rows().data();
 
+        var callsign_old = $(this).closest('tr').find('td').eq(1).text();
+    
+        var callsign = $(this).closest('tr').find('td').eq(1).text();
+        var dep_icao = $(this).closest('tr').find('td').eq(2).text();
+        var arr_icao = $(this).closest('tr').find('td').eq(4).text();
 
-        var row = $(this).closest('tr').find('td').eq(0).text();
+        var dep_time = $(this).closest('tr').find('td').eq(3).text();
+        var arr_time = $(this).closest('tr').find('td').eq(5).text();
 
-       
+        var aircraft = $(this).closest('tr').find('td').eq(6).text();
+
+        $('[name=edit_callsign]').val(callsign);
+        $('[name=edit_dep_icao]').val(dep_icao);
+        $('[name=edit_arr_icao]').val(arr_icao);
+        $('[name=edit_dep_time]').val(dep_time);
+        $('[name=edit_arr_time]').val(arr_time);
+        $('[name=edit_aircraft]').val(aircraft);
+
+
+
+        $('#submit-editflight').click(function () {
+
+            var callsign = $('[name=edit_callsign]').val();
+            var dep_icao = $('[name=edit_dep_icao]').val();
+            var arr_icao = $('[name=edit_arr_icao]').val();
+            var dep_time = $('[name=edit_dep_time]').val();
+            var arr_time = $('[name=edit_arr_time]').val();
+            var aircraft = $('[name=edit_aircraft]').val();
+            var remarks = $('[name=edit_remarks]').val();
+
+            if(dep_icao == arr_icao)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Departure Airport and Arrival Airport must not be the same!',
+                })
+                return;
+            }
+
+
+            if(dep_icao == "" || arr_icao == "" || callsign == "" || aircraft == "" || dep_time == "" || arr_time == "")
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+                return;
+            }
         
-            
+            $.ajax({
+                url: "../auth/flight_system.php",
+                method: "POST",
+                data: {
+                    type: "edit_flight",
+                    callsign_old: callsign_old,
+                    callsign: callsign,
+                    dep_icao: dep_icao,
+                    arr_icao: arr_icao,
+                    dep_time: dep_time,
+                    arr_time: arr_time,
+                    aircraft: aircraft,
+                    remarks: remarks
+
+                },
+                success: function (data) {
+                    if (data == true) {
+                        /*Swal.fire({
+                            icon: 'success',
+                            title: 'Edit Flight Success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+
+                        var table = $('#Flight-Operation');
+                        var td = table.find('td');
+                        var flight  = td.filter(function () {
+                            return $(this).text() == callsign_old;
+                        });
+
+                        flight.closest('tr').find('td').eq(1).text(callsign);
+                        flight.closest('tr').find('td').eq(2).text(dep_icao);
+                        flight.closest('tr').find('td').eq(3).text(dep_time);
+                        flight.closest('tr').find('td').eq(4).text(arr_icao);
+                        flight.closest('tr').find('td').eq(5).text(arr_time);
+                        flight.closest('tr').find('td').eq(6).text(aircraft);*/
+
+                        console.log(data);
+
+                    }
+                    else 
+                    {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Edit Flight Failed!',
+                        })
+
+                        console.log(data);
+                    }
+                }
+            })
+
+
+
+
+        })
+
+
+        
+        
+
 
     });
 });
