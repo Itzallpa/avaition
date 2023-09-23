@@ -806,39 +806,44 @@ $(document).ready(function () {
 $(document).ready(function () {
 
     //click <button>
-    $("#click_editaircraft").click(function() {
-        
-        //get value of <td>
 
-        var aircraft_name = $(this).closest('tr').find('td').eq(1).text();
+    $('#aircraft_table').on('click', 'td', function () {
+
+    
         var aircraft_reg = $(this).closest('tr').find('td').eq(2).text();
 
-        $.ajax({
-            url: "../auth/aircraft_system.php",
-            method: "POST",
-            data: {
-                type: "get_aircraft_data",
-                aircraft_reg: aircraft_reg
-            },
-            success: function (data) {
-                
+        var column = $(this).closest('tr').find('td').index($(this));
+
+        if(column == 4)
+        {
+            $.ajax({
+                url: "../auth/aircraft_system.php",
+                method: "POST",
+                data: {
+                    type: "get_aircraft_data",
+                    aircraft_reg: aircraft_reg
+                },
+                success: function (data) {
+                    
                 var aircraft_data = JSON.parse(data);
 
-                $('[name=airc_name]').val(aircraft_data.aircraft_name);
-                $('[name=airc_reg]').val(aircraft_data.aircraft_reg);
-                $('[name=air_type]').val(aircraft_data.aircraft_type);
-                
+                    $('[name=airc_name]').val(aircraft_data.aircraft_name);
+                    $('[name=airc_reg]').val(aircraft_data.aircraft_reg);
+                    $('[name=air_type]').val(aircraft_data.aircraft_type);
+                    $('[name=airc_id]').val(aircraft_data.aircraft_id);
             
-            }
-        })
-        
+                }
+            })
+        }
+
     });
 
     $("#submit-editaircraft").click(function() {
             
             var aircraft_name = $('[name=airc_name]').val();
             var aircraft_reg = $('[name=airc_reg]').val();
-            var aircraft_type = $('[name=air_type]').val();
+            var aircraft_type = $('[name=airc_type]').val();
+            var aircraft_id = $('[name=airc_id]').val();
     
             $.ajax({
                 url: "../auth/aircraft_system.php",
@@ -847,16 +852,32 @@ $(document).ready(function () {
                     type: "edit_aircraft",
                     aircraft_name: aircraft_name,
                     aircraft_reg: aircraft_reg,
-                    type_aircraft: type_aircraft
+                    type_aircraft: aircraft_type,
+                    aircraft_id: aircraft_id
                 },
                 success: function (data) {
-                    if (data == true) {
+                    if (data) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Edit Aircraft Success',
                             showConfirmButton: false,
                             timer: 1500
                         })
+
+                        var new_data = JSON.parse(data);
+                        var table = $('#aircraft_table');
+                        var td = table.find('td');
+                        var aircraft  = td.filter(function () {
+                            return $(this).text() == aircraft_id;
+                        });
+
+                        aircraft.closest('tr').find('td').eq(1).text(aircraft_name);
+                        aircraft.closest('tr').find('td').eq(2).text(aircraft_reg);
+                        aircraft.closest('tr').find('td').eq(3).text(aircraft_type);
+
+                       
+
+
                     } else {
                         Swal.fire({
                             icon: 'error',

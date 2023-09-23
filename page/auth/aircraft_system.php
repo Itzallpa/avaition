@@ -33,7 +33,9 @@
     }
     else if($_POST["type"] == "get_aircraft_data")
     {
-        $sql = "SELECT * FROM `aircraft`";
+
+        $reg = $_POST["aircraft_reg"];
+        $sql = "SELECT * FROM `aircraft` WHERE `aircraft_reg` = '$reg'";
         $result = mysqli_query($conn, $sql);
 
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -46,13 +48,25 @@
         $aircraft_name = $_POST["aircraft_name"];
         $aircraft_reg = $_POST["aircraft_reg"];
         $aircraft_type = $_POST["type_aircraft"];
+        $aircraft_id = $_POST["aircraft_id"];
 
-        echo $_POST["type_aircraft"];
 
-        /*$sql = "UPDATE `aircraft` SET `aircraft_name`='$aircraft_name',`aircraft_reg`='$aircraft_reg',`aircraft_type`='$aircraft_type' WHERE `aircraft_id`=" . $aircraft_id . "";
+
+        $sql = "UPDATE `aircraft` SET `aircraft_name`='$aircraft_name',`aircraft_reg`='$aircraft_reg',`aircraft_type`='$aircraft_type' WHERE `aircraft_id`=" . $aircraft_id . "";
         $result = mysqli_query($conn, $sql);
 
-        echo $data["success"] = true;*/
+
+        $data = array(
+            'aircraft_name' => $aircraft_name,
+            'aircraft_reg' => $aircraft_reg,
+            'aircraft_type' => $aircraft_type,
+            'aircraft_id' => $aircraft_id
+
+        );
+        
+
+         echo $aircraft_data = json_encode($data);
+
     }
 
 ?>

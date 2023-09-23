@@ -237,7 +237,7 @@
                                             echo "<td>" . $row["aircraft_name"] . "</td>";
                                             echo "<td>" . $row["aircraft_reg"] . "</td>";
                                             echo "<td>" . $row["aircraft_add_date"] . "</td>";
-                                            echo "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft' id='click_editaircraft'>Edit</button></td>";
+                                            echo "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft'>Edit</button></td>";
                                             echo "</tr>";
 
                                             $count++;
@@ -539,8 +539,8 @@
                             </select>
                         </div>
                         <div class="col-lg">
-                            <label for="addby" class="form-label">Add by</label>
-                            <input class="form-control" type="text" name="air_addby">
+                            <label for="addby" class="form-label">AIRCRAFT ID</label>
+                            <input class="form-control hide" type="text" name="airc_id" disabled readonly>
                         </div>
                     </div>
                     <div class="modal-footer">
