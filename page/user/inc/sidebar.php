@@ -13,64 +13,120 @@
 ?>
 
 
-<nav id="sidebar" class="sidebar js-sidebar">
-    <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="profile">
-            <span class="align-middle">BUNNY VA</span>
+<aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+          <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
+        <nav class="vertnav navbar navbar-light">
+          <!-- nav bar -->
+          <div class="w-100 mb-4 d-flex">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./profile">
+              <img class="navbar-brand-img brand-sm" src="../../img/bunny.png" alt="" srcset="">
+                <g>
+                  <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
+                  <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
+                  <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
+                </g>
+              </svg>
+            </a>
+          </div>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Pages</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+              <li class="nav-item w-100">
+                <a class="nav-link" href="./profile">
+                  <i class="fe fe-home fe-16"></i>
+                  <span class="ml-3 item-text">Dashboard</span>
+                </a>
+              </li>
+          </ul>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>PILOT ADMINISTRATION</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+              <li class="nav-item w-100">
+                <a class="nav-link" href="./infomation">
+                  <i class="fe fe-info fe-16"></i>
+                  <span class="ml-3 item-text">Infomation</span>
+                </a>
+              </li>
+              <?php if($row['user_role'] == "Admin")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
 
-        <ul class="sidebar-nav">
-            <li class="sidebar-header">Pages</li>
+                }
+              ?>
 
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="profile">
-                <i class="align-middle" data-feather="sliders"></i>
-                <span class="align-middle">Dashboard</span>
-              </a>
-            </li>
+              <?php if($row['user_role'] == "Airport Mangement")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
 
-            <li class="sidebar-header">PILOT ADMINISTRATION</li>
+                }
+              ?>
 
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="infomation">
-                <i class="align-middle me-2" data-feather="book"></i>
-                <span class="align-middle">Infomation</span>
-              </a>
-            </li>
+              <?php if($row['user_role'] == "Aircraft Mangement")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
+
+                }
+              ?>
+
+              <?php if($row['user_role'] == "Flight Operation")
+                {
+                  echo '<li class="nav-item w-100">
+                          <a class="nav-link" href="./admin">
+                          <i class="fe fe-home fe-16"></i>
+                          <span class="ml-3 item-text">Admin</span>
+                          </a>
+                        </li>';
+
+                }
+              ?>
+
+              
+          </ul>
 
 
-            <?php if($row['user_role'] == "Admin")
-            {
-               echo '<li class="sidebar-item">
-              <a class="sidebar-link" href="admin">
-                <i class="align-middle me-2" data-feather="users"></i>
-                <span class="align-middle">Admin</span>
-              </a>
-            </li>';
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Leaderboard</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+          <li class="nav-item w-100">
+                <a class="nav-link" href="./leaderboard">
+                  <i class="fe fe-flag fe-16"></i>
+                  <span class="ml-3 item-text">Leaderboard</span>
+                </a>
+              </li>
+          </ul>
 
-            }
-            ?>
-
-            
-
-            <li class="sidebar-header">Leaderboard</li>
-
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="leaderboard">
-                <i class="align-middle me-2" data-feather="star"></i>
-                <span class="align-middle">Leaderboard</span>
-              </a>
-            </li>
-
-            <li class="sidebar-header">Flight Oparetor</li>
-
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="flight_plan">
-                <i class="align-middle me-2" data-feather="star"></i>
-                <span class="align-middle">Flight Book</span>
-              </a>
-            </li>
-        <ul>
-
-    </div>
-</nav>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Flight Oparetor</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+          <li class="nav-item w-100">
+                <a class="nav-link" href="./flight_plan">
+                  <i class="fe fe-calendar fe-16"></i>
+                  <span class="ml-3 item-text">Flight Book</span>
+                </a>
+              </li>
+          </ul>
+          
+          
+        </nav>
+</aside>

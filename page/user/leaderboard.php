@@ -24,38 +24,41 @@
     <meta name="author" content="AdminKit" />
     <meta
       name="keywords"
-      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="kit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
 
-    <link
-      rel="canonical"
-      href="https://demo-basic.adminkit.io/pages-blank.html"
-    />
-
     <title>HOME PAGE | BUNNY VA</title>
 
-    <link href="css/app.css" rel="stylesheet" />
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="../../assets/css/simplebar.css">
+    <!-- Fonts CSS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="css/custom.css">
+        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="../../assets/css/feather.css">
+    <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap4.css">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="../../assets/css/daterangepicker.css">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="../../assets/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="../../assets/css/app-dark.css" id="darkTheme" disabled>
     
     
 
   </head>
 
-  <body>
+  <body class="vertical light">
     <div class="wrapper">
+
+      <?php include "inc/header.php" ?>
       <?php include "inc/sidebar.php" ?>
 
-      <div class="main">
-        <?php include "inc/header.php" ?>
-
+      <main role="main" class="main-content">
+      
         <main class="content">
           <div class="container-fluid p-0">
             <h1 class="h3 mb-3">Leaderboard</h1>
@@ -69,7 +72,7 @@
                                 <div class="col-lg col-12">
                                     <div class="card" style="background-color: #3D1A6E;">
                                         <div class="card-body">
-                                            <h5 class="card-title text-white">Top Pilots All Time (Flights Flown)</h5>
+                                            <p class="card-title text-white">Top Pilots All Time (Flights Flown)</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -95,7 +98,7 @@
                                 <div class="col-lg col-12">
                                     <div class="card" style="background-color: #3D1A6E;">
                                         <div class="card-body">
-                                            <h5 class="card-title text-white">Top Pilots All Time (Hours Flown)</h5>     
+                                            <p class="card-title text-white">Top Pilots All Time (Hours Flown)</p>     
                                         </div>
                                     </div>
                                     <div class="row">
@@ -126,62 +129,21 @@
           </div>
         </main>
 
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row text-muted">
-              <div class="col-6 text-start">
-                <p class="mb-0">
-                  <a
-                    class="text-muted"
-                    href="#"
-                    target="_blank"
-                    ><strong>BUNNY VA</strong></a
-                  >
-                  &copy;
-                </p>
-              </div>
-              <div class="col-6 text-end">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Support</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Help Center</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Privacy</a
-                    >
-                  </li>
-                  <li class="list-inline-item">
-                    <a
-                      class="text-muted"
-                      href="#"
-                      target="_blank"
-                      >Terms</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/moment.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/simplebar.min.js"></script>
+    <script src='../../assets/js/daterangepicker.js'></script>
+    <script src='../../assets/js/jquery.stickOnScroll.js'></script>
+    <script src="../../assets/js/tinycolor-min.js"></script>
+    <script src="../../assets/js/config.js"></script>
+    <script src="../../assets/js/apps.js"></script>
+    <script src='../../assets/js/jquery.dataTables.min.js'></script>
+    <script src='../../assets/js/dataTables.bootstrap4.min.js'></script>
+    <script src="../../js/main.js"></script>
   </body>
 </html>

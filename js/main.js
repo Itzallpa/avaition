@@ -66,14 +66,10 @@ $(document).ready(function () {
 //when click <td> element will alert the value of the cell
 $(document).ready(function () {
 
+    //when click data-target="#edituser" will get data from database
+    $('#user_table').on('click', 'td', function () {
 
-    $('.edit_user_btn').click(function () {
-
-        //remove class .hide to $('#edit_user_btn')
-        $('#edit_user').removeClass('hide');
-        $('.wrapper').toggleClass("modal-backdrop");
-
-        
+        //get value of <td>
         var email = $(this).closest('tr').find('td').eq(2).text();
         var user_data;
     
@@ -92,109 +88,77 @@ $(document).ready(function () {
 
 
         $('#submit-edituser').click(function () {
+                
+                var edit_fullname = $('#edit_fullname').val();
+                var edit_email = $('#edit_email').val();
+                var edit_ivao_id = $('#edit_ivao_id').val();
+                var edit_vatsim_id = $('#edit_Vatsim_id').val();
+                var edit_birthdate = $('#edit_birthdate').val();
+                var edit_role = $('#edit_role').val();
+                var edit_password = $('#edit_password').val();
 
-            var edit_fullname = $('#edit_fullname').val();
-            var edit_email = $('#edit_email').val();
-            var edit_ivao_id = $('#edit_ivao_id').val();
-            var edit_vatsim_id = $('#edit_Vatsim_id').val();
-            var edit_birthdate = $('#edit_birthdate').val();
-            var edit_role = $('#edit_role').val();
-            var edit_password = $('#edit_password').val();
-
-
-
-            $.ajax({
-                url: "../auth/editprofile.php",
-                method: "POST",
-                data: {
-                    type: "edit_user",
-                    email: edit_email,
-                    edit_fullname: edit_fullname,
-                    edit_email: edit_email,
-                    edit_ivao_id: edit_ivao_id,
-                    edit_vatsim_id: edit_vatsim_id,
-                    edit_birthdate: edit_birthdate,
-                    edit_role: edit_role,
-                    edit_password: edit_password
-                },
-                success: function (data) {
-                    if(data)
-                    {
-                       Swal.fire({
-                            icon: 'success',
-                            title: 'Update User Success',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-
-
-                        var new_data = JSON.parse(data);
-
-                        var table = $('#user_table');
-                        //find <td> in table
-                        var td = table.find('td');
-
-                        //find <td> at value of = edit_email
-                        var td_email = td.filter(function () {
-                            return $(this).text() == edit_email;
-                        });
-
-                       
-                        //change value of <td> in table
-                        td_email.closest('tr').find('td').eq(1).text(new_data.full_name);
-                        td_email.closest('tr').find('td').eq(2).text(new_data.email);
-                        td_email.closest('tr').find('td').eq(3).text(new_data.user_role);
-                        td_email.closest('tr').find('td').eq(4).text(new_data.birthdate);
-
+                $.ajax({
+                    url: "../auth/editprofile.php",
+                    method: "POST",
+                    data: {
+                        type: "edit_user",
+                        email: edit_email,
+                        edit_fullname: edit_fullname,
+                        edit_email: edit_email,
+                        edit_ivao_id: edit_ivao_id,
+                        edit_vatsim_id: edit_vatsim_id,
+                        edit_birthdate: edit_birthdate,
+                        edit_role: edit_role,
+                        edit_password: edit_password
+                    },
+                    success: function (data) {
+                        if(data)
+                        {
+                           Swal.fire({
+                                icon: 'success',
+                                title: 'Update User Success',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+    
+    
+                            var new_data = JSON.parse(data);
+    
+                            var table = $('#user_table');
+                            //find <td> in table
+                            var td = table.find('td');
+    
+                            //find <td> at value of = edit_email
+                            var td_email = td.filter(function () {
+                                return $(this).text() == edit_email;
+                            });
+    
+                           
+                            //change value of <td> in table
+                            td_email.closest('tr').find('td').eq(1).text(new_data.full_name);
+                            td_email.closest('tr').find('td').eq(2).text(new_data.email);
+                            td_email.closest('tr').find('td').eq(3).text(new_data.user_role);
+                            td_email.closest('tr').find('td').eq(4).text(new_data.birthdate);
+    
+                        }
+                        else
+                        {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!',
+                            })
+    
+                        }
                     }
-                    else
-                    {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!',
-                        })
+                })
 
-                    }
-                }
-            })
-            
         });
         
 
     });
 
-    $('#closeModalBtn').click(function () {
-        
-        $('#edit_user').addClass('hide');
-
-        $('.wrapper').toggleClass("modal-backdrop");
-
-    });
-
-    //when click outside if #edit_user is not hide then hide it
-    $(document).mouseup(function (e) {
-        var container = $("#edit_user");
-
-        //if has class .hide then return
-        if (container.hasClass('hide')) {
-            return;
-        }
-        else
-        {
-            // if the target of the click isn't the container nor a descendant of the container
-            if (!container.is(e.target) && container.has(e.target).length === 0) 
-            {
-                container.addClass('hide');
-                $('.wrapper').toggleClass("modal-backdrop");
-            }
-        }
-
-    });
-
     
-
-
 });
 
 
@@ -450,6 +414,105 @@ $(document).ready(function () {
 
 });
 
+//DELETE AIRPORT
+$(document).ready(function () {
+
+
+    $('#airport_table').on('click', 'td', function () {
+
+        //when click <td> at button
+        var column = $(this).closest('tr').find('td').index($(this));
+
+        if (column == 3) {
+
+            var airport_name = $(this).closest('tr').find('td').eq(1).text();
+
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to delete " + airport_name + " Airport?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Delete'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                   $.ajax({
+                          url: "../auth/airport_system.php",
+                          method: "POST",
+                          data: {
+                            type: "delete_airport",
+                            airport_name: airport_name
+                          },
+                          success: function (data) {
+                            if (data == true) {
+                                 
+                                 Swal.fire({
+                                      icon: 'success',
+                                      title: 'Delete Airport Success',
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                 })
+                                 
+    
+                                //remove row in datatable
+                                var table = $('#airport_table').DataTable();
+                                var data = table.rows().data();
+                                var number;
+                                
+                                table.clear();
+
+                            
+                                var new_data = data;
+
+                                
+                                console.log(new_data)
+
+                                table.clear();
+
+                            
+                                var new_data = data;
+
+                                
+                                console.log(new_data)
+
+
+
+                               
+
+
+                                
+                                 
+                            } else {
+                                 Swal.fire({
+                                      icon: 'error',
+                                      title: 'Oops...',
+                                      text: 'Something went wrong! Delete Airport Failed!',
+                                 });
+
+                            }
+                          }
+                     })
+                }
+                else {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'DELETE AIRPORT',
+                        text: 'Airport is not deleted!',
+                    })
+                }
+            })
+        }
+
+    });
+
+    
+
+
+});
+
 //Add Flight Operation
 $(document).ready(function () {
     
@@ -650,4 +713,101 @@ $(document).ready(function () {
             
 
     });
+});
+
+
+//ADD AIRCRAFT
+$(document).ready(function () {
+
+    $('#submit-add-aircraft').click(function () {
+
+    
+        var aircraft_name = $('[name=aircraft_name]').val();
+        var airctaft_reg = $('[name=airctaft_reg]').val();
+
+
+        if(aircraft_name == "" || airctaft_reg == "")
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+            return;
+        }
+
+
+        var table = $('#aircraft_table').DataTable();
+        var data = table.rows().data();
+
+        var check = false;
+        
+        for(var i = 0; i < data.length; i++)
+        {
+            if(data[i][1] == aircraft_name || data[i][2] == airctaft_reg)
+            {
+                check = true;
+                break;
+            }
+        }
+
+
+        if(check == true)
+        {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Aircraft Name or Aircraft Registration is exist!',
+            })
+
+            return;
+        }
+
+        //get datetime
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+
+        today = dd + '/' + mm + '/' + yyyy;
+
+
+        table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary'>Edit</button></td>"]).draw();
+
+        var aircraft_type = $('[name=aircraft_type]').val();
+
+        $.ajax({
+            url: "../auth/aircraft_system.php",
+            method: "POST",
+            data: {
+                type: "add_aircraft",
+                aircraft_name: aircraft_name,
+                airctaft_reg: airctaft_reg,
+                aircraft_type: aircraft_type
+            },
+            success: function (data) {
+                if (data == true) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Add Aircraft Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                    console.log(data);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Add Aircraft Failed!',
+                    })
+
+                    console.log(data);
+                }
+            }
+        })
+
+    
+    });
+
 });
