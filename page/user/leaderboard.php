@@ -24,7 +24,7 @@
     <meta name="author" content="AdminKit" />
     <meta
       name="keywords"
-      content="kit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
+      content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"
     />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -228,8 +228,7 @@
                                         <?php
                                         $sql = "SELECT * FROM aircraft";
                                         $result = mysqli_query($conn, $sql);
-                                        
-                                        $row = mysqli_fetch_assoc($result);
+                                    
 
                                         $count = 1;
                                         while($row = mysqli_fetch_assoc($result)){
@@ -238,7 +237,7 @@
                                             echo "<td>" . $row["aircraft_name"] . "</td>";
                                             echo "<td>" . $row["aircraft_reg"] . "</td>";
                                             echo "<td>" . $row["aircraft_add_date"] . "</td>";
-                                            echo "<td><button class='btn btn-danger' name='del_aircraft'>DELETE</button></td>";
+                                            echo "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft'>Edit</button></td>";
                                             echo "</tr>";
 
                                             $count++;
@@ -260,7 +259,7 @@
                                         <input class="form-control" type="text" name="aircraft_name" placeholder="Aircraft Name">
                                     </div>
                                    <div class="col-lg">
-                                        <select name="airctaft_type" class="form-control" id="">
+                                        <select name="airctaft_type" class="form-control" id="airctaft_type">
                                             <option value="" disabled selected>Aircraft Type</option>
                                             <option value="Boeing">Boeing</option>
                                             <option value="Airbus">Airbus</option>
@@ -315,9 +314,16 @@
                                             
                                             $sql = "SELECT * FROM aircraft WHERE aircraft_id = " . $row["flight_aircraft"];
                                             $result2 = mysqli_query($conn, $sql);
+                                            
 
                                             $row2 = mysqli_fetch_assoc($result2);
 
+                                            
+                                            if(!$row2)
+                                            {
+                                                $row2["aircraft_name"] = "No Data";
+                                                $row2["aircraft_reg"] = "No Data";
+                                            }
 
 
                                             echo "<tr>";
@@ -499,6 +505,55 @@
         </div>
     </div>
 
+
+    <div class="modal fade" id="edit_aircraft" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">EDIT AIRCRAFT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <label for="aircraftname" class="form-label">Aircraft Name</label>
+                            <input class="form-control" type="text" name="airc_name">
+                        </div>
+                        <div class="col">
+                            <label for="aircraftreg" class="form-label">Aircraft Register</label>
+                            <input class="form-control" type="text" name="airc_reg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="aircrafttype" class="form-label">Aircraft Type</label>
+                            <select class="form-control" name="airc_type">
+                                <option disabled>Aircraft Type</option>
+                                <option value="Airbus">Airbus</option>
+                                <option value="Boeing">Boeing</option>
+                            </select>
+                        </div>
+                        <div class="col-lg">
+                            <label for="addby" class="form-label">AIRCRAFT ID</label>
+                            <input class="form-control hide" type="text" name="airc_id" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="submit-editaircraft"
+                            data-dismiss="modal">Understood</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+    </div>
 
 
 

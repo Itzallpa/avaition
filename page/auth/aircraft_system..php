@@ -8,7 +8,7 @@
     {
             
         $aircraft_name = $_POST["aircraft_name"];
-        $airctaft_reg = $_POST["airctaft_reg"];
+        $aircraft_reg = $_POST["aircraft_reg"];
         $aircraft_type = $_POST["aircraft_type"];
 
         $sql = "SELECT * FROM `users` WHERE `id`=" . $_SESSION["user_id"] . "";
@@ -25,7 +25,7 @@
         $aircraft_add_date = date("Y-m-d");
 
 
-        $sql = "INSERT INTO `aircraft`(`aircraft_name`, `airctaft_reg`, `aircraft_type`, `aircraft_add_date`, `aircraft_add_by`) VALUES ('$aircraft_name', '$airctaft_reg', '$aircraft_type', '$aircraft_add_date', '$aircraft_add_by')";
+        $sql = "INSERT INTO `aircraft`(`aircraft_name`, `aircraft_reg`, `aircraft_type`, `aircraft_add_date`, `aircraft_add_by`) VALUES ('$aircraft_name', '$aircraft_reg', '$aircraft_type', '$aircraft_add_date', '$aircraft_add_by')";
         $result = mysqli_query($conn, $sql);
     
         echo $data["success"] = true;
