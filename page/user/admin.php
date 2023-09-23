@@ -326,7 +326,7 @@
                                             }
 
 
-                                            echo "<tr>";
+                                            echo "<tr data-toggle='modal' data-target='#edit_flight'>";
                                             echo "<td>" . $count . "</td>";
                                             echo "<td>" . $row["flight_callsign"] . "</td>";
                                             echo "<td>" . $row["flight_dep"] . "</td>";
@@ -538,14 +538,117 @@
                                 <option value="Boeing">Boeing</option>
                             </select>
                         </div>
-                        <div class="col-lg">
+                        <div class="col-lg d-none">
                             <label for="addby" class="form-label">AIRCRAFT ID</label>
-                            <input class="form-control hide" type="text" name="airc_id" disabled readonly>
+                            <input class="form-control" type="text" name="airc_id" disabled readonly>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="submit-editaircraft"
+                            data-dismiss="modal">Understood</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="modal fade" id="edit_flight" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">EDIT FLIGHT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="callsign" class="form-label">Callsign</label>
+                            <input class="form-control" type="text" name="edit_callsign">
+                        </div>
+                        <div class="col-lg">
+                            <label for="aircraft" class="form-label">Aircraft</label>
+                            <select class="form-control" name="edit_aircraft">
+                                <option disabled>Aircraft</option>
+                                <?php
+
+                                    $sql = "SELECT * FROM aircraft";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $name = $row["aircraft_name"];
+                                        $reg = $row["aircraft_reg"];
+
+                                        $full_aircraft = $row["aircraft_name"] . " (" . $row["aircraft_reg"] . ")";
+
+                                        echo "<option value='$full_aircraft'>" . $full_aircraft . "</option>";
+                                    }
+                                
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="dep_icao" class="form-label">Departure</label>
+                            <select class="form-control" name="edit_dep_icao">
+                                <option disabled>Departure</option>
+                                <?php
+
+                                    $sql = "SELECT * FROM airport";
+                                    $result = mysqli_query($conn, $sql);
+                                    
+                                    while($row = mysqli_fetch_assoc($result)){
+
+                                        echo "<option value=". $row["icao"] .">" . $row["icao"] . "</option>";
+                                    } 
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-lg">
+                            <label for="arr_icao" class="form-label">Arrival</label>
+                            <select class="form-control" name="edit_arr_icao">
+                                <option disabled>Arrival</option>
+                                <?php
+                                
+                                    $sql = "SELECT * FROM airport";
+                                    $result = mysqli_query($conn, $sql);
+
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        echo "<option value=". $row["icao"] .">" . $row["icao"] . "</option>";
+                                    } 
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="dep_time" class="form-label">Departure Time</label>
+                            <input class="form-control" type="text" name="edit_dep_time">
+                        </div>
+                        <div class="col-lg">
+                            <label for="arr_time" class="form-label">Arrival Time</label>
+                            <input class="form-control" type="text" name="edit_arr_time">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="remark" class="form-label">Remark</label>
+                            <textarea class="form-control" rows="2" name="edit_remarks" placeholder="ปล่อยไว้หากคุณไม่ต้องการแก้ไข"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">DELETE</button>
+                        <button type="button" class="btn btn-primary" id="submit-editflight"
                             data-dismiss="modal">Understood</button>
                     </div>
                 </div>

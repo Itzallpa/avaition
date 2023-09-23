@@ -55,5 +55,32 @@
 
         echo $data['success'] = true;
     }
+    else if($type == "edit_flight")
+    {
+        $callsign_old = $_POST["callsign_old"];
+        $dep_icao = $_POST["dep_icao"];
+        $arr_icao = $_POST["arr_icao"];
+        $dep_time = $_POST["dep_time"];
+        $arr_time = $_POST["arr_time"];
+        $callsign = $_POST["callsign"];
+        $aircraft = $_POST["aircraft"];
+        $remark = $_POST["remarks"];
+
+        if($remark == "")
+            $remark = "None";
+        
+
+        $sql = "UPDATE `flights` SET `flight_callsign` = '$callsign', `flight_aircraft` = '$aircraft', `flight_dep` = '$dep_icao', `flight_arr` = '$arr_icao', `flight_dep_time` = '$dep_time', `flight_arr_time` = '$arr_time', `flight_remark` = '$remark' WHERE `flights`.`flight_callsign` = '$callsign_old'";
+        $result = mysqli_query($conn, $sql);
+
+        
+
+        
+
+        echo $data['success'] = true;
+        
+        
+
+    }
 
 ?>
