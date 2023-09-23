@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771');
 
 body::-webkit-scrollbar{
     display: none;
@@ -65,7 +66,6 @@ body::-webkit-scrollbar{
 
 }
 
-
 .btn-apply
 {
     background-color: #fff;
@@ -82,6 +82,15 @@ body::-webkit-scrollbar{
     background-color: #FFCB08;
     color: black;
     transition: 0.3s;
+}
+
+.bunnytext
+{
+    margin-right: auto;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;                                           
 }
 
 

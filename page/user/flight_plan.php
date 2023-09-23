@@ -89,7 +89,7 @@
                                         <td>'.$row['flight_arr'].'</td>
                                         <td>'.$row['flight_dep_time'].'</td>
                                         <td>'.$row['flight_arr_time'].'</td>
-                                        <td><a href="book.php?id='.$row['flight_id'].'" class="btn btn-primary">Book <i class="fa-duotone fa-book-circle-arrow-up fa-xl"></i></a></td>
+                                        <td><a href="book.php?id='.$row['flight_id'].'" class="btn btn-primary">Book &nbsp;<i class="fa-duotone fa-book-circle-arrow-up fa-xl"></i></a></td>
                                       </tr>';
                               }
                             }
