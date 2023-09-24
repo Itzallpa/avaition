@@ -32,6 +32,8 @@
     <!-- Font SF PRO DISPLAY (APPLE) -->
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <style>
+    </style>
     <link rel="icon" type="image/x-icon" href="../../img/bunnyhead.ico">
     <style>
         body {
@@ -42,7 +44,9 @@
             backdrop-filter: blur(8px);
 
         }
-
+        body.swal2-height-auto {
+            height: 100% !important
+        }
         ::placeholder {
             color: white;
             margin-right: auto;
@@ -56,9 +60,12 @@
 <body>
 <div>
     <div>
-        <div class="row" style="height: 923px; width: 100%;">
-            <div class="col-lg-4 mx-auto p-3 login-box">
-                <h1 class="login-text text-white bunnytext" style="height: 56px; z-index: 3;">BUNNY VA LOGIN</h1>
+    <div id="Header">
+        </div>
+        <div id="Content">
+        <div class="row">
+            <div class="col-lg-4 p-3 login-box">
+                <h1 class="login-text text-white bunnytext" style="height: 56px; z-index: 3;">BUNNY VA LOGIN <i class="fa-duotone fa-right-to-bracket fa-xl"></i></h1>
                     <div class="form-group bunnytextwh">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control1">
                     </div>
@@ -66,7 +73,7 @@
                         <input type="password" placeholder="Enter Password:" name="password" class="form-control1"> 
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="loginbtn" id="login" type="submit"> <h1 class="login-textbtn">LOGIN</a></button>
+                        <button class="loginbtn" id="login" type="submit"> <h1 class="login-textbtn">LOGIN <i class="fa-duotone fa-circle-check fa-xl"></i></a></button>
                     </div>
                     
                     <div class="mt-2">
