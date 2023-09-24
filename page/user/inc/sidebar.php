@@ -124,6 +124,18 @@
                 </a>
               </li>
           </ul>
+
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>System</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+          <li class="nav-item w-100">
+                <a class="nav-link" href="../../page/auth/logout">
+                <i class="fa-duotone fa-right-from-bracket fa-xl"></i>
+                  <span class="ml-3 item-text">Sign out</span>
+                </a>
+              </li>
+          </ul>
           
           
         </nav>

@@ -39,29 +39,40 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            backdrop-filter: blur(8px);
+
+        }
+
+        ::placeholder {
+            color: white;
+            margin-right: auto;
+            text-decoration: none;
+            white-space: nowrap;
+            font-family: 'SF Pro Display', sans-serif;
+            font-weight: 500;                                      
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-lg-4 mx-auto p-3 border shadow-1 login-box" style="background-color: #657d27c3">
-                <h1 class="text-center mt-5 text-white body">Login</h1>
-                    <div class="form-group">
-                        <input type="email" placeholder="Enter Email:" name="email" class="form-control">
+<div>
+    <div>
+        <div class="row" style="height: 923px; width: 100%;">
+            <div class="col-lg-4 mx-auto p-3 login-box">
+                <h1 class="login-text text-white bunnytext" style="height: 56px; z-index: 3;">BUNNY VA LOGIN</h1>
+                    <div class="form-group bunnytextwh">
+                        <input type="email" placeholder="Enter Email:" name="email" class="form-control1">
                     </div>
                     <div class="form-group mt-3">
-                        <input type="password" placeholder="Enter Password:" name="password" class="form-control"> 
+                        <input type="password" placeholder="Enter Password:" name="password" class="form-control1"> 
                     </div>
                     <div class="d-grid gap-2 mt-3">
-                        <button class="btn text-lightgray " id="login" type="submit">LOGIN</button>
+                        <button class="loginbtn" id="login" type="submit"> <h1 class="login-textbtn">LOGIN</a></button>
                     </div>
                     
                     <div class="mt-2">
                         <div class="row">
-                            <div class="col text-white">
-                            <p>Don't have accout? <a href="registration" class="text-white">Register!</a> <p>
+                            <div class="col text-white bunnytext">
+                            <p>Don't have accout? <a href="registration" class="text-white">Register</a> <p>
                             </div>
                         </div>
                     </div>

@@ -46,7 +46,7 @@
             <div class="col-lg">
               <h1 class="display-1 text-white" style="font-family: SF Pro Display, sans-serif;font-weight: 700">Welcome to BUNNY VA</h1>
               <p class="lead text-white bunnytext">Let's paint the virtual skies with us today!  A great community, for everyone.</p>
-              <a href='page/user/profile' class='btn-apply btn-lg bunnytext'>PROFILE</a>
+              <a href='page/auth/login' class='btn-apply btn-lg bunnytext'>PROFILE</a>
             </div>
             <div class="col-lg order-lg-last order-first">
               <img class="img-fluid" src="img/bunny.png" alt="">
