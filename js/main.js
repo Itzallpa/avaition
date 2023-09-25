@@ -978,7 +978,7 @@ $(document).ready(function () {
 
 
         $.ajax({
-            url: "./../auth/aircraft_system.php",
+            url: "../auth/aircraft_system.php",
             method: "POST",
             data: {
                 type: "add_aircraft",
@@ -987,7 +987,10 @@ $(document).ready(function () {
                 type_aircraft: airctaft_type
             },
             success: function (data) {
-                if (data == true) {
+
+                console.log(data);
+
+                /*if (data == true) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Add Aircraft Success',
@@ -1001,7 +1004,7 @@ $(document).ready(function () {
                         text: 'Something went wrong! Add Aircraft Failed!',
                     })
 
-                }
+                }*/
             }
         })
 
