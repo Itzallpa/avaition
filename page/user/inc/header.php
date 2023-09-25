@@ -25,11 +25,7 @@ if ($_SESSION["pro_img"] == "")
           </li>
           <li class="nav-item">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-shortcut">
-<<<<<<< HEAD
-              <span class="fe fe-grid fe-16"></span>
-=======
               <span class="fe fe-grid fe-16"></span>      
->>>>>>> ShunjiMaeda
             </a>
           </li>
           <li class="nav-item nav-notif">

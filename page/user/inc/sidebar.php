@@ -18,11 +18,8 @@
           <i class="fe fe-x"><span class="sr-only"></span></i>
         </a>
         <nav class="vertnav navbar navbar-light">
-<<<<<<< HEAD
-=======
               <!-- Awesome ICON -->
     <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
->>>>>>> ShunjiMaeda
           <!-- nav bar -->
           <div class="w-100 mb-4 d-flex">
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./profile">
@@ -41,11 +38,7 @@
           <ul class="navbar-nav flex-fill w-100 mb-2">
               <li class="nav-item w-100">
                 <a class="nav-link" href="./profile">
-<<<<<<< HEAD
-                  <i class="fe fe-home fe-16"></i>
-=======
                 <i class="fa-duotone fa-house fa-xl"></i>
->>>>>>> ShunjiMaeda
                   <span class="ml-3 item-text">Dashboard</span>
                 </a>
               </li>
@@ -56,11 +49,7 @@
           <ul class="navbar-nav flex-fill w-100 mb-2">
               <li class="nav-item w-100">
                 <a class="nav-link" href="./infomation">
-<<<<<<< HEAD
-                  <i class="fe fe-info fe-16"></i>
-=======
                 <i class= "fa-right fa-duotone fa-square-info fa-xl"></i>
->>>>>>> ShunjiMaeda
                   <span class="ml-3 item-text">Infomation</span>
                 </a>
               </li>
@@ -68,12 +57,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-<<<<<<< HEAD
-                          <i class="fe fe-home fe-16"></i>
-                          <span class="ml-3 item-text">Admin</span>
-=======
                           <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
->>>>>>> ShunjiMaeda
                           </a>
                         </li>';
 
@@ -84,12 +68,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-<<<<<<< HEAD
-                          <i class="fe fe-home fe-16"></i>
-                          <span class="ml-3 item-text">Admin</span>
-=======
                           <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
->>>>>>> ShunjiMaeda
                           </a>
                         </li>';
 
@@ -100,12 +79,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-<<<<<<< HEAD
-                          <i class="fe fe-home fe-16"></i>
-                          <span class="ml-3 item-text">Admin</span>
-=======
                           <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
->>>>>>> ShunjiMaeda
                           </a>
                         </li>';
 
@@ -116,12 +90,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-<<<<<<< HEAD
-                          <i class="fe fe-home fe-16"></i>
-                          <span class="ml-3 item-text">Admin</span>
-=======
                           <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
->>>>>>> ShunjiMaeda
                           </a>
                         </li>';
 
@@ -138,11 +107,7 @@
           <ul class="navbar-nav flex-fill w-100 mb-2">
           <li class="nav-item w-100">
                 <a class="nav-link" href="./leaderboard">
-<<<<<<< HEAD
-                  <i class="fe fe-flag fe-16"></i>
-=======
                 <i class="fa-duotone fa-award fa-xl"></i>
->>>>>>> ShunjiMaeda
                   <span class="ml-3 item-text">Leaderboard</span>
                 </a>
               </li>
@@ -154,17 +119,11 @@
           <ul class="navbar-nav flex-fill w-100 mb-2">
           <li class="nav-item w-100">
                 <a class="nav-link" href="./flight_plan">
-<<<<<<< HEAD
-                  <i class="fe fe-calendar fe-16"></i>
-=======
                 <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
->>>>>>> ShunjiMaeda
                   <span class="ml-3 item-text">Flight Book</span>
                 </a>
               </li>
           </ul>
-<<<<<<< HEAD
-=======
 
           <p class="text-muted nav-heading mt-4 mb-1">
             <span>System</span>
@@ -177,7 +136,6 @@
                 </a>
               </li>
           </ul>
->>>>>>> ShunjiMaeda
           
           
         </nav>
