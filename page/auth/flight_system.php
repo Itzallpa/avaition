@@ -1,12 +1,14 @@
 <?php
 
     session_start();
+
     require_once "../../sql/database.php";
 
 
     $type = $_POST["type"];
+    echo $type;
 
-    if($type == "add_flight")
+    /*if($type == "add_flight")
     {
         $dep_icao = $_POST["dep_icao"];
         $arr_icao = $_POST["arr_icao"];
@@ -111,6 +113,6 @@
         $result = mysqli_query($conn, $sql);
 
         echo $data['success'] = true;
-    }
+    }*/
 
 ?>
