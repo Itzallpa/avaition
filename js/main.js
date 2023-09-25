@@ -1002,4 +1002,8 @@ $(document).ready(function () {
 
 
 
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> ShunjiMaeda
