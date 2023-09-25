@@ -633,6 +633,30 @@ $(document).ready(function () {
                             showConfirmButton: true
                         })
 
+                        var table = $('#Flight-Operation').DataTable();
+                        var data = table.rows().data();
+
+                        $.ajax({
+                            url: "../auth/flight_system.php",
+                            method: "POST",
+                            data: {
+                                type: "getdata_aircraftID",
+                                aircraft_id: aircraft
+                            },
+                            success: function (data) {
+                
+                                var aircraft_data = JSON.parse(data);
+                                
+                                var name =  aircraft_data.aircraft_name + "(" + aircraft_data.aircraft_reg + ")";
+                                aircraft = name;
+
+                                table.row.add([data.length+1, callsign, dep_icao, dep_time, arr_icao, arr_time, aircraft]).draw();
+                            }
+                        })
+                        
+                        //add attribute to <tr>
+                        $('tr').attr('data-toggle', 'modal', 'data-target', '#edit_flight');
+
                     } else {
                         
                         if(data == "Departure ICAO not found")
