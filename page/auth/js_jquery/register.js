@@ -67,7 +67,7 @@ $(document).ready(function () {
         //check email if not @gmail.com
 
         var checkEmail = email.split("@");
-        if (checkEmail[1] != "gmail.com" || checkEmail[1] != "hotmail.com") {
+        if (checkEmail[1] != "gmail.com") {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
