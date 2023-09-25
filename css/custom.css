@@ -156,6 +156,14 @@ footer
     transition: filter .35s, transform .35s, opacity .35s;
 }
 
+.register-box
+{
+    background-color: rgb(14 12 21 / 58%);
+    border-radius: 5px;
+    border: 1px solid #e9ecef26;
+    transition: filter .35s, transform .35s, opacity .35s;
+}
+
 .login-text
 {
     margin-left: 15%;
