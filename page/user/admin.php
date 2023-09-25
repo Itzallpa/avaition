@@ -37,6 +37,10 @@
 
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="../../assets/css/simplebar.css">
+        <!-- Awesome ICON -->
+        <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
+    <!-- Font SF PRO DISPLAY (APPLE) -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
     <!-- Fonts CSS -->
     <link
         href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
@@ -585,10 +589,11 @@
                                     while($row = mysqli_fetch_assoc($result)){
                                         $name = $row["aircraft_name"];
                                         $reg = $row["aircraft_reg"];
-
+                                        
+                                        $id = $row["aircraft_id"];
                                         $full_aircraft = $row["aircraft_name"] . " (" . $row["aircraft_reg"] . ")";
 
-                                        echo "<option value='$full_aircraft'>" . $full_aircraft . "</option>";
+                                        echo "<option value='$id'>" . $full_aircraft . "</option>";
                                     }
                                 
                                 ?>
@@ -647,7 +652,7 @@
                     
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">DELETE</button>
+                    <button type="button" class="btn btn-danger" id="submit-delflight" data-dismiss="modal">DELETE</button>
                         <button type="button" class="btn btn-primary" id="submit-editflight"
                             data-dismiss="modal">Understood</button>
                     </div>

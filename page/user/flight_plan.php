@@ -27,10 +27,15 @@
 
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="../../assets/css/simplebar.css">
+    <!-- Awesome ICON -->
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
     <!-- Fonts CSS -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+      
+    <!-- Font SF PRO DISPLAY (APPLE)-->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
+                
     <!-- Icons CSS -->
     <link rel="stylesheet" href="../../assets/css/feather.css">
     <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap4.css">
@@ -63,12 +68,12 @@
                       <table id="" class="table table-hover my-0">
                         <thead>
                           <tr>
-                            <th>Flight Number</th>
-                            <th>Departure</th>
-                            <th>Arrival</th>
-                            <th>Departure Time</th>
-                            <th>Arrival Time</th>
-                            <th>Book</th>
+                            <th>Flight Number &nbsp;<i class="fa-duotone fa-plane-tail fa-xl"></i></th>
+                            <th>Departure &nbsp;<i class="fa-duotone fa-plane-departure fa-lg"></i></th>
+                            <th>Arrival &nbsp;<i class="fa-duotone fa-plane-arrival fa-lg"></i></th>
+                            <th>Departure Time &nbsp;<i class="fa-duotone fa-timer fa-lg"></i></th>
+                            <th>Arrival Time &nbsp;<i class="fa-duotone fa-timer fa-lg"></i></th>
+                            <th>Book &nbsp;<i class="fa-duotone fa-bookmark fa-lg"></i></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -84,7 +89,7 @@
                                         <td>'.$row['flight_arr'].'</td>
                                         <td>'.$row['flight_dep_time'].'</td>
                                         <td>'.$row['flight_arr_time'].'</td>
-                                        <td><a href="book.php?id='.$row['flight_id'].'" class="btn btn-primary">Book</a></td>
+                                        <td><a href="book.php?id='.$row['flight_id'].'" class="btn btn-primary">Book &nbsp;<i class="fa-duotone fa-book-circle-arrow-up fa-xl"></i></a></td>
                                       </tr>';
                               }
                             }

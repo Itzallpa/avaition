@@ -1,9 +1,23 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css");
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771');
 
 body::-webkit-scrollbar{
     display: none;
   }
-
+html, body
+{
+    height: 100%;
+}
+#Header
+{
+    width: 960px;
+    height: 150px;
+}
+#Content
+{
+    height: 100%;
+    width: 960px;
+}
 
 .shadow-1
 {
@@ -28,29 +42,29 @@ body::-webkit-scrollbar{
 
 .bg-purple
 {
-    background-color: #657d27 !important;
+    background: rgb(23	24	29) !important;
 }
 
 .text-purple
 {
-    color: #657d27 !important;
+    color: rgb(23	24	29) !important;
 }
 
 .btn-purple
 {
-    background-color: #657d27c2 !important;
-    border-color: #657d27c2 !important;
+    background: rgb(23	24	29) !important;
+    border-color: rgb(23	24	29) !important;
     color: white !important;
 }
 
 .btn-purple:focus
 {
-    box-shadow: #657d27 !important;
+    box-shadow: rgb(23	24	29) !important;
 }
 
 .table-purple
 {
-    background-color: #657d27 !important;
+    background: rgb(23	24	29) !important;
 }
 
 .header-center
@@ -71,7 +85,7 @@ body::-webkit-scrollbar{
     color: black;
     padding: 10px;
     text-decoration: none;
-    border-radius: 25vh;
+    border-radius: 12px;
     position: relative;
     top: 20px;
 }
@@ -79,8 +93,27 @@ body::-webkit-scrollbar{
 .btn-apply:hover
 {
     background-color: #FFCB08;
-    color: black;
+    color: rgb(255, 255, 255);
     transition: 0.3s;
+}
+
+.bunnytext
+{
+    margin-right: auto;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;                                      
+}
+
+.bunnytextwh
+{
+    color: white;
+    margin-right: auto;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;                                      
 }
 
 
@@ -112,12 +145,97 @@ footer
 
 .login-box
 {
-    margin-top: 10%;
-    border-radius: 16px;
+    margin-right: auto;
+    margin-left: 70%;
+    background-color: rgb(14 12 21 / 58%);
+    border-radius: 12px;
+    border: 1px solid #e9ecef26;
+    height: 370px;
+    width: 550px;
+    margin-top: 13%;
+    transition: filter .35s, transform .35s, opacity .35s;
+}
+
+.register-box
+{
+    background-color: rgb(14 12 21 / 58%);
+    border-radius: 5px;
+    border: 1px solid #e9ecef26;
+    transition: filter .35s, transform .35s, opacity .35s;
+}
+
+.login-text
+{
+    margin-left: 15%;
+    margin-top: 40px;
 }
 
 .modal-body::-webkit-scrollbar{
     display: none;
   }
 
+.form-control1 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;   
+    display: block;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    padding: 0.375rem 0.75rem;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #ffffff;
+    background: linear-gradient(0deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1));
+    border: 1px solid rgba(255,255,255,.08);
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;      
+}
 
+.loginbtn {
+    padding: 0.0ch 0.0ch;
+    border: 2px solid rgb(234	178	84);
+    border-radius: .5ch;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    transition: filter .35s, transform .35s, opacity .35s;
+    opacity: .6;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;     
+  }
+  
+.loginbtn:hover {
+    filter: brightness(85%);
+    opacity: 1;
+  }
+  
+.loginbtn:active {
+    transition: transform .1s;
+    transform: scale(.95);
+  }
+  
+.loginbtn:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    background: radial-gradient(190.82% 190.82% at 50% 100%, rgba(254, 173, 15, 1) 0%, rgba(168, 112, 64, 0.62) 18.09%);
+  }
+
+.login-textbtn
+{
+    position: relative;
+    color: rgb(234	178	84);
+    opacity: 1;
+    margin-top: 2%;
+    font-size: 25px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;                                      
+}
