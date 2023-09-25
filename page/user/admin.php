@@ -589,10 +589,11 @@
                                     while($row = mysqli_fetch_assoc($result)){
                                         $name = $row["aircraft_name"];
                                         $reg = $row["aircraft_reg"];
-
+                                        
+                                        $id = $row["aircraft_id"];
                                         $full_aircraft = $row["aircraft_name"] . " (" . $row["aircraft_reg"] . ")";
 
-                                        echo "<option value='$full_aircraft'>" . $full_aircraft . "</option>";
+                                        echo "<option value='$id'>" . $full_aircraft . "</option>";
                                     }
                                 
                                 ?>
@@ -651,7 +652,7 @@
                     
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">DELETE</button>
+                    <button type="button" class="btn btn-danger" id="submit-delflight" data-dismiss="modal">DELETE</button>
                         <button type="button" class="btn btn-primary" id="submit-editflight"
                             data-dismiss="modal">Understood</button>
                     </div>
