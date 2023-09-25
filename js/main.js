@@ -976,6 +976,8 @@ $(document).ready(function () {
 
         table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft'>Edit</button></td>"]).draw();
 
+        console.log(aircraft_name);
+
         $.ajax({
             url: "../auth/aircraft_system.php",
             method: "POST",
