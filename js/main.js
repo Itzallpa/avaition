@@ -988,9 +988,8 @@ $(document).ready(function () {
             },
             success: function (data) {
 
-                console.log(data);
 
-                /*if (data == true) {
+                if (data == true) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Add Aircraft Success',
@@ -1004,7 +1003,7 @@ $(document).ready(function () {
                         text: 'Something went wrong! Add Aircraft Failed!',
                     })
 
-                }*/
+                }
             }
         })
 

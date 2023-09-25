@@ -4,8 +4,8 @@
 
     include_once('../../sql/database.php');
 
-    echo $_POST["type"];
-    /*if($_POST["type"] == "add_aircraft")
+
+    if($_POST["type"] == "add_aircraft")
     {
 
             
@@ -68,6 +68,6 @@
 
          echo $aircraft_data = json_encode($data);
 
-    }*/
+    }
 
 ?>
