@@ -11,6 +11,9 @@
     $row = mysqli_fetch_assoc($result);
 
 
+    $_SESSION["user_role"] = $row["user_role"];
+
+
     if(!isset($_SESSION["user"])){
         header("Location: ../../index.php");
     }
@@ -96,6 +99,9 @@
                     </div>
                 </div>
 
+
+                <?php if($_SESSION["user_role"] == "Admin") { ?>
+                <h1 class="h3 mt-3">User Mangement</h1>
                 <div class="row">
                     <div class="col-lg-12 mt-3">
                         <div class="card">
@@ -138,80 +144,84 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
+                                        
+                <?php if($_SESSION["user_role"] == "Airport Mangement" || $_SESSION["user_role"] == "Admin") { ?>
 
-                <h1 class="h3 mt-3">Airport Mangement</h1>
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">AIRPORT</h5>
-                                <table id="airport_table" class="table table-hover my-0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Airport Name</th>
-                                            <th>ICAO Name</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $sql = "SELECT * FROM airport";
-                                        $result = mysqli_query($conn, $sql);
+                    <h1 class="h3 mt-3">Airport Mangement</h1>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">AIRPORT</h5>
+                                    <table id="airport_table" class="table table-hover my-0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Airport Name</th>
+                                                <th>ICAO Name</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sql = "SELECT * FROM airport";
+                                            $result = mysqli_query($conn, $sql);
 
-                                        $count = 1;
-                                        while($row = mysqli_fetch_assoc($result)){
+                                            $count = 1;
+                                            while($row = mysqli_fetch_assoc($result)){
 
-                                            if(!$row)
-                                            {
+                                                if(!$row)
+                                                {
+                                                    echo "<tr>";
+                                                    echo "<td class=''> No Data </td>";
+                                                    echo "<tr>";
+                                                    break;
+                                                }
+
                                                 echo "<tr>";
-                                                echo "<td class=''> No Data </td>";
-                                                echo "<tr>";
-                                                break;
+                                                echo "<td>" . $count . "</td>";
+                                                echo "<td>" . $row["airport_name"] . "</td>";
+                                                echo "<td>" . $row["icao"] . "</td>";
+                                                echo "<td><button class='btn btn-danger' name='del_airport'>DELETE</button></td>";
+                                                echo "</tr>";
+
+                                                $count++;
                                             }
-
-                                            echo "<tr>";
-                                            echo "<td>" . $count . "</td>";
-                                            echo "<td>" . $row["airport_name"] . "</td>";
-                                            echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><button class='btn btn-danger' name='del_airport'>DELETE</button></td>";
-                                            echo "</tr>";
-
-                                            $count++;
-                                        }
-                                    ?>
-                                    </tbody>
-                                </table>
+                                        ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-12 mt-lg-0 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">ADD AIRPORT</h5>
-                                <div class="row">
-                                    <div class="col-lg">
-                                        <label class="form-label">Airport Name</label>
-                                        <input type="text" class="form-control" name="airport_name" placeholder="">
+                        <div class="col-lg-6 col-12 mt-lg-0 mt-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">ADD AIRPORT</h5>
+                                    <div class="row">
+                                        <div class="col-lg">
+                                            <label class="form-label">Airport Name</label>
+                                            <input type="text" class="form-control" name="airport_name" placeholder="">
+                                        </div>
+                                        <div class="col-lg">
+                                            <label class="form-label">ICAO</label>
+                                            <input type="text" class="form-control" name="icao_name" placeholder="">
+                                        </div>
                                     </div>
-                                    <div class="col-lg">
-                                        <label class="form-label">ICAO</label>
-                                        <input type="text" class="form-control" name="icao_name" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-lg">
-                                        <div class="d-grid gap-2">
-                                            <button class="btn btn-success" id="submit-add-airport"
-                                                type="button">ADD</button>
+                                    <div class="row mt-3">
+                                        <div class="col-lg">
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-success" id="submit-add-airport"
+                                                    type="button">ADD</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                <?php } ?>
+                
                 <h1 class="h3 mt-3">Aircraft Mangement</h1>
                 <div class="row">
                     <div class="col-lg">
@@ -253,6 +263,7 @@
                         </div>
                     </div>
                 </div>
+                <?php if($_SESSION["user_role"] == "Aircraft Mangement" || $_SESSION["user_role"] == "Admin") { ?>
                 <div class="row mt-3">
                     <div class="col-lg">
                         <div class="card">
@@ -287,7 +298,7 @@
                     </div>
                 </div>
                 </div>
-
+                <?php } ?>
 
                 <h1 class="h3 mt-3">Flight Operation</h1>
                 <div class="row">
@@ -349,6 +360,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php if($_SESSION["user_role"] == "Flight Operation" || $_SESSION["user_role"] == "Admin") { ?>
                     <div class="col-lg-12 mt-3">
                         <div class="card">
                             <div class="card-body">
@@ -433,6 +445,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
 
             </div>
         </main>
@@ -509,7 +522,7 @@
         </div>
     </div>
 
-
+    <?php if($_SESSION["user_role"] == "Aircraft Mangement" || $_SESSION["user_role"] == "Admin") { ?>
     <div class="modal fade" id="edit_aircraft" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
@@ -558,7 +571,10 @@
         </div>
     
     </div>
+    <?php } ?>
 
+
+    <?php if($_SESSION["user_role"] == "Flight Operation" || $_SESSION["user_role"] == "Admin") { ?>
     <div class="modal fade" id="edit_flight" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
@@ -662,6 +678,7 @@
         </div>
     
     </div>
+    <?php } ?>
 
 
 
