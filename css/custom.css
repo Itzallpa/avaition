@@ -239,3 +239,9 @@ footer
     font-family: 'SF Pro Display', sans-serif;
     font-weight: 700;                                      
 }
+
+.text400 {
+    font-family: "SF Pro Display", sans-serif;
+    font-size: calc(1.27812rem + 0.3375vw);
+    font-weight: 400;
+  }

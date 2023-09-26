@@ -85,9 +85,9 @@
                               <i class="fe fe-16 fe-command text-white mb-0"></i>
                             </span>
                           </div>
-                          <div class="col pr-0">
+                          <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Pireps Filed</p>
-                            <span class="h3 mb-0">1,869</span>
+                            <span class="mb-0">1,869</span>
                             <span class="small text-success">+16.5%</span>
                           </div>
                         </div>
@@ -103,9 +103,9 @@
                               <i class="fe fe-16 fe-map text-white mb-0"></i>
                             </span>
                           </div>
-                          <div class="col pr-0">
+                          <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Current Location</p>
-                            <span class="h3 mb-0">1,869</span>
+                            <span class="text400 mb-0">1,869</span>
                             <span class="small text-success">+16.5%</span>
                           </div>
                         </div>
@@ -121,9 +121,9 @@
                               <i class="fe fe-16 fe-clock text-white mb-0"></i>
                             </span>
                           </div>
-                          <div class="col pr-0">
+                          <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Total Hours</p>
-                            <span class="h3 mb-0">1,869</span>
+                            <span class="text400 mb-0">1,869</span>
                             <span class="small text-success">+16.5%</span>
                           </div>
                         </div>
@@ -139,9 +139,9 @@
                               <i class="fe fe-16 fe-clipboard text-white mb-0"></i>
                             </span>
                           </div>
-                          <div class="col pr-0">
+                          <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Landing Average</p>
-                            <span class="h3 mb-0">1,869</span>
+                            <span class="text400 mb-0">1,869</span>
                             <span class="small text-success">+16.5%</span>
                           </div>
                         </div>
