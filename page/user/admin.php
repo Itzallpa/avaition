@@ -11,6 +11,9 @@
     $row = mysqli_fetch_assoc($result);
 
 
+    $_SESSION["user_role"] = $row["user_role"];
+
+
     if(!isset($_SESSION["user"])){
         header("Location: ../../index.php");
     }
@@ -37,10 +40,11 @@
 
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="../../assets/css/simplebar.css">
-        <!-- Awesome ICON -->
-        <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
+    <!-- Awesome ICON -->
+    <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
     <!-- Font SF PRO DISPLAY (APPLE) -->
-    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769"
+        rel="stylesheet">
     <!-- Fonts CSS -->
     <link
         href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
@@ -96,6 +100,9 @@
                     </div>
                 </div>
 
+
+                <?php if($_SESSION["user_role"] == "Admin") { ?>
+                <h1 class="h3 mt-3">User Mangement</h1>
                 <div class="row">
                     <div class="col-lg-12 mt-3">
                         <div class="card">
@@ -138,6 +145,9 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
+
+                <?php if($_SESSION["user_role"] == "Airport Mangement" || $_SESSION["user_role"] == "Admin") { ?>
 
                 <h1 class="h3 mt-3">Airport Mangement</h1>
                 <div class="row">
@@ -156,30 +166,30 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        $sql = "SELECT * FROM airport";
-                                        $result = mysqli_query($conn, $sql);
+                                            $sql = "SELECT * FROM airport";
+                                            $result = mysqli_query($conn, $sql);
 
-                                        $count = 1;
-                                        while($row = mysqli_fetch_assoc($result)){
+                                            $count = 1;
+                                            while($row = mysqli_fetch_assoc($result)){
 
-                                            if(!$row)
-                                            {
+                                                if(!$row)
+                                                {
+                                                    echo "<tr>";
+                                                    echo "<td class=''> No Data </td>";
+                                                    echo "<tr>";
+                                                    break;
+                                                }
+
                                                 echo "<tr>";
-                                                echo "<td class=''> No Data </td>";
-                                                echo "<tr>";
-                                                break;
+                                                echo "<td>" . $count . "</td>";
+                                                echo "<td>" . $row["airport_name"] . "</td>";
+                                                echo "<td>" . $row["icao"] . "</td>";
+                                                echo "<td><button class='btn btn-danger' name='del_airport'>DELETE</button></td>";
+                                                echo "</tr>";
+
+                                                $count++;
                                             }
-
-                                            echo "<tr>";
-                                            echo "<td>" . $count . "</td>";
-                                            echo "<td>" . $row["airport_name"] . "</td>";
-                                            echo "<td>" . $row["icao"] . "</td>";
-                                            echo "<td><button class='btn btn-danger' name='del_airport'>DELETE</button></td>";
-                                            echo "</tr>";
-
-                                            $count++;
-                                        }
-                                    ?>
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -211,6 +221,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
 
                 <h1 class="h3 mt-3">Aircraft Mangement</h1>
                 <div class="row">
@@ -253,6 +264,7 @@
                         </div>
                     </div>
                 </div>
+                <?php if($_SESSION["user_role"] == "Aircraft Mangement" || $_SESSION["user_role"] == "Admin") { ?>
                 <div class="row mt-3">
                     <div class="col-lg">
                         <div class="card">
@@ -260,24 +272,27 @@
                                 <h5 class="card-title">ADD AIRCRAFT</h5>
                                 <div class="row">
                                     <div class="col-lg">
-                                        <input class="form-control" type="text" name="aircraft_name" placeholder="Aircraft Name">
+                                        <input class="form-control" type="text" name="aircraft_name"
+                                            placeholder="Aircraft Name">
                                     </div>
-                                   <div class="col-lg">
+                                    <div class="col-lg">
                                         <select name="airctaft_type" class="form-control" id="airctaft_type">
                                             <option value="" disabled selected>Aircraft Type</option>
                                             <option value="Boeing">Boeing</option>
                                             <option value="Airbus">Airbus</option>
                                         </select>
-                                   </div>
-                                   <div class="col-lg">
-                                        <input class="form-control" type="text" name="airctaft_reg" placeholder="Registration">
+                                    </div>
+                                    <div class="col-lg">
+                                        <input class="form-control" type="text" name="airctaft_reg"
+                                            placeholder="Registration">
                                     </div>
                                 </div>
 
                                 <div class="row mt-2">
                                     <div class="col-lg-12">
                                         <div class="d-grid gap-2">
-                                            <button class="btn btn-success" id="submit-add-aircraft" type="button">ADD AIRCRAFT</button>
+                                            <button class="btn btn-success" id="submit-add-aircraft" type="button">ADD
+                                                AIRCRAFT</button>
                                         </div>
                                     </div>
                                 </div>
@@ -286,29 +301,29 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
+            <?php } ?>
 
-
-                <h1 class="h3 mt-3">Flight Operation</h1>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Flight Operation</h5>
-                                <table id="Flight-Operation" class="table table-hover my-0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Flight Number</th>
-                                            <th>Departure</th>
-                                            <th>Time</th>
-                                            <th>Arrival</th>
-                                            <th>Time</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+            <h1 class="h3 mt-3">Flight Operation</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Flight Operation</h5>
+                            <table id="Flight-Operation" class="table table-hover my-0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Flight Number</th>
+                                        <th>Departure</th>
+                                        <th>Time</th>
+                                        <th>Arrival</th>
+                                        <th>Time</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
 
                                         $sql = "SELECT * FROM flights";
                                         $result = mysqli_query($conn, $sql);
@@ -344,24 +359,25 @@
                                         }
                                     
                                     ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="col-lg-12 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Add Flight</h5>
-                                <div class="row">
-                                    <div class="col-lg">
-                                        <input type="text" class="form-control" name="callsign"
-                                            placeholder="Aircraft Identification">
-                                    </div>
-                                    <div class="col-lg mt-lg-0 mt-3">
-                                        <select class="form-control mb-3" name="aircraft">
-                                            <option selected disabled>Aircraft</option>
-                                            <?php
+                </div>
+                <?php if($_SESSION["user_role"] == "Flight Operation" || $_SESSION["user_role"] == "Admin") { ?>
+                <div class="col-lg-12 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Flight</h5>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <input type="text" class="form-control" name="callsign"
+                                        placeholder="Aircraft Identification">
+                                </div>
+                                <div class="col-lg mt-lg-0 mt-3">
+                                    <select class="form-control mb-3" name="aircraft">
+                                        <option selected disabled>Aircraft</option>
+                                        <?php
 
                                             $sql = "SELECT * FROM aircraft";
                                             $result = mysqli_query($conn, $sql);
@@ -376,12 +392,12 @@
                                             }
                                         
                                         ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg">
-                                        <select class="form-control mb-3" id="dep_icao">
-                                            <option selected="" disabled>Departure</option>
-                                            <?php
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <select class="form-control mb-3" id="dep_icao">
+                                        <option selected="" disabled>Departure</option>
+                                        <?php
 
                                             $sql = "SELECT * FROM airport";
                                             $result = mysqli_query($conn, $sql);
@@ -390,12 +406,12 @@
                                                 echo "<option>" . $row["icao"] . "</option>";
                                             } 
                                         ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg">
-                                        <select class="form-control mb-3" id="arr_icao">
-                                            <option selected="" disabled>Arrival</option>
-                                            <?php
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <select class="form-control mb-3" id="arr_icao">
+                                        <option selected="" disabled>Arrival</option>
+                                        <?php
                                         
                                             $sql = "SELECT * FROM airport";
                                             $result = mysqli_query($conn, $sql);
@@ -404,38 +420,37 @@
                                                 echo "<option>" . $row["icao"] . "</option>";
                                             } 
                                         ?>
-                                        </select>
-                                    </div>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg">
-                                        <input type="text" class="form-control" id="dep_time"
-                                            placeholder="Departure Time">
-                                    </div>
-                                    <div class="col-lg mt-lg-0 mt-3">
-                                        <input type="text" class="form-control" id="arr_time"
-                                            placeholder="Arrival Time">
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg">
+                                    <input type="text" class="form-control" id="dep_time" placeholder="Departure Time">
                                 </div>
-                                <div class="row mt-2">
-                                    <div class="col-lg">
-                                        <textarea class="form-control" rows="2" name="Remark"
-                                            placeholder="Remark"></textarea>
-                                    </div>
+                                <div class="col-lg mt-lg-0 mt-3">
+                                    <input type="text" class="form-control" id="arr_time" placeholder="Arrival Time">
                                 </div>
-                                <div class="row mt-2">
-                                    <div class="col-lg d-grid gap-2">
-                                        <button class="btn btn-success" id="submit-add-flight" type="button">ADD
-                                            FLIGHT</button>
-                                    </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg">
+                                    <textarea class="form-control" rows="2" name="Remark"
+                                        placeholder="Remark"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg d-grid gap-2">
+                                    <button class="btn btn-success" id="submit-add-flight" type="button">ADD
+                                        FLIGHT</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </main>
+            <?php } ?>
+
+    </div>
+    </main>
     </div>
 
 
@@ -486,8 +501,29 @@
                                         <option value="Airport Mangement">Airport Mangement</option>
                                         <option value="Aircraft Mangement">Aircraft Mangement</option>
                                         <option value="Flight Operation">Flight Operation</option>
-                                        
+
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg">
+                                    <label for="" class="form-label">RANK</label>
+                                    <select class="form-control" id="edit_rank">
+                                        <option disabled>Open this select menu</option>
+                                        <?php 
+                                            $sql = "SELECT * FROM rank_pilot";
+                                            $result = mysqli_query($conn, $sql);
+
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo "<option value=". $row["rank_id"] .">" . $row["rank_name"] . "</option>";
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col-lg">
+                                    <label for="" class="form-label">Flight Hour</label>
+                                    <input type="text" class="form-control" name="" id="edit_flight_hour"
+                                        placeholder="">
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -509,7 +545,7 @@
         </div>
     </div>
 
-
+    <?php if($_SESSION["user_role"] == "Aircraft Mangement" || $_SESSION["user_role"] == "Admin") { ?>
     <div class="modal fade" id="edit_aircraft" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
@@ -521,7 +557,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                
+
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
@@ -556,9 +592,12 @@
 
             </div>
         </div>
-    
-    </div>
 
+    </div>
+    <?php } ?>
+
+
+    <?php if($_SESSION["user_role"] == "Flight Operation" || $_SESSION["user_role"] == "Admin") { ?>
     <div class="modal fade" id="edit_flight" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
@@ -570,7 +609,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                
+
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg">
@@ -646,13 +685,15 @@
                     <div class="row">
                         <div class="col-lg">
                             <label for="remark" class="form-label">Remark</label>
-                            <textarea class="form-control" rows="2" name="edit_remarks" placeholder="ปล่อยไว้หากคุณไม่ต้องการแก้ไข"></textarea>
+                            <textarea class="form-control" rows="2" name="edit_remarks"
+                                placeholder="ปล่อยไว้หากคุณไม่ต้องการแก้ไข"></textarea>
                         </div>
                     </div>
-                    
+
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" id="submit-delflight" data-dismiss="modal">DELETE</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" id="submit-delflight"
+                            data-dismiss="modal">DELETE</button>
                         <button type="button" class="btn btn-primary" id="submit-editflight"
                             data-dismiss="modal">Understood</button>
                     </div>
@@ -660,8 +701,9 @@
 
             </div>
         </div>
-    
+
     </div>
+    <?php } ?>
 
 
 

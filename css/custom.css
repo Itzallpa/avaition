@@ -10,13 +10,13 @@ html, body
 }
 #Header
 {
-    width: 960px;
-    height: 150px;
+    height: auto;
+    width: auto;
 }
 #Content
 {
-    height: 100%;
-    width: 960px;
+    height: auto;
+    width: auto;
 }
 
 .shadow-1
@@ -117,22 +117,51 @@ html, body
 }
 
 
-@media only screen and (max-width: 600px) {
-    .header-center
+@media only screen and (max-width: 480px) {
+    .login-box
     {
-        height: 110vh !important;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
+        transform: scale(0.8);
+        margin-top: 50%;
+        margin-right: auto;
+        margin-left: auto;
     }
+}
+
+@media only screen and (min-width: 481px) {
     .login-box
     {
         margin-top: 50%;
-        border-radius: 16px;
+        margin-right: auto;
+        margin-left: 20%;
     }
 }
+
+@media only screen and (min-width: 769px) {
+    .login-box
+    {
+        margin-top: 50%;
+        margin-right: auto;
+        margin-left: 45%;
+    }
+}
+@media only screen and (min-width: 1025px) {
+    .login-box
+    {
+        margin-top: 50%;
+        margin-right: auto;
+        margin-left: 65%;
+    }
+}
+@media only screen and (min-width: 1201px) {
+    .login-box
+    {
+        margin-top: 50%;
+        margin-right: auto;
+        margin-left: 125%;
+    }
+}
+
+
 
 footer
 {
@@ -145,14 +174,11 @@ footer
 
 .login-box
 {
-    margin-right: auto;
-    margin-left: 70%;
     background-color: rgb(14 12 21 / 58%);
     border-radius: 12px;
     border: 1px solid #e9ecef26;
     height: 370px;
     width: 550px;
-    margin-top: 13%;
     transition: filter .35s, transform .35s, opacity .35s;
 }
 
@@ -176,7 +202,6 @@ footer
 
 .form-control1 {
     font-family: 'SF Pro Display', sans-serif;
-    font-weight: 700;   
     display: block;
     height: 40px;
     width: 100%;
@@ -239,3 +264,90 @@ footer
     font-family: 'SF Pro Display', sans-serif;
     font-weight: 700;                                      
 }
+
+.text400 {
+    font-family: "SF Pro Display", sans-serif;
+    font-size: calc(1.27812rem + 0.3375vw);
+    font-weight: 400;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .register-box
+    {
+        transform: scale(0.8);
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .register-box
+    {
+        width: 50%;
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: 30%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .register-box
+    {
+        width: 50%;
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: 30%;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .register-box
+    {
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: 30%;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .register-box
+    {
+        margin-top: 15%;
+        margin-right: auto;
+        margin-left: 90%;
+    }
+}
+
+.regbtn {
+    padding: 1ch 15ch;
+    border: 2px solid rgb(234	178	84);
+    border-radius: .5ch;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    transition: filter .35s, transform .35s, opacity .35s;
+    opacity: .6;
+    box-sizing: border-box;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;     
+  }
+  
+.regbtn:hover {
+    filter: brightness(85%);
+    opacity: 1;
+  }
+  
+.regbtn:active {
+    transition: transform .1s;
+    transform: scale(.95);
+  }
+  
+.regbtn:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    background: radial-gradient(190.82% 190.82% at 50% 100%, rgba(254, 173, 15, 1) 0%, rgba(168, 112, 64, 0.62) 18.09%);
+  }

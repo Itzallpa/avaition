@@ -83,6 +83,8 @@ $(document).ready(function () {
             $('#edit_Vatsim_id').val(user_data.user_vatsim_id);
             $('#edit_birthdate').val(user_data.birthdate);
             $('#edit_role').val(user_data.user_role);
+            $('#edit_rank').val(user_data.rank);
+            $('#edit_flight_hour').val(user_data.flight_hour);
             
         });
 
@@ -96,6 +98,8 @@ $(document).ready(function () {
                 var edit_birthdate = $('#edit_birthdate').val();
                 var edit_role = $('#edit_role').val();
                 var edit_password = $('#edit_password').val();
+                var edit_rank = $('#edit_rank').val();
+                var edit_flight_hour = $('#edit_flight_hour').val();
 
                 $.ajax({
                     url: "../auth/editprofile.php",
@@ -109,7 +113,9 @@ $(document).ready(function () {
                         edit_vatsim_id: edit_vatsim_id,
                         edit_birthdate: edit_birthdate,
                         edit_role: edit_role,
-                        edit_password: edit_password
+                        edit_password: edit_password,
+                        edit_rank: edit_rank,
+                        edit_flight_hour: edit_flight_hour
                     },
                     success: function (data) {
                         if(data)
@@ -633,6 +639,30 @@ $(document).ready(function () {
                             showConfirmButton: true
                         })
 
+                        var table = $('#Flight-Operation').DataTable();
+                        var data = table.rows().data();
+
+                        $.ajax({
+                            url: "../auth/flight_system.php",
+                            method: "POST",
+                            data: {
+                                type: "getdata_aircraftID",
+                                aircraft_id: aircraft
+                            },
+                            success: function (data) {
+                
+                                var aircraft_data = JSON.parse(data);
+                                
+                                var name =  aircraft_data.aircraft_name + "(" + aircraft_data.aircraft_reg + ")";
+                                aircraft = name;
+
+                                table.row.add([data.length+1, callsign, dep_icao, dep_time, arr_icao, arr_time, aircraft]).draw();
+                            }
+                        })
+                        
+                        //add attribute to <tr>
+                        $('tr').attr('data-toggle', 'modal', 'data-target', '#edit_flight');
+
                     } else {
                         
                         if(data == "Departure ICAO not found")
@@ -976,6 +1006,7 @@ $(document).ready(function () {
 
         table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft'>Edit</button></td>"]).draw();
 
+
         $.ajax({
             url: "../auth/aircraft_system.php",
             method: "POST",
@@ -986,6 +1017,8 @@ $(document).ready(function () {
                 type_aircraft: airctaft_type
             },
             success: function (data) {
+
+
                 if (data == true) {
                     Swal.fire({
                         icon: 'success',
@@ -1101,5 +1134,55 @@ $(document).ready(function () {
     });
 
 
+
+});
+
+//edit-train-page
+$(document).ready(function () {
+
+
+    $.get("../auth/server_get.php", {type: "get_docs_pilot"}, function (data) {
+
+        var docs = JSON.parse(data);
+        $('#show-editor').html(docs.pilot_train_docs);
+
+        editors.setData(docs.pilot_train_docs); 
+        
+    });
+
+   
+    $('#submit-editer').click(function () {
+
+        var data_post = editors.getData();
+
+        $.ajax({
+            url: "../auth/server_post.php",
+            method: "POST",
+            data: {
+                type: "edit_docs_pilot",
+                data: data_post
+            },
+            success: function (data) {
+                if (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Edit Docs Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    $('#show-editor').html(data_post);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Edit Docs Failed!',
+                    })
+                }
+            }
+        })
+
+
+    
+    });
 
 });

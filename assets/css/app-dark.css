@@ -43,11 +43,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-<<<<<<< HEAD
   --font-family-sans-serif: "Overpass", sans-serif;
-=======
-  --font-family-sans-serif: font-family: "SF Pro Display", sans-serif;
->>>>>>> ShunjiMaeda
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
@@ -66,15 +62,9 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
-=======
-  font-family: "SF Pro Display", sans-serif;
-  font-size: 15px;
-  font-weight: 700;
->>>>>>> ShunjiMaeda
   line-height: 1.5;
   color: #ced4da;
   text-align: left;
@@ -356,7 +346,6 @@ h6, .h6 {
 
 .lead {
   font-size: 1.09375rem;
-<<<<<<< HEAD
   font-weight: 300; }
 
 .display-1 {
@@ -366,18 +355,6 @@ h6, .h6 {
   @media (max-width: 1200px) {
     .display-1 {
       font-size: calc(1.725rem + 5.7vw) ; } }
-=======
-  font-weight: 500; }
-
-.display-1 {
-  font-size: 6rem;
-  font-weight: 700;
-  line-height: 1.2; }
-  @media (max-width: 1200px) {
-    .display-1 {
-      font-size: calc(1.725rem + 5.7vw) ;
-      font-weight: 700; } }
->>>>>>> ShunjiMaeda
 
 .display-2 {
   font-size: 5.5rem;
@@ -459,12 +436,6 @@ mark,
   max-width: 100%;
   height: auto; }
 
-<<<<<<< HEAD
-=======
-.fa-right {
-  right: -3.5px; }
-
->>>>>>> ShunjiMaeda
 .figure {
   display: inline-block; }
 
@@ -4291,11 +4262,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif;
-=======
-  font-family: "SF Pro Display", sans-serif;
->>>>>>> ShunjiMaeda
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4380,11 +4347,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif;
-=======
-  font-family: "SF Pro Display", sans-serif;
->>>>>>> ShunjiMaeda
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7659,11 +7622,7 @@ select {
   vertical-align: middle !important; }
 
 .table thead th {
-<<<<<<< HEAD
   font-weight: 400; }
-=======
-  font-weight: 600; }
->>>>>>> ShunjiMaeda
 
 .table tbody tr th {
   font-weight: 400; }
@@ -7872,11 +7831,7 @@ select {
   stroke-width: 8;
   font-weight: 400;
   font-size: 1.2rem;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif; }
-=======
-  font-family: "SF Pro Display", sans-serif; }
->>>>>>> ShunjiMaeda
 
 .gauge-container.g3 > .gauge .dial {
   stroke: transparent;
@@ -9247,11 +9202,7 @@ form.was-validated select:valid ~ .select2-container--bootstrap4 .select2-select
 
 .uppy-Root {
   box-sizing: border-box;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif;
-=======
-  font-family: "SF Pro Display", sans-serif;
->>>>>>> ShunjiMaeda
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10679,11 +10630,7 @@ form.was-validated select:valid ~ .select2-container--bootstrap4 .select2-select
   height: 30px;
   background-color: transparent;
   outline: 0;
-<<<<<<< HEAD
   font-family: "Overpass", sans-serif;
-=======
-  font-family: "SF Pro Display", sans-serif;
->>>>>>> ShunjiMaeda
   font-size: 12px;
   line-height: 1.4;
   border: 0;

@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+
     require_once "../../sql/database.php";
 
 
@@ -102,6 +103,21 @@
             echo $data['success'] = false;
 
 
+    }
+    else if($type == "getdata_aircraftID")
+    {
+        $aircraft_id = $_POST["aircraft_id"];
+
+
+        $sql = "SELECT * FROM `aircraft` WHERE `aircraft_id` = '$aircraft_id'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        if($row)
+            echo json_encode($row);
+        else
+            echo $data['success'] = false;
     }
     else if($type == "delete_flight")
     {
