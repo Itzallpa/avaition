@@ -83,6 +83,8 @@ $(document).ready(function () {
             $('#edit_Vatsim_id').val(user_data.user_vatsim_id);
             $('#edit_birthdate').val(user_data.birthdate);
             $('#edit_role').val(user_data.user_role);
+            $('#edit_rank').val(user_data.rank);
+            $('#edit_flight_hour').val(user_data.flight_hour);
             
         });
 
@@ -96,6 +98,8 @@ $(document).ready(function () {
                 var edit_birthdate = $('#edit_birthdate').val();
                 var edit_role = $('#edit_role').val();
                 var edit_password = $('#edit_password').val();
+                var edit_rank = $('#edit_rank').val();
+                var edit_flight_hour = $('#edit_flight_hour').val();
 
                 $.ajax({
                     url: "../auth/editprofile.php",
@@ -109,7 +113,9 @@ $(document).ready(function () {
                         edit_vatsim_id: edit_vatsim_id,
                         edit_birthdate: edit_birthdate,
                         edit_role: edit_role,
-                        edit_password: edit_password
+                        edit_password: edit_password,
+                        edit_rank: edit_rank,
+                        edit_flight_hour: edit_flight_hour
                     },
                     success: function (data) {
                         if(data)
