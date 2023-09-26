@@ -71,6 +71,8 @@
                 $birthdate = $_POST["edit_birthdate"];
                 $user_role = $_POST["edit_role"];
                 $password = $_POST["edit_password"];
+                $user_rank = $_POST["edit_rank"];
+                $flight_hour = $_POST["edit_flight_hour"];
 
                 
                 if($password != "")
@@ -80,7 +82,7 @@
                     $result = mysqli_query($conn, $sql);
                 }
 
-                $sql = "UPDATE `users` SET `full_name`='$full_name',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_role`='$user_role' WHERE `email` = '$email'";
+                $sql = "UPDATE `users` SET `full_name`='$full_name',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_role`='$user_role',`rank`='$user_rank',`flight_hour`='$flight_hour' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
             
             

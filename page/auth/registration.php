@@ -56,11 +56,12 @@
 <div>
 <div id="Header">
     </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div id="Content">
     <div>
-        <div class="row justify-content-center" style="width: 1400px; margin-right: 20%; margin-top: 0%; margin-left: 25%; margin-bottom: 20%">
-            <div class="col-lg-6">
-                <div class="card shadow-1 register-box" style="background-color: rgb(14 12 21 / 58%);" >
+        <div class="row justify-content-center" style="width: 1024px; margin-top: 0%; margin-bottom: 20%">
+            <div class="col-lg-6 register-box">
+                <div>
                     <div class="card-body">
                         <h2 class="card-title text-center bunnytextwh">REGISTER | BUNNY VA</h2>
                         <form>
@@ -91,7 +92,7 @@
                                 <label for="vatsimId" class="form-label bunnytext">VATSIM ID</label>
                                 <input type="text" class="form-control1" style="font-weight: 700;" id="vatsimId" name="vatsimId" placeholder="not required">
                             </div>
-                            <button type="button" id="register" class="loginbtn" style="padding: 1ch 24ch;"><h1 class="login-textbtn">Register <i class="fa-duotone fa-circle-check fa-xl"></i></a></button>
+                            <button type="button" id="register" class="regbtn"><h1 class="login-textbtn">Register <i class="fa-duotone fa-circle-check fa-xl"></i></a></button>
                         </form>
                     </div>
                     <div class="card-footer text-white">

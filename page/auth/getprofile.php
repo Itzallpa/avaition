@@ -17,6 +17,8 @@
         $data['user_vatsim_id'] = $user["user_vatsim_id"];
         $data['birthdate'] = $user["birthdate"];
         $data['user_role'] = $user["user_role"];
+        $data['rank'] = $user["rank"];
+        $data['flight_hour'] = $user["flight_hour"];
 
         echo json_encode($data);
 

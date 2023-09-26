@@ -83,6 +83,8 @@ $(document).ready(function () {
             $('#edit_Vatsim_id').val(user_data.user_vatsim_id);
             $('#edit_birthdate').val(user_data.birthdate);
             $('#edit_role').val(user_data.user_role);
+            $('#edit_rank').val(user_data.rank);
+            $('#edit_flight_hour').val(user_data.flight_hour);
             
         });
 
@@ -96,6 +98,8 @@ $(document).ready(function () {
                 var edit_birthdate = $('#edit_birthdate').val();
                 var edit_role = $('#edit_role').val();
                 var edit_password = $('#edit_password').val();
+                var edit_rank = $('#edit_rank').val();
+                var edit_flight_hour = $('#edit_flight_hour').val();
 
                 $.ajax({
                     url: "../auth/editprofile.php",
@@ -109,7 +113,9 @@ $(document).ready(function () {
                         edit_vatsim_id: edit_vatsim_id,
                         edit_birthdate: edit_birthdate,
                         edit_role: edit_role,
-                        edit_password: edit_password
+                        edit_password: edit_password,
+                        edit_rank: edit_rank,
+                        edit_flight_hour: edit_flight_hour
                     },
                     success: function (data) {
                         if(data)
@@ -633,6 +639,30 @@ $(document).ready(function () {
                             showConfirmButton: true
                         })
 
+                        var table = $('#Flight-Operation').DataTable();
+                        var data = table.rows().data();
+
+                        $.ajax({
+                            url: "../auth/flight_system.php",
+                            method: "POST",
+                            data: {
+                                type: "getdata_aircraftID",
+                                aircraft_id: aircraft
+                            },
+                            success: function (data) {
+                
+                                var aircraft_data = JSON.parse(data);
+                                
+                                var name =  aircraft_data.aircraft_name + "(" + aircraft_data.aircraft_reg + ")";
+                                aircraft = name;
+
+                                table.row.add([data.length+1, callsign, dep_icao, dep_time, arr_icao, arr_time, aircraft]).draw();
+                            }
+                        })
+                        
+                        //add attribute to <tr>
+                        $('tr').attr('data-toggle', 'modal', 'data-target', '#edit_flight');
+
                     } else {
                         
                         if(data == "Departure ICAO not found")
@@ -698,7 +728,7 @@ $(document).ready(function () {
     $('#Flight-Operation').on('click', 'td', function () {
 
         var table = $('#Flight-Operation').DataTable();
-        var data = table.rows().data();
+        var data_table = table.rows().data();
 
         var callsign_old = $(this).closest('tr').find('td').eq(1).text();
     
@@ -718,6 +748,28 @@ $(document).ready(function () {
         $('[name=edit_arr_time]').val(arr_time);
         $('[name=edit_aircraft]').val(aircraft);
 
+        //เอาชื่อ ออก เอามาแค่ ทะเบียนเครื่อง aircraft
+        aircraft = aircraft.slice(aircraft.indexOf("(")+1, aircraft.indexOf(")"));
+
+        
+        $.ajax({
+            url: "../auth/flight_system.php",
+            method: "POST",
+            data: {
+                type: "getdata_aircraft",
+                aircraft_reg: aircraft
+            },
+            success: function (data) {
+
+                var aircraft_data = JSON.parse(data);
+
+                $('[name=edit_aircraft]').val(aircraft_data.aircraft_id);
+            }
+        })
+       
+
+        
+
 
 
         $('#submit-editflight').click(function () {
@@ -729,6 +781,10 @@ $(document).ready(function () {
             var arr_time = $('[name=edit_arr_time]').val();
             var aircraft = $('[name=edit_aircraft]').val();
             var remarks = $('[name=edit_remarks]').val();
+
+            var aircraft_name_ = $( "[name=edit_aircraft] option:selected" ).text();
+
+            
 
             if(dep_icao == arr_icao)
             {
@@ -750,6 +806,8 @@ $(document).ready(function () {
                 })
                 return;
             }
+
+        
         
             $.ajax({
                 url: "../auth/flight_system.php",
@@ -768,7 +826,7 @@ $(document).ready(function () {
                 },
                 success: function (data) {
                     if (data == true) {
-                        /*Swal.fire({
+                        Swal.fire({
                             icon: 'success',
                             title: 'Edit Flight Success',
                             showConfirmButton: false,
@@ -786,18 +844,17 @@ $(document).ready(function () {
                         flight.closest('tr').find('td').eq(3).text(dep_time);
                         flight.closest('tr').find('td').eq(4).text(arr_icao);
                         flight.closest('tr').find('td').eq(5).text(arr_time);
-                        flight.closest('tr').find('td').eq(6).text(aircraft);*/
+                        flight.closest('tr').find('td').eq(6).text(aircraft_name_);
 
-                        console.log(data);
 
                     }
                     else 
                     {
-                        Swal.fire({
+                        /*Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
                             text: 'Something went wrong! Edit Flight Failed!',
-                        })
+                        })*/
 
                         console.log(data);
                     }
@@ -815,6 +872,79 @@ $(document).ready(function () {
 
 
     });
+});
+
+
+//Delete Flight Operation
+$(document).ready(function () {
+
+    $('#submit-delflight').click(function () {
+        
+        var callsign = $('[name=edit_callsign]').val();
+        
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete " + callsign + " Flight?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Delete'
+        }).then((result) => {
+            
+            if(result.isConfirmed)
+            {
+                $.ajax({
+                    url: "../auth/flight_system.php",
+                    method: "POST",
+                    data: {
+                        type: "delete_flight",
+                        callsign: callsign
+                    },
+                    success: function (data) {
+                        if (data == true) {
+                            
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Delete Flight Success',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+
+                            var table = $('#Flight-Operation');
+                            var td = table.find('td');
+                            var flight  = td.filter(function () {
+                                return $(this).text() == callsign;
+                            });
+
+                            flight.closest('tr').remove();
+                            
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong! Delete Flight Failed!',
+                            })
+                        }
+                    }
+                })
+            }
+            else
+            {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'DELETE FLIGHT',
+                    text: 'Flight is not deleted!',
+                })
+            }
+
+
+        });
+
+
+    });
+
 });
 
 
@@ -874,7 +1004,8 @@ $(document).ready(function () {
         today = dd + '/' + mm + '/' + yyyy;
 
 
-        table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary'>Edit</button></td>"]).draw();
+        table.row.add([data.length+1, aircraft_name, airctaft_reg,  today, "<td><button class='btn btn-primary' data-toggle='modal' data-target='#edit_aircraft'>Edit</button></td>"]).draw();
+
 
         $.ajax({
             url: "../auth/aircraft_system.php",
@@ -886,6 +1017,8 @@ $(document).ready(function () {
                 type_aircraft: airctaft_type
             },
             success: function (data) {
+
+
                 if (data == true) {
                     Swal.fire({
                         icon: 'success',
