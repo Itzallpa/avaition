@@ -22,8 +22,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/custom.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -31,6 +31,8 @@
     <link href="https://kit-pro.fontawesome.com/releases/v6.4.2/css/pro.min.css" rel="stylesheet">
     <!-- Font SF PRO DISPLAY (APPLE) -->
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display?styles=98774,98773,98775,98770,98771,98769" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <style>
     </style>
@@ -42,7 +44,7 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             backdrop-filter: blur(8px);
-
+            display: flex;
         }
         body.swal2-height-auto {
             height: 100% !important
@@ -55,6 +57,7 @@
             font-family: 'SF Pro Display', sans-serif;
             font-weight: 500;                                      
         }
+        
     </style>
 </head>
 <body>
@@ -62,9 +65,10 @@
     <div>
     <div id="Header">
         </div>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <div id="Content">
         <div class="row">
-            <div class="col-lg-4 p-3 login-box">
+            <div class="w3 p-3 login-box">
                 <h1 class="login-text text-white bunnytext" style="height: 56px; z-index: 3;">BUNNY VA LOGIN <i class="fa-duotone fa-right-to-bracket fa-xl"></i></h1>
                     <div class="form-group bunnytextwh">
                         <input type="email" placeholder="Enter Email:" name="email" class="form-control1">

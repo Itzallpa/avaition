@@ -16,7 +16,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #1b68ff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -73,6 +73,7 @@ body {
 =======
   font-family: "SF Pro Display", sans-serif;
   font-size: 15px;
+  font-weight: 400;
   font-weight: 700;
 >>>>>>> ShunjiMaeda
   line-height: 1.5;
@@ -320,7 +321,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.2;
   color: #dee2e6; }
 
@@ -7386,7 +7387,7 @@ a {
 
 .h1, .h2, .h3,
 h1, h2, h3 {
-  font-weight: 700; }
+  font-weight: 400; }
 
 .h4, .h5, .h6,
 h4, h5, h6, strong {
@@ -7659,6 +7660,7 @@ select {
   vertical-align: middle !important; }
 
 .table thead th {
+  font-weight: 400; }
 <<<<<<< HEAD
   font-weight: 400; }
 =======
@@ -12097,3 +12099,9 @@ a.uppy-Dashboard-poweredBy {
     font-size: 35px;
     top: -10px;
     right: -35px; } }
+
+  .text400 {
+    font-size: calc(1.27812rem + 0.3375vw);
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 400;
+  }

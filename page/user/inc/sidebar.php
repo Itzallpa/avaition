@@ -39,7 +39,7 @@
               <li class="nav-item w-100">
                 <a class="nav-link" href="./profile">
                 <i class="fa-duotone fa-house fa-xl"></i>
-                  <span class="ml-3 item-text">Dashboard</span>
+                  <span class="ml-3 item-text" style="font-weight:400">Dashboard</span>
                 </a>
               </li>
           </ul>
@@ -50,14 +50,14 @@
               <li class="nav-item w-100">
                 <a class="nav-link" href="./infomation">
                 <i class= "fa-right fa-duotone fa-square-info fa-xl"></i>
-                  <span class="ml-3 item-text">Infomation</span>
+                  <span class="ml-3 item-text" style="font-weight:400">Infomation</span>
                 </a>
               </li>
               <?php if($row['user_role'] == "Admin")
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
+                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text" style="font-weight:400">Admin</span>
                           </a>
                         </li>';
 
@@ -68,7 +68,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
+                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text style="font-weight:400"">Admin</span>
                           </a>
                         </li>';
 
@@ -79,7 +79,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
+                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text" style="font-weight:400">Admin</span>
                           </a>
                         </li>';
 
@@ -90,7 +90,7 @@
                 {
                   echo '<li class="nav-item w-100">
                           <a class="nav-link" href="./admin">
-                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text">Admin</span>
+                          <i class="fa-duotone fa-house-chimney-user fa-xl"></i><span class="ml-3 item-text" style="font-weight:400">Admin</span>
                           </a>
                         </li>';
 
@@ -108,7 +108,7 @@
           <li class="nav-item w-100">
                 <a class="nav-link" href="./leaderboard">
                 <i class="fa-duotone fa-award fa-xl"></i>
-                  <span class="ml-3 item-text">Leaderboard</span>
+                  <span class="ml-3 item-text" style="font-weight:400">Leaderboard</span>
                 </a>
               </li>
           </ul>
@@ -120,7 +120,7 @@
               <li class="nav-item w-100">
                 <a class="nav-link" href="./flight_plan">
                 <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
-                  <span class="ml-3 item-text">Flight Book</span>
+                  <span class="ml-3 item-text" style="font-weight:400">Flight Book</span>
                 </a>
               </li>
               <li class="nav-item w-100">
@@ -138,7 +138,7 @@
           <li class="nav-item w-100">
                 <a class="nav-link" href="../../page/auth/logout">
                 <i class="fa-duotone fa-right-from-bracket fa-xl"></i>
-                  <span class="ml-3 item-text">Sign out</span>
+                  <span class="ml-3 item-text" style="font-weight:400">Sign out</span>
                 </a>
               </li>
           </ul>
