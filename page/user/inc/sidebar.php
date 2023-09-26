@@ -117,10 +117,16 @@
             <span>Flight Oparetor</span>
           </p>
           <ul class="navbar-nav flex-fill w-100 mb-2">
-          <li class="nav-item w-100">
+              <li class="nav-item w-100">
                 <a class="nav-link" href="./flight_plan">
                 <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
                   <span class="ml-3 item-text">Flight Book</span>
+                </a>
+              </li>
+              <li class="nav-item w-100">
+                <a class="nav-link" href="./pilot_train">
+                <i class="fa-duotone fa-book-open-cover"></i>
+                  <span class="ml-3 item-text">Pilot Training</span>
                 </a>
               </li>
           </ul>

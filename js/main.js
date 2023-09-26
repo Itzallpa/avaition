@@ -1136,3 +1136,28 @@ $(document).ready(function () {
 
 
 });
+
+//edit-train-page
+$(document).ready(function () {
+
+
+    $.get("../auth/server_get.php", {type: "get_docs_pilot"}, function (data) {
+
+        var docs = JSON.parse(data);
+        $('#show-editor').html(docs.pilot_train_docs);
+        
+    });
+
+   
+    $('#submit-editer').click(function () {
+
+        var data = editors.getData();
+
+        console.log(data);
+        $('#show-editor').html(data);
+    
+
+    
+    });
+
+});
