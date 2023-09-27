@@ -140,6 +140,6 @@
     });
 </script>
 
-<script src="../../js/main.js"></script>
+<script src="../../js/editor.js"></script>
 
 </html>

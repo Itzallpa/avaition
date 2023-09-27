@@ -1,61 +1,71 @@
 $(document).ready(function () {
 
-    $('[name=ivao_id]').change(function () {
+    $('#submit-edit-user-by-user').click(function () {
 
-        var ivao_id = $('[name=ivao_id]').val();
-        var email = $('[name=email]').val();
 
+
+        let firstname = $('#firstname').val();
+        let lastname = $('#lastname').val();
+        let email = $('#inputEmail4').val();
+        let ivao_id = $('#inputivaoid').val();
+        let vatsim_id = $('#inputvatsimid').val();
+        let birthdate = $('#inputbirthdate').val();
+        let password = $('#old_password').val();
+        let new_password = $('#new_password').val();
+        let comfirm_password = $('#comfirm_password').val();
+        let inputusercomment = $('#inputusercomment').val();
+
+        
+        if (firstname == "" || lastname == "" || email == "" || ivao_id == "" || vatsim_id == "" || birthdate == "" || inputusercomment == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill in all information!',
+            })
+            return;
+        }
+
+        
         $.ajax({
             url: "../auth/editprofile.php",
             method: "POST",
             data: {
-                type: "edit_ivao_id",
+                type: "edit_user_by_user",
+                firstname: firstname,
+                lastname: lastname,
                 email: email,
-                ivao_id: ivao_id
+                ivao_id: ivao_id,
+                vatsim_id: vatsim_id,
+                birthdate: birthdate,
+                oldpassword: password,
+                newpassword: new_password,
+                comfirm_password: comfirm_password,
+                inputusercomment: inputusercomment
             },
             success: function (data) {
                 if (data == true) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Edit User Success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                    $('#user_comment_id').text(inputusercomment);
+
                 } else {
-                    
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
+                        text: 'Something went wrong! Edit User Failed!',
                     })
+
+                    console.log(data);
                 }
             }
         })
 
-
-    });
-
-
-    $('[name=vatsim_id]').change(function () {
-
-        var vatsim_id = $('[name=vatsim_id]').val();
-        var email = $('[name=email]').val();
-
-        $.ajax({
-            url: "../auth/editprofile.php",
-            method: "POST",
-            data: {
-                type: "edit_vatsim_id",
-                email: email,
-                vatsim_id: vatsim_id
-            },
-            success: function (data) {
-                if (data == true) {
-                } else {
-                    
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                    })
-                }
-            }
-        })
-
+    
     });
         
 
@@ -1134,55 +1144,5 @@ $(document).ready(function () {
     });
 
 
-
-});
-
-//edit-train-page
-$(document).ready(function () {
-
-
-    $.get("../auth/server_get.php", {type: "get_docs_pilot"}, function (data) {
-
-        var docs = JSON.parse(data);
-        $('#show-editor').html(docs.pilot_train_docs);
-
-        editors.setData(docs.pilot_train_docs); 
-        
-    });
-
-   
-    $('#submit-editer').click(function () {
-
-        var data_post = editors.getData();
-
-        $.ajax({
-            url: "../auth/server_post.php",
-            method: "POST",
-            data: {
-                type: "edit_docs_pilot",
-                data: data_post
-            },
-            success: function (data) {
-                if (data) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Edit Docs Success',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    $('#show-editor').html(data_post);
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong! Edit Docs Failed!',
-                    })
-                }
-            }
-        })
-
-
-    
-    });
 
 });

@@ -58,53 +58,62 @@
         }
     }
 
-    if($_POST["type"] == "edit_user")
-    {     
-            if(mysqli_num_rows($result) > 0){
+    if($_POST["type"] == "edit_user_by_user")
+    {
         
-                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        
-                $email = $_POST["email"];
-                $full_name = $_POST["edit_fullname"];
-                $ivao_id = $_POST["edit_ivao_id"];
-                $vatsim_id = $_POST["edit_vatsim_id"];
-                $birthdate = $_POST["edit_birthdate"];
-                $user_role = $_POST["edit_role"];
-                $password = $_POST["edit_password"];
-                $user_rank = $_POST["edit_rank"];
-                $flight_hour = $_POST["edit_flight_hour"];
+        if(mysqli_num_rows($result) > 0){
+    
+            $firstname = $_POST["firstname"];
+            $lastname = $_POST["lastname"];
+            $email = $_POST["email"];
+            $ivao_id = $_POST["ivao_id"];
+            $vatsim_id = $_POST["vatsim_id"];
+            $birthdate = $_POST["birthdate"];
+            $oldpassword = $_POST["oldpassword"];
+            $newpassword = $_POST["newpassword"];
+            $comfirm_password = $_POST["comfirm_password"];
+            $inputusercomment = $_POST["inputusercomment"];
 
-                
-                if($password != "")
-                {
-                    $password = password_hash($password, PASSWORD_DEFAULT);
-                    $sql = "UPDATE `users` SET `password`='$password' WHERE `email` = '$email'";
-                    $result = mysqli_query($conn, $sql);
-                }
+            $fullname = $firstname." ".$lastname;
+            
 
-                $sql = "UPDATE `users` SET `full_name`='$full_name',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_role`='$user_role',`rank`='$user_rank',`flight_hour`='$flight_hour' WHERE `email` = '$email'";
+            if($oldpassword == "")
+            {
+                $sql = "UPDATE `users` SET `full_name`='$fullname',`email`='$email',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`user_comment`='$inputusercomment' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
-            
-            
-                $data = array(
-                    'full_name' => $full_name,
-                    'email' => $email,
-                    'user_ivao_id' => $ivao_id,
-                    'user_vatsim_id' => $vatsim_id,
-                    'birthdate' => $birthdate,
-                    'user_role' => $user_role
-                );
-
-                //ZONE LOG:
-                //ZONE LOG:
-
-                echo $user_data = json_encode($data);
-        
+                echo $data['success'] = true;
             }
             else
             {
-                echo $data['success'] = "Email does not exist";
+                $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                $result = mysqli_query($conn, $sql);
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $password = $user["password"];
+                if(password_verify($oldpassword, $password))
+                {
+                    if($newpassword == $comfirm_password)
+                    {
+                        $newpassword = password_hash($newpassword, PASSWORD_DEFAULT);
+                        $sql = "UPDATE `users` SET `full_name`='$fullname',`email`='$email',`user_ivao_id`='$ivao_id',`user_vatsim_id`='$vatsim_id',`birthdate`='$birthdate',`password`='$newpassword' WHERE `email` = '$email'";
+                        $result = mysqli_query($conn, $sql);
+                        echo $data['success'] = true;
+                    }
+                    else
+                    {
+                        echo $data['success'] = false;
+                    }
+                }
+                else
+                {
+                    echo $data['success'] = false;
+                }
             }
+    
+        }
+        else
+        {
+            echo $data['success'] = false;
+        }
     }
 
 

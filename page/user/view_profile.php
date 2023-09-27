@@ -87,7 +87,6 @@
 
         <div class="main">
 
-
             <main role="main" class="main-content">
                 <div class="container-fluid p-0">
 
@@ -240,6 +239,14 @@
                                 </table>
                         </div>
                     </div>
+                    
+                    <?php if($role) { ?>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <p>STAFF NOTE</p>
+                      </div>
+                    </div>
+                    <?php } ?>
 
                 </div>
             </main>

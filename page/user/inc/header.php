@@ -42,7 +42,7 @@ if ($_SESSION["pro_img"] == "")
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="./view_profile">Profile</a>
-              <a class="dropdown-item" href="#">Settings</a>
+              <a class="dropdown-item" href="./setting">Settings</a>
               <a class="dropdown-item" href="#">Activities</a>
             </div>
           </li>
