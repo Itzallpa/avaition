@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 08:55 PM
+-- Generation Time: Sep 28, 2023 at 11:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -62,7 +62,8 @@ CREATE TABLE `flights` (
   `flight_arr` varchar(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'ZZZZ',
   `flight_dep_time` varchar(10) NOT NULL DEFAULT '0000',
   `flight_arr_time` varchar(10) NOT NULL DEFAULT '0000',
-  `flight_remark` longtext NOT NULL DEFAULT 'None'
+  `flight_remark` longtext NOT NULL DEFAULT 'None',
+  `flight_route` text NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

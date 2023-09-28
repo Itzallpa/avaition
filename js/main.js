@@ -560,8 +560,9 @@ $(document).ready(function () {
             var callsign = $('[name=callsign]').val();
             var aircraft = $('[name=aircraft]').val();
             var remarks = $('[name=Remark]').val();
+            var route = $('[name=route]').val();
 
-            if(dep_icao == "" || arr_icao == "" || callsign == "" || aircraft == "")
+            if(dep_icao == "" || arr_icao == "" || callsign == "" || aircraft == "" || route == "")
             {
                 Swal.fire({
                     icon: 'error',
@@ -636,7 +637,8 @@ $(document).ready(function () {
                     arr_icao: arr_icao,
                     dep_time: dep_time,
                     arr_time: arr_time,
-                    remarks: remarks
+                    remarks: remarks,
+                    route: route
                 },
                 success: function (data) {
 
@@ -757,6 +759,7 @@ $(document).ready(function () {
         $('[name=edit_dep_time]').val(dep_time);
         $('[name=edit_arr_time]').val(arr_time);
         $('[name=edit_aircraft]').val(aircraft);
+        
 
         //เอาชื่อ ออก เอามาแค่ ทะเบียนเครื่อง aircraft
         aircraft = aircraft.slice(aircraft.indexOf("(")+1, aircraft.indexOf(")"));
@@ -776,6 +779,22 @@ $(document).ready(function () {
                 $('[name=edit_aircraft]').val(aircraft_data.aircraft_id);
             }
         })
+
+        $.ajax({
+            url: "../auth/flight_system.php",
+            method: "POST",
+            data: {
+                type: "getroute",
+                callsign_old: callsign_old
+            },
+            success: function (data) {
+
+                var route_data = JSON.parse(data);
+
+                $('[name=edit_route]').val(route_data.flight_route);
+                
+            }
+        })
        
 
         
@@ -791,6 +810,7 @@ $(document).ready(function () {
             var arr_time = $('[name=edit_arr_time]').val();
             var aircraft = $('[name=edit_aircraft]').val();
             var remarks = $('[name=edit_remarks]').val();
+            var route = $('[name=edit_route]').val();
 
             var aircraft_name_ = $( "[name=edit_aircraft] option:selected" ).text();
 
@@ -831,7 +851,8 @@ $(document).ready(function () {
                     dep_time: dep_time,
                     arr_time: arr_time,
                     aircraft: aircraft,
-                    remarks: remarks
+                    remarks: remarks,
+                    route: route
 
                 },
                 success: function (data) {

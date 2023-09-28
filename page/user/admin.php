@@ -433,6 +433,12 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-lg">
+                                    <textarea class="form-control" rows="2" name="route"
+                                        placeholder="Route"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-lg">
                                     <textarea class="form-control" rows="2" name="Remark"
                                         placeholder="Remark"></textarea>
                                 </div>
@@ -687,6 +693,13 @@
                             <label for="remark" class="form-label">Remark</label>
                             <textarea class="form-control" rows="2" name="edit_remarks"
                                 placeholder="ปล่อยไว้หากคุณไม่ต้องการแก้ไข"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <label for="remark" class="form-label">Route</label>
+                            <textarea class="form-control" rows="2" name="edit_route"
+                            ></textarea>
                         </div>
                     </div>
 

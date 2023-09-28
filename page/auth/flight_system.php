@@ -16,6 +16,7 @@
         $callsign = $_POST["callsign"];
         $aircraft = $_POST["aircraft"];
         $remark = $_POST["remarks"];
+        $route = $_POST["route"];
 
 
         if($remark == "")
@@ -50,7 +51,7 @@
             echo $data['success'] = "Aircraft not found";
 
 
-        $sql = "INSERT INTO `flights` (`flight_callsign`, `flight_aircraft`, `flight_dep`, `flight_arr`, `flight_dep_time`, `flight_arr_time`, `flight_remark`) VALUES ('$callsign', '$aircraft', '$dep_icao', '$arr_icao', '$dep_time', '$arr_time', '$remark')";
+        $sql = "INSERT INTO `flights` (`flight_callsign`, `flight_aircraft`, `flight_dep`, `flight_arr`, `flight_dep_time`, `flight_arr_time`, `flight_remark`, `flight_route`) VALUES ('$callsign', '$aircraft', '$dep_icao', '$arr_icao', '$dep_time', '$arr_time', '$remark', '$route')";
         $result = mysqli_query($conn, $sql);
 
 
@@ -66,6 +67,7 @@
         $callsign = $_POST["callsign"];
         $aircraft = $_POST["aircraft"];
         $remark = $_POST["remarks"];
+        $route = $_POST["route"];
 
         if($remark == "")
             $remark = "None";
@@ -74,7 +76,7 @@
     
         
 
-        $sql = "UPDATE `flights` SET `flight_callsign` = '$callsign', `flight_aircraft` = '$aircraft', `flight_dep` = '$dep_icao', `flight_arr` = '$arr_icao', `flight_dep_time` = '$dep_time', `flight_arr_time` = '$arr_time', `flight_remark` = '$remark' WHERE `flight_callsign` = '$callsign_old'";
+        $sql = "UPDATE `flights` SET `flight_callsign` = '$callsign', `flight_aircraft` = '$aircraft', `flight_dep` = '$dep_icao', `flight_arr` = '$arr_icao', `flight_dep_time` = '$dep_time', `flight_arr_time` = '$arr_time', `flight_remark` = '$remark', `flight_route` = '$route' WHERE `flight_callsign` = '$callsign_old'";
         $result = mysqli_query($conn, $sql);
 
         
@@ -127,6 +129,21 @@
         $result = mysqli_query($conn, $sql);
 
         echo $data['success'] = true;
+    }
+    else if($type == "getroute")
+    {
+        $callsign_old = $_POST["callsign_old"];
+
+        $sql = "SELECT * FROM `flights` WHERE `flight_callsign` = '$callsign_old'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        if($row)
+            echo json_encode($row);
+        else
+            echo $data['success'] = false;
+        
     }
 
 ?>
