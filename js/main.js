@@ -881,11 +881,11 @@ $(document).ready(function () {
                     }
                     else 
                     {
-                        /*Swal.fire({
+                        Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
                             text: 'Something went wrong! Edit Flight Failed!',
-                        })*/
+                        })
 
                         console.log(data);
                     }
