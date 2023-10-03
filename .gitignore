@@ -6,3 +6,5 @@ img/profile_img/*
 sql/database.php
 
 database.php
+
+.cpanel.yml

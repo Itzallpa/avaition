@@ -2,11 +2,19 @@
 
 
     session_start();
-
+    include '../../sql/database.php';
+    
     if(isset($_SESSION["full_name"]) == "Guest" && !isset($_SESSION["full_name"]))
     {
         header("Location: ../auth/login");
     }
+
+    $id = $_SESSION["user_id"];
+    $sql = "SELECT * FROM `users` WHERE `id` = '$id'";
+    $result = mysqli_query($conn, $sql);
+
+    $row = mysqli_fetch_assoc($result);
+
 
 
 ?>
@@ -105,7 +113,7 @@
                           </div>
                           <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Current Location</p>
-                            <span class="text400 mb-0">1,869</span>
+                            <span class="text400 mb-0"><?php echo $row["user_last_location"] ?></span>
                             <span class="small text-success">+16.5%</span>
                           </div>
                         </div>
