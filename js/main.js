@@ -1210,7 +1210,7 @@ $(document).ready(function () {
                             let link = "https://www.simbrief.com";
                             window.open(link, '_blank');
 
-                            
+                            window.location.href = "./flight_brief";
                         }
                     })
                 

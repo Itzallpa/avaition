@@ -21,6 +21,16 @@
 
         if(mysqli_num_rows($result) > 0){
            
+            $row = mysqli_fetch_assoc($result);
+
+            $flight_id = $row['flight_id'];
+            $user_id = $_SESSION['user_id'];
+
+
+            $sql = "INSERT INTO `flight_active`(`flight_plan_id`, `flight_book_by`) VALUES ('$flight_id','$user_id');";
+            $result = mysqli_query($conn, $sql);
+
+
             echo $data = true;
         }
         else
