@@ -1167,3 +1167,69 @@ $(document).ready(function () {
 
 
 });
+
+//ZONE BOOKING
+$(document).ready(function () {
+
+    $('#sent-simrief-submit').click(function () {
+        
+        var flp_dep_ = $('#flp_dep').text();
+        var flp_arr_ = $('#flp_arr').text();
+        var callsign = $('#flp_callsign').text();
+
+        //flp_dep_ split Departure: get ICAO
+        var flp_dep = flp_dep_.split(" ");
+        flp_dep = flp_dep[1];
+
+       
+        var flp_arr = flp_arr_.split(" ");
+        flp_arr = flp_arr[1];
+
+        callsign = callsign.split(" ");
+        callsign = callsign[1];
+
+        $.ajax({
+            url: "../auth/booking.php",
+            method: "POST",
+            data: {
+                type: "sent_simbrief",
+                flp_dep: flp_dep,
+                flp_arr: flp_arr,
+                callsign: callsign
+            },
+            success: function (data) {
+                if (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Sent Simbrief Success',
+                        showConfirmButton: true,
+                        timer: 1500
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            
+                            let link = "https://www.simbrief.com";
+                            window.open(link, '_blank');
+
+                            
+                        }
+                    })
+                
+
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Sent Simbrief Failed!',
+                    })
+
+                    console.log(data);
+
+                }
+            }
+        })
+
+
+    });
+
+});
+//ZONE BOOKING

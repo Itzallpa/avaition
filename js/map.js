@@ -19,7 +19,6 @@ $(document).ready(function () {
   var dep_airport = `https://nominatim.openstreetmap.org/search?q=${dep_icao}&format=json`;
 
   var arr_icao = flp_arr_name[1];
-  console.log(arr_icao);
   var arr_airport = `https://nominatim.openstreetmap.org/search?q=${arr_icao}&format=json`;
 
   var depMarker, arrMarker;
@@ -56,8 +55,8 @@ $(document).ready(function () {
       var lat = data[0].lat;
       var lon = data[0].lon;
 
-    arr_lat = lat;
-    arr_lon = lon;
+      arr_lat = lat;
+      arr_lon = lon;
 
       //set view
       map.setView([lat, lon], 13);
@@ -76,7 +75,6 @@ $(document).ready(function () {
 
     $("#distance_").text("Distance: " + distance.toFixed(2) + " nm");
 
-    console.log(distance);
       map.fitBounds(polyline.getBounds());
     });
 });

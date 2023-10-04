@@ -106,7 +106,7 @@
                         <div class="row">
                             <div class="col-lg">
                                 <p id="flp_dep">Departure: <?php echo $data["flight_dep"] ?></p>
-                                <p>Callsign: <?php echo $data["flight_callsign"] ?></p>
+                                <p id="flp_callsign">Callsign: <?php echo $data["flight_callsign"] ?></p>
                                 <p id="distance_">distance: </p>
                             </div>
                             <div class="col-lg">
@@ -136,7 +136,7 @@
 
                         <div class="row">
                             <div class="col-lg">
-                                <button class="btn btn-primary" type="button">Simbrief</button>
+                                <button class="btn btn-primary" id="sent-simrief-submit" type="button">Simbrief</button>
                                 <button class="btn btn-primary" type="button">IVAO FPL</button>
                             </div>
                         </div>

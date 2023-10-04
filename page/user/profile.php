@@ -131,8 +131,7 @@
                           </div>
                           <div class="col pr-0" style="font-size: calc(1.27812rem + 0.3375vw);">
                             <p class="small text-muted mb-0">Total Hours</p>
-                            <span class="text400 mb-0">1,869</span>
-                            <span class="small text-success">+16.5%</span>
+                            <span class="text400 mb-0"><?php echo $row["flight_hour"] ?></span>
                           </div>
                         </div>
                       </div>
