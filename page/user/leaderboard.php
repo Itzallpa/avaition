@@ -1,10 +1,18 @@
 <?php
 
-    session_start();
-    if(!isset($_SESSION["user"])){
-        header("Location: ../../index.php");
-    }
+        session_start();
+        include '../../sql/database.php';
 
+        if(isset($_SESSION["full_name"]) == "Guest" && !isset($_SESSION["full_name"]))
+        {
+            header("Location: ../auth/login");
+        }
+
+        $id = $_SESSION["user_id"];
+        $sql = "SELECT * FROM `users` WHERE `id` = '$id'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
 
 ?>
 
