@@ -115,7 +115,7 @@ $(document).ready(function () {
                     url: "../auth/editprofile.php",
                     method: "POST",
                     data: {
-                        type: "edit_user",
+                        type: "edit_user_admin",
                         email: edit_email,
                         edit_fullname: edit_fullname,
                         edit_email: edit_email,
@@ -136,8 +136,7 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 1500
                             })
-    
-    
+        
                             var new_data = JSON.parse(data);
     
                             var table = $('#user_table');
@@ -164,7 +163,8 @@ $(document).ready(function () {
                                 title: 'Oops...',
                                 text: 'Something went wrong!',
                             })
-    
+                            
+                            console.log(data);
                         }
                     }
                 })
@@ -1235,7 +1235,7 @@ $(document).ready(function () {
 //ZONE BOOKING
 
 
-$(document).ready(async  function () {
+/*$(document).ready(async  function () {
 
     //select attribute class
     var icao_dep =  $('b').attr('icao_dep');
@@ -1279,3 +1279,4 @@ $(document).ready(async  function () {
 
 
 });
+*/

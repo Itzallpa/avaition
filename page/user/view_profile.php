@@ -114,15 +114,15 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-md-7">
-                                    <p class="text-muted"> <?php echo $user["user_comment"] ?> </p>
-                                </div>
                                 <div class="col">
                                     <p class="small mb-0 text-muted">IVAO-VID: <?php echo $_SESSION["user_ivao_id"] ?>
                                     </p>
                                     <p class="small mb-0 text-muted">VATSIM-ID:
                                         <?php echo $_SESSION["user_vatsim_id"] ?></p>
                                     <p class="small mb-0 text-muted">BNY-ID: <?php echo $_SESSION["user_id"] ?></p>
+                                </div>
+                                <div class="col-md-7">
+                                    <p class="text-muted"> <?php echo $user["user_comment"] ?> </p>
                                 </div>
                             </div>
                         </div>

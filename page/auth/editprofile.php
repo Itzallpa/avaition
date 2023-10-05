@@ -116,6 +116,64 @@
         }
     }
 
+    if($_POST["type"] == "edit_user_admin")
+    {
+        
+        if(mysqli_num_rows($result) > 0){
+    
+            $email = $_POST["email"];
+            $edit_fullname = $_POST["edit_fullname"];
+            $edit_email = $_POST["edit_email"];
+            $edit_ivao_id = $_POST["edit_ivao_id"];
+            $edit_vatsim_id = $_POST["edit_vatsim_id"];
+            $edit_birthdate = $_POST["edit_birthdate"];
+            $edit_role = $_POST["edit_role"];
+            $edit_password = $_POST["edit_password"];
+            $edit_rank = $_POST["edit_rank"];
+            $edit_flight_hour = $_POST["edit_flight_hour"];
+
+            $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+            $result = mysqli_query($conn, $sql);
+
+            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            $password = $user["password"];
+
+            if($edit_password == "")
+            {
+                $sql = "UPDATE `users` SET `full_name`='$edit_fullname',`email`='$edit_email',`user_ivao_id`='$edit_ivao_id',`user_vatsim_id`='$edit_vatsim_id',`birthdate`='$edit_birthdate',`user_role`='$edit_role',`rank`='$edit_rank',`flight_hour`='$edit_flight_hour' WHERE `email` = '$email'";
+                $result = mysqli_query($conn, $sql);
+
+
+                $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                $result = mysqli_query($conn, $sql);
+                
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                echo $data = json_encode($user);
+            }
+            else
+            {
+                $edit_password = password_hash($edit_password, PASSWORD_DEFAULT);
+                $sql = "UPDATE `users` SET `full_name`='$edit_fullname',`email`='$edit_email',`user_ivao_id`='$edit_ivao_id',`user_vatsim_id`='$edit_vatsim_id',`birthdate`='$edit_birthdate',`user_role`='$edit_role',`rank`='$edit_rank',`flight_hour`='$edit_flight_hour',`password`='$edit_password' WHERE `email` = '$email'";
+                $result = mysqli_query($conn, $sql);
+
+                $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                $result = mysqli_query($conn, $sql);
+                
+                $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                echo $data = json_encode($user);
+            }
+        }
+        else
+        {
+            echo $data = false;
+        }
+
+
+    
+    }
+
 
 
 ?>
