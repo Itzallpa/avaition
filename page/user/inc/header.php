@@ -94,11 +94,7 @@ if ($_SESSION["pro_img"] == "")
                     <div class="squircle bg-primary justify-content-center">
                       <i class="fe fe-users fe-32 align-self-center text-white"></i>
                     </div>
-<<<<<<< HEAD
                     <p>Users</p>
-=======
-                    <p>
->>>>>>> ShunjiMaeda
                   </div>
                   <div class="col-6 text-center">
                     <div class="squircle bg-primary justify-content-center">

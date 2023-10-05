@@ -38,6 +38,31 @@
     {
         header("Location: ./flight_plan.php");
     }
+
+
+    $sql = "SELECT * FROM flight_active";
+    $result = mysqli_query($conn, $sql);
+
+    $data_flp = 0;
+    while($row = mysqli_fetch_assoc($result)){
+
+        if($row['flight_book_by'] == $_SESSION["user_id"])
+        {
+            if($row["flight_status"] == 0)
+            {
+                $data_flp = $row["flight_id"];
+                break;
+            }
+        }
+    }
+
+
+    if($data_flp != 0)
+    {
+        header("Location: ./flight_brief");
+    }
+
+
 ?>
 
 

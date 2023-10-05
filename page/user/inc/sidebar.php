@@ -1,9 +1,6 @@
 
 <?php
 
-
-    require_once "../../sql/database.php";
-
     $sql = "SELECT * FROM users WHERE id = $_SESSION[user_id]";
     $result = mysqli_query($conn, $sql);
 
@@ -117,12 +114,26 @@
             <span>Flight Oparetor</span>
           </p>
           <ul class="navbar-nav flex-fill w-100 mb-2">
+                
+              <?php if(isset($data_flp) != 0) {?>
+
               <li class="nav-item w-100">
+                <a class="nav-link" href="./flight_brief">
+                <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
+                  <span class="ml-3 item-text" style="font-weight:400">Flight Brief</span>
+                </a>
+              </li>
+
+              <?php } else { ?>
+
+                <li class="nav-item w-100">
                 <a class="nav-link" href="./flight_plan">
                 <i class="fa-duotone fa-file-magnifying-glass fa-xl"></i>
                   <span class="ml-3 item-text" style="font-weight:400">Flight Book</span>
                 </a>
               </li>
+
+              <?php } ?>
               <li class="nav-item w-100">
                 <a class="nav-link" href="./pilot_train">
                 <i class="fa-duotone fa-book-open-cover"></i>
