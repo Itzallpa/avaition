@@ -10,6 +10,7 @@
     $result = mysqli_query($conn, $sql);
 
     $data_flp = 0;
+    $flight_id = 0;
     while($row = mysqli_fetch_assoc($result)){
 
         if($row['flight_book_by'] == $_SESSION["user_id"])
@@ -17,6 +18,7 @@
             if($row["flight_status"] == 0)
             {
                 $data_flp = $row["flight_id"];
+                $flight_id = $row["flight_plan_id"]; 
                 break;
             }
         }
@@ -27,6 +29,10 @@
     {
         header("Location: ./flight_plan.php");
     }
+
+
+
+
 
 ?>
 
@@ -78,13 +84,49 @@
     <?php include "inc/sidebar.php" ?>
 
 
+    <?php
+
+        $sql = "SELECT * FROM flights WHERE flight_id = $flight_id";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+    
+
+    ?>
+
     <main role="main" class="main-content">
         <div class="row">
             <div class="col-lg">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text"><?php echo $data_flp ?></p>
+                        <h5 class="card-title text-center"><?php echo $row["flight_callsign"]; ?></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">DEPARTURE</h5>
+                        <p class="card-text">
+                            <b icao_dep="<?php echo $row["flight_dep"]; ?>">ICAO</b> : <?php echo $row["flight_dep"]; ?><br>
+                            <b>TIME</b> : <?php echo $row["flight_dep_time"]; ?><br>
+                            <b id="show_matar_dep" ></b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">ARRIVAL</h5>
+                        <p class="card-text">
+                            <b data_text="<?php echo $row["flight_arr"]; ?>" data-req="metar">ICAO</b> : <?php echo $row["flight_arr"]; ?><br>
+                            <b>TIME</b> : <?php echo $row["flight_arr_time"]; ?><br>
+                            <b id="show_matar_arr" ></b>
+                        </p>
                     </div>
                 </div>
             </div>

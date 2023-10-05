@@ -1233,3 +1233,49 @@ $(document).ready(function () {
 
 });
 //ZONE BOOKING
+
+
+$(document).ready(async  function () {
+
+    //select attribute class
+    var icao_dep =  $('b').attr('icao_dep');
+    
+    //get api fetch data
+    await fetch('https://api.checkwx.com/metar/'+icao_dep+'?x-api-key=700e217617c141d5b20553a209', )
+    .then(response => response.text())
+    .then(data => {
+        
+        //convert string to json
+        var data = JSON.parse(data);
+        var metar = data['data'][0];
+
+        var metar_show = $('#show_matar_dep').text(metar);
+    });
+
+
+    //var icao_arr =  $('b')[3].getAttribute('data_text');
+
+    while($('b')[3].getAttribute('data_text'))
+    {
+        if($('b')[3].getAttribute('data_text') != null)
+        {
+            var icao_arr =  $('b')[3].getAttribute('data_text');
+            break;
+        }
+    }
+
+    await fetch('https://api.checkwx.com/metar/'+icao_arr+'?x-api-key=700e217617c141d5b20553a209', )
+    .then(response => response.text())
+    .then(data => {
+        
+        //convert string to json
+        var data = JSON.parse(data);
+        var metar = data['data'][0];
+
+        var metar_show = $('#show_matar_arr').text(metar);
+    });
+
+
+
+
+});
