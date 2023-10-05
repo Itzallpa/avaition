@@ -147,6 +147,9 @@ $(document).ready(function () {
                             var td_email = td.filter(function () {
                                 return $(this).text() == edit_email;
                             });
+
+
+                            $('#edit_password').val("");
     
                            
                             //change value of <td> in table
