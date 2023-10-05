@@ -13,7 +13,7 @@
 
         $flp_dep = $_POST['flp_dep'];
         $flp_arr = $_POST['flp_arr'];
-        $flp_callsign = $_POST['flp_callsign'];
+        $flp_callsign = $_POST['callsign'];
 
 
         $sql = "SELECT * FROM `flights` WHERE `flight_dep` = '$flp_dep' AND `flight_arr` = '$flp_arr' AND `flight_callsign` = '$flp_callsign'";

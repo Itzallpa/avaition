@@ -1198,7 +1198,7 @@ $(document).ready(function () {
                 callsign: callsign
             },
             success: function (data) {
-                if (data) {
+                if (data == true) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Sent Simbrief Success',
