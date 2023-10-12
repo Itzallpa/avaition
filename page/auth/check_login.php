@@ -5,11 +5,8 @@
     
     require_once "../../sql/database.php";
 
-
-    echo $data = false;
-
     //get data from jquery
-   $email = $_POST["email"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
     //check if email exist
