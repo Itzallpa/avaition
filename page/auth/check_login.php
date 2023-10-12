@@ -3,7 +3,7 @@
 
     session_start();
     
-    //require_once "../../sql/database.php";
+    require_once "../../sql/database.php";
 
 
     echo $data = false;
