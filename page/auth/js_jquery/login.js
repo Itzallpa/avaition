@@ -24,8 +24,9 @@ $(document).ready(function () {
 
         }
 
+        console.log(email);
 
-        $.ajax({
+        /*$.ajax({
             url: "check_login.php",
             method: "POST",
             data: {
@@ -45,17 +46,6 @@ $(document).ready(function () {
                             //redirect to profile
                             window.location.href = "../user/profile";
 
-                            //phpmailer
-                            /*$.ajax({
-                                url: "mail/send_mail.php",
-                                method: "POST",
-                                data: {
-                                    email: email,
-                                },
-                                success: function (data) {
-                                    console.log(data);
-                                }
-                            })*/
 
                         }
                     })  
@@ -69,7 +59,7 @@ $(document).ready(function () {
                     })
                 }
             }
-        });
+        });*/
 
         
 
