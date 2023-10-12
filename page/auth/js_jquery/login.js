@@ -24,8 +24,6 @@ $(document).ready(function () {
 
         }
 
-        console.log(email);
-
         $.ajax({
             url: "check_login.php",
             method: "POST",
@@ -44,7 +42,7 @@ $(document).ready(function () {
                     }).then((result) => {
                         if (result.isConfirmed) {
                             //redirect to profile
-                            //window.location.href = "../user/profile";
+                            window.location.href = "../user/profile";
 
 
                         }
