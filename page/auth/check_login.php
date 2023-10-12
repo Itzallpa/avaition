@@ -23,15 +23,16 @@
             $_SESSION["pro_img"] = $user["profile_picture"];
             $_SESSION["user_role"] = $user["user_role"];
 
-            echo $data['success'] = true;
+            echo $data = true;
 
         
             
         }
         else
         {
-            $data['success'] = false;
-            echo $data['success'];
+            //try error
+
+            echo $data = false;
         }
     }
     else

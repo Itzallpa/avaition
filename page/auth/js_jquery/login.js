@@ -43,7 +43,7 @@ $(document).ready(function () {
                         if (result.isConfirmed) {
                             //redirect to profile
                             window.location.href = "../user/profile";
-
+                            
 
                         }
                     })  
@@ -55,6 +55,8 @@ $(document).ready(function () {
                         title: 'Oops...',
                         text: 'Email or Password is incorrect!',
                     })
+
+                    console.log("FALSE:" + data);
                 }
             }
         });

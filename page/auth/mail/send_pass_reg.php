@@ -55,8 +55,8 @@ function sendEmail($email, $full_name, $subject, $body){
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
         $mail->Username   = 'hq@bunnyvirtualairline.com';                     // SMTP username
         $mail->Password   = '[Lj3m)BJ0aoz';                               // SMTP password
-        $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 465;                                    // TCP port to connect to
+        $mail->SMTPSecure = 'auto';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                                    // TCP port to connect to
     
         //Recipients
         $mail->setFrom('hq@bunnyvirtualairline.com', 'Bunny Virtual Airline');
@@ -69,11 +69,11 @@ function sendEmail($email, $full_name, $subject, $body){
     
         $mail->send();
 
-        echo $data["success"] = true;
+        echo $data = true;
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 
-        echo $data["success"] = false;
+        echo $data = false;
     }    
 }
 

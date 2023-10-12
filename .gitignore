@@ -8,3 +8,5 @@ sql/database.php
 database.php
 
 .cpanel.yml
+
+page/auth/mail/testmail.php
