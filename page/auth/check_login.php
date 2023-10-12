@@ -9,7 +9,7 @@
     echo $data = false;
 
     //get data from jquery
-   /* $email = $_POST["email"];
+   $email = $_POST["email"];
     $password = $_POST["password"];
 
     //check if email exist
@@ -40,7 +40,7 @@
     else
     {
         echo "Email does not exist";
-    }*/
+    }
 
 
 
