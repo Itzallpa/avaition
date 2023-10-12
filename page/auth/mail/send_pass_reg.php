@@ -35,7 +35,6 @@ Warm Regards,
 BUNNY VA Team
 ";
 
-echo $data["success"] = true;
 sendEmail($email, $full_name, $subject, $body);
 
 
@@ -50,17 +49,17 @@ function sendEmail($email, $full_name, $subject, $body){
 
     try {
         //Server settings
-        $mail->SMTPDebug = 0;                      // Enable verbose debug output
+        $mail->SMTPDebug = 1;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'mail.thepurple.online';                       // Set the SMTP server to send through
+        $mail->Host       = 'ns3.productsgood.com';                       // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'hq@thepurple.online';                     // SMTP username
-        $mail->Password   = 'ann9cyczdkj@jJ';                               // SMTP password
-        $mail->SMTPSecure = 'auto';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-        $mail->Port       = 587;                                    // TCP port to connect to
+        $mail->Username   = 'hq@bunnyvirtualairline.com';                     // SMTP username
+        $mail->Password   = '[Lj3m)BJ0aoz';                               // SMTP password
+        $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 465;                                    // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('hq@thepurple.online', 'Bunny VA');
+        $mail->setFrom('hq@bunnyvirtualairline.com', 'Bunny Virtual Airline');
         $mail->addAddress($email, $full_name);     // Add a recipient
     
         // Content
@@ -69,8 +68,12 @@ function sendEmail($email, $full_name, $subject, $body){
         $mail->Body    = $body;
     
         $mail->send();
+
+        echo $data["success"] = true;
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+        echo $data["success"] = false;
     }    
 }
 

@@ -131,6 +131,19 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="row mt-3">
+            <div class="col-lg">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <button class="btn btn-danger" type="button">ยกเลิก</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
 

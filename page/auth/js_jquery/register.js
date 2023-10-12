@@ -104,8 +104,7 @@ $(document).ready(function () {
                         confirmButtonText: 'OK'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            
-                            window.location.href = "login";
+                        
 
                             $.ajax({
                                 url: "mail/send_pass_reg.php",
@@ -118,6 +117,10 @@ $(document).ready(function () {
                                 success: function (data) {
                                     if (data == false)
                                         console.log("FALSE:" + data);
+                                    else
+                                        console.log("TRUE:" + data);
+                                        
+                                    
                                 }
                             });
 
