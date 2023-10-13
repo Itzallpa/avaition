@@ -119,8 +119,6 @@ $(document).ready(function () {
                                 success: function (data) {
                                     if (data == false)
                                         console.log("FALSE:" + data);
-                                    else
-                                        console.log("TRUE:" + data);
                                 }
                             });
 

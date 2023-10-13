@@ -15,8 +15,9 @@ require '../../../PHPMailer/PHPMailer.php';
 require '../../../PHPMailer/SMTP.php';
 
 
+$email = $_POST["email"];
 
-$sql = "SELECT * FROM `users` WHERE `email` = '$_POST[email]'";
+$sql = "SELECT * FROM `users` WHERE `email` = '$email'";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0){
@@ -52,20 +53,22 @@ else
 //crete function to send email
 function sendEmail($email, $full_name, $subject, $body){
     $mail = new PHPMailer(true);
+    $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );
 
     try {
         //Server settings
-        $mail->SMTPDebug = 0;                      // Enable verbose debug output
+        $mail->SMTPDebug = 1;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP
-        $mail->Host       = 'mail.thepurple.online';                       // Set the SMTP server to send through
+        $mail->Host       = 'ns3.productsgood.com';                       // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'hq@thepurple.online';                     // SMTP username
-        $mail->Password   = 'ann9cyczdkj@jJ';                               // SMTP password
-        $mail->SMTPSecure = 'auto';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Username   = 'hq@bunnyvirtualairline.com';                     // SMTP username
+        $mail->Password   = '[Lj3m)BJ0aoz';                               // SMTP password
+        $mail->SMTPAutoTLS = true;
+        $mail->SMTPSecure =  'auto';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged                
         $mail->Port       = 587;                                    // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('hq@thepurple.online', 'Bunny Vir');
+        $mail->setFrom('hq@bunnyvirtualairline.com', 'Bunny Virtual Airline');
         $mail->addAddress($email, $full_name);     // Add a recipient
     
         // Content
@@ -74,6 +77,7 @@ function sendEmail($email, $full_name, $subject, $body){
         $mail->Body    = $body;
     
         $mail->send();
+
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }    

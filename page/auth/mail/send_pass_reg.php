@@ -47,6 +47,8 @@ sendEmail($email, $full_name, $subject, $body);
 function sendEmail($email, $full_name, $subject, $body){
     $mail = new PHPMailer(true);
 
+    $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );
+
     try {
         //Server settings
         $mail->SMTPDebug = 1;                      // Enable verbose debug output
