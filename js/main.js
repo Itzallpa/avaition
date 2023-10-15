@@ -1283,3 +1283,58 @@ $(document).ready(function () {
 
 });
 */
+
+$(document).ready(function () {
+
+    $('#cancel-book-flight').click(function () {
+
+            let flight_callsign_brief = $('#flight_callsign_brief').text();
+
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to cancel " + flight_callsign_brief + " Flight?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'YES'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                    $.ajax({
+                        url: "../auth/booking.php",
+                        method: "POST",
+                        data: {
+                            type: "cancel_flight",
+                            flight_callsign_brief: flight_callsign_brief
+                        },
+                        success: function (data) {
+                            if (data == true) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Cancel Flight Success',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+    
+                                window.location.href = "./flight_brief";
+                                
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Cancel Flight Failed!',
+                                })
+
+                                console.log(data);
+                            }
+                        }
+                    })
+                }
+            })
+
+    });
+
+});

@@ -99,7 +99,7 @@
             <div class="col-lg">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center"><?php echo $row["flight_callsign"]; ?></h5>
+                        <h5 class="card-title text-center" id="flight_callsign_brief"><?php echo $row["flight_callsign"]; ?></h5>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-text">
-                            <button class="btn btn-danger" type="button">ยกเลิก</button>
+                            <button class="btn btn-danger" id="cancel-book-flight" type="button">ยกเลิก</button>
                         </p>
                     </div>
                 </div>

@@ -41,7 +41,23 @@
 
 
     }
+    else if($type == "cancel_flight")
+    {
+        $flight_callsign_brief = $_POST['flight_callsign_brief'];
+        $user_id = $_SESSION['user_id'];
 
+        $sql = "SELECT * FROM `flights` WHERE `flight_callsign` = '$flight_callsign_brief'";
+        $result = mysqli_query($conn, $sql);
+
+        $row = mysqli_fetch_assoc($result);
+
+        $flight_id = $row['flight_id'];
+
+        $sql = "UPDATE `flight_active` SET `flight_status`='4' WHERE `flight_plan_id` = '$flight_id' AND `flight_book_by` = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+
+        echo $data = true;
+    }
 
 
 ?>
