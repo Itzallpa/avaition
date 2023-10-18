@@ -115,7 +115,7 @@
           </p>
           <ul class="navbar-nav flex-fill w-100 mb-2">
                 
-              <?php if(isset($data_flp) != 0) {?>
+              <?php if(isset($data_flp) < 1) {?>
 
               <li class="nav-item w-100">
                 <a class="nav-link" href="./flight_brief">

@@ -104,7 +104,11 @@
                         <?php } ?>
                         <div class="col-md-3 text-center mb-5">
                             <div class="avatar avatar-xl">
-                                <img src="<?php echo $_SESSION["pro_img"] ?>" class="avatar-img rounded-circle">
+                                <input type="file" class="d-none" name="fileToUpload" id="fileToUpload">
+                                <label for="fileToUpload">
+                                    <img src="<?php echo $_SESSION["pro_img"] ?>"
+                                        class="avatar-img rounded-circle clickable">
+                                </label>
                             </div>
                         </div>
                         <div class="col">
@@ -223,28 +227,45 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>TG123</td>
-                                        <td>VTBS</td>
-                                        <td>A320</td>
-                                        <td>1:30</td>
-                                        <td>2021-09-01 12:00:00</td>
-                                        <td>Approved</td>
-                                        <td>
-                                            <a href="#" class="btn btn-sm btn-primary">View</a>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    
+                                        $sql = "SELECT * FROM flight_log WHERE flight_by = '".$_SESSION["user_id"]."'";
+                                        $result = mysqli_query($conn, $sql);
+                                        $count = 1;
+
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_assoc($result)){
+                                                echo '<tr>
+                                                        <td>'.$count.'</td>
+                                                        <td>'.$row["flight_number"].'</td>
+                                                        <td>'.$row["flight_arrival"].'</td>
+                                                        <td>'.$row["flight_aircraft"].'</td>
+                                                        <td>'.$row["flight_time"].'</td>
+                                                        <td>'.$row["flight_submitted"].'</td>
+                                                        ';
+                                                        if($row["flight_status"] == 1)
+                                                            echo '<td><span class="badge badge-success">Approved</span></td>';
+                                                        else if($row["flight_status"] == 2)
+                                                            echo '<td><span class="badge badge-danger">Rejected</span></td>';
+                                                        else
+                                                            echo '<td><span class="badge badge-warning">Pending</span></td>';
+                                                        echo '
+                                                        <td><a href="view_flight.php?id='.$row["ID"].'">View</a></td>
+                                                    </tr>';
+                                            }
+                                        }
+
+                                    ?>
                                 </tbody>
-                                </table>
+                            </table>
                         </div>
                     </div>
-                    
+
                     <?php if($role) { ?>
                     <div class="row">
-                      <div class="col-lg-12">
-                        <p>STAFF NOTE</p>
-                      </div>
+                        <div class="col-lg-12">
+                            <p>STAFF NOTE</p>
+                        </div>
                     </div>
                     <?php } ?>
 
@@ -266,6 +287,8 @@
     <script src='../../assets/js/jquery.dataTables.min.js'></script>
     <script src='../../assets/js/dataTables.bootstrap4.min.js'></script>
     <script src="../../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../auth/js_jquery/upload_pro_img.js"></script>
 </body>
 
 </html>

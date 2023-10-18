@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     
-    $("#uploadImage").change(function () {
+    $("#fileToUpload").change(function () {
 
         var file = this.files[0];
         var fileType = file["type"];
