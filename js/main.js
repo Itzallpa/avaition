@@ -95,6 +95,7 @@ $(document).ready(function () {
             $('#edit_role').val(user_data.user_role);
             $('#edit_rank').val(user_data.rank);
             $('#edit_flight_hour').val(user_data.flight_hour);
+            return;
             
         });
 
@@ -116,7 +117,7 @@ $(document).ready(function () {
                     method: "POST",
                     data: {
                         type: "edit_user_admin",
-                        email: edit_email,
+                        email: user_data.email,
                         edit_fullname: edit_fullname,
                         edit_email: edit_email,
                         edit_ivao_id: edit_ivao_id,
@@ -145,9 +146,10 @@ $(document).ready(function () {
     
                             //find <td> at value of = edit_email
                             var td_email = td.filter(function () {
-                                return $(this).text() == edit_email;
+                                return $(this).text() == email;
                             });
-
+                            
+                            
 
                             $('#edit_password').val("");
     

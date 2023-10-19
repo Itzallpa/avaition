@@ -138,13 +138,14 @@
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             $password = $user["password"];
 
+
             if($edit_password == "")
             {
                 $sql = "UPDATE `users` SET `full_name`='$edit_fullname',`email`='$edit_email',`user_ivao_id`='$edit_ivao_id',`user_vatsim_id`='$edit_vatsim_id',`birthdate`='$edit_birthdate',`user_role`='$edit_role',`rank`='$edit_rank',`flight_hour`='$edit_flight_hour' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
 
 
-                $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                $sql = "SELECT * FROM users WHERE email = '".$_POST["edit_email"]."'";
                 $result = mysqli_query($conn, $sql);
                 
                 $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -157,7 +158,7 @@
                 $sql = "UPDATE `users` SET `full_name`='$edit_fullname',`email`='$edit_email',`user_ivao_id`='$edit_ivao_id',`user_vatsim_id`='$edit_vatsim_id',`birthdate`='$edit_birthdate',`user_role`='$edit_role',`rank`='$edit_rank',`flight_hour`='$edit_flight_hour',`password`='$edit_password' WHERE `email` = '$email'";
                 $result = mysqli_query($conn, $sql);
 
-                $sql = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                $sql = "SELECT * FROM users WHERE email = '".$_POST["edit_email"]."'";
                 $result = mysqli_query($conn, $sql);
                 
                 $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
