@@ -1340,3 +1340,156 @@ $(document).ready(function () {
     });
 
 });
+
+
+$(document).ready(function () {
+
+    $('#app_flight').click(function () {
+        
+        //get ?id from url
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var id = url.searchParams.get("id");
+        var flight_data;
+        $.get("../auth/getflightdata.php",{id: id}, function (data) {
+           
+            if(!data)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Flight not found!',
+                })
+                return;
+            }
+
+
+            flight_data = JSON.parse(data);
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to Approve " + flight_data.flight_number + " Flight?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Approve'
+            }).then((result) => {
+                
+                if(result.isConfirmed)
+                {
+                    $.ajax({
+                        url: "../auth/flight_status.php",
+                        method: "POST",
+                        data: {
+                            type: "approve_flight",
+                            flight_id: id
+                        },
+                        success: function (data) {
+                            if (data == true) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Apply Flight Success',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+    
+                                window.location.href = "./view_profile";
+                                
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Apply Flight Failed!',
+                                })
+    
+                                console.log(data);
+                            }
+                        } 
+                    })
+                }
+                
+            });
+
+        });
+
+    });
+
+    $('#rej_flight').click(function () {
+
+        //get ?id from url
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var id = url.searchParams.get("id");
+        var flight_data;
+        $.get("../auth/getflightdata.php",{id: id}, function (data) {
+           
+            if(!data)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Flight not found!',
+                })
+                return;
+            }
+
+
+            flight_data = JSON.parse(data);
+
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to Reject " + flight_data.flight_number + " Flight?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Reject'
+            }).then((result) => {
+                
+                if(result.isConfirmed)
+                {
+                    $.ajax({
+                        url: "../auth/flight_status.php",
+                        method: "POST",
+                        data: {
+                            type: "reject_flight",
+                            flight_id: id
+                        },
+                        success: function (data) {
+                            if (data == true) {
+                                
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Reject Flight Success',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+    
+                                window.location.href = "./view_profile";
+                                
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Something went wrong! Reject Flight Failed!',
+                                })
+    
+                                console.log(data);
+                            }
+                        } 
+                    })
+                }
+                
+            });
+            
+        });
+
+    });
+    
+
+
+
+});

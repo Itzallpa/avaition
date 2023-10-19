@@ -264,7 +264,47 @@
                     <?php if($role) { ?>
                     <div class="row">
                         <div class="col-lg-12">
-                            <p>STAFF NOTE</p>
+                            <p>REPORT FLIGHT</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table class="table table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Flight Number</th>
+                                        <th scope="col">REPORT BY</th>
+                                        <th scope="col">REPORT DATE</th>
+                                        <th scope="col">VIEW</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+
+                                        $sql = "SELECT * FROM flight_log WHERE flight_status = 0";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_assoc($result)){?>
+
+                                            <tr>
+                                                <th scope="row"><?php echo $row["ID"] ?></th>
+                                                <td><?php echo $row["flight_number"] ?></td>
+                                                <td><?php echo $row["flight_by"] ?></td>
+                                                <td><?php echo $row["flight_submitted"] ?></td>
+                                                <td><a href="view_flight.php?id=<?php echo $row["ID"] ?>">View</a></td>
+                                            </tr>
+
+
+                                            <?php }?>
+
+                                        <?php } ?>
+
+                                
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <?php } ?>
