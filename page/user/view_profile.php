@@ -92,16 +92,6 @@
 
                     <h1 class="h3 mb-3">Profile</h1>
                     <div class="row mt-5 align-items-center">
-                        <?php if($role) { ?>
-                        <div class="col-lg-12">
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>No Shear this</strong> This is your profile page. You can see your profile
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                        </div>
-                        <?php } ?>
                         <div class="col-md-3 text-center mb-5">
                             <div class="avatar avatar-xl">
                                 <input type="file" class="d-none" name="fileToUpload" id="fileToUpload">
@@ -131,85 +121,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-lg">
-                            <div class="card mb-4 shadow">
-                                <div class="card-body my-n3">
-                                    <div class="row align-items-center">
-                                        <div class="col-3 text-center">
-                                            <span class="circle circle-lg bg-light">
-                                                <i class="fe fe-user fe-24 text-primary"></i>
-                                            </span>
-                                        </div> <!-- .col -->
-                                        <div class="col">
-                                            <a href="#">
-                                                <h3 class="h5 mt-4 mb-1">Personal</h3>
-                                            </a>
-                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.
-                                            </p>
-                                        </div> <!-- .col -->
-                                    </div> <!-- .row -->
-                                </div> <!-- .card-body -->
-                                <div class="card-footer">
-                                    <a href="" class="d-flex justify-content-between text-muted"><span>Account
-                                            Settings</span><i class="fe fe-chevron-right"></i></a>
-                                </div> <!-- .card-footer -->
-                            </div>
-                        </div>
-                        <div class="col-lg">
-                            <div class="card mb-4 shadow">
-                                <div class="card-body my-n3">
-                                    <div class="row align-items-center">
-                                        <div class="col-3 text-center">
-                                            <span class="circle circle-lg bg-light">
-                                                <i class="fe fe-user fe-24 text-primary"></i>
-                                            </span>
-                                        </div> <!-- .col -->
-                                        <div class="col">
-                                            <a href="#">
-                                                <h3 class="h5 mt-4 mb-1">Security</h3>
-                                            </a>
-                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.
-                                            </p>
-                                        </div> <!-- .col -->
-                                    </div> <!-- .row -->
-                                </div> <!-- .card-body -->
-                                <div class="card-footer">
-                                    <a href="" class="d-flex justify-content-between text-muted"><span>Security
-                                            Settings</span><i class="fe fe-chevron-right"></i></a>
-                                </div> <!-- .card-footer -->
-                            </div>
-                        </div>
-                        <div class="col-lg">
-                            <div class="card mb-4 shadow">
-                                <div class="card-body my-n3">
-                                    <div class="row align-items-center">
-                                        <div class="col-3 text-center">
-                                            <span class="circle circle-lg bg-light">
-                                                <i class="fe fe-user fe-24 text-primary"></i>
-                                            </span>
-                                        </div> <!-- .col -->
-                                        <div class="col">
-                                            <a href="#">
-                                                <h3 class="h5 mt-4 mb-1">Personal</h3>
-                                            </a>
-                                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.
-                                            </p>
-                                        </div> <!-- .col -->
-                                    </div> <!-- .row -->
-                                </div> <!-- .card-body -->
-                                <div class="card-footer">
-                                    <a href="" class="d-flex justify-content-between text-muted"><span>Account
-                                            Settings</span><i class="fe fe-chevron-right"></i></a>
-                                </div> <!-- .card-footer -->
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-lg-12">
                             <p>Flight Book</p>
@@ -250,7 +161,7 @@
                                                         else
                                                             echo '<td><span class="badge badge-warning">Pending</span></td>';
                                                         echo '
-                                                        <td><a href="view_flight.php?id='.$row["ID"].'">View</a></td>
+                                                        <td><a href="flight_log.php?id='.$row["ID"].'">View</a></td>
                                                     </tr>';
                                             }
                                         }
